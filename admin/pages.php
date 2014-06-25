@@ -1,6 +1,10 @@
 <?php 
 
 include('conn.php');
+include_once("../functions/functions.php");
+$_SESSION['br_id']=1;
+$_SESSION['emp_name']="SD";
+$_SESSION['emp_id']=1;
 //include('chk_session.php');
 
 @session_start();
@@ -36,7 +40,9 @@ include("functions/comm_functions.php");
 	    <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
 	  <link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style.css">
+	  	<link rel="stylesheet" href="../css/modal.css" type="text/css" />
+	<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
     
 </head> 
 <body class="boxed container">
@@ -83,7 +89,8 @@ include("functions/comm_functions.php");
 
     <!-- SmartMenus jQuery Bootstrap Addon -->
     <script type="text/javascript" src="../plugins/smartmenus/jquery.smartmenus.bootstrap.js"></script><script type="text/javascript"></script>
-
+<script type="text/javascript" src="../js/dhtmlwindow.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
 	
 	<!--[if lt IE 9]>
 		<script src="plugins/respond.js"></script>

@@ -17,7 +17,7 @@
 						<div class="col-md-3 pull-right list-unstyled top-sd1-contacts">
 							 
 							<ul>
-								<li><a href="register.php">Register</a></li>
+								<li><a href="register.php" style="font-weight:bold;color:#fff"><i class="fa fa-user"></i> Register</a></li>
 								
 							</ul>
 						

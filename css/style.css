@@ -74,7 +74,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {   margin-right: 5px;}
 .headline h2 {  font-size: 22px;}
 .headline h2, 
 .headline h3, 
-.headline h4 {  margin: 0 0 -2px 0;  padding-bottom: 5px;  border-bottom: 2px solid #72c02c;}
+.headline h4 {  margin: 0 0 -2px 0;  padding-bottom: 5px;  border-bottom: 2px solid #ff6c60;}
 
 .headline-sd {  margin-bottom: 15px;}
 
@@ -281,7 +281,9 @@ p, li, li a {color: #555555;
 .img-width-200 { width:200px;}
 
 /*Misc*/
-.content {padding-top: 40px;padding-bottom: 40px;}
+.content {padding-top: 20px;padding-bottom: 20px;}
+.content h2{border-bottom:1px solid #ff6c60}
+.content p{font-size:16px}
 
 .text-justify p {text-align: justify;}
 

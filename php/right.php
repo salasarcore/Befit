@@ -3,26 +3,26 @@
 				<div class="event-page">
                 <div class="row margin-bottom-40">
                     <div class="event-posts col-md-12 col-sm-6 margin-bottom-10">
-                        <h3><a href="#">Fit & fine</a></h3>
+                        <h3><a href="fit_fine.php">Fit & fine</a></h3>
                         <span>Monthly/Quaterly/Yearly</span>
                         <div class="event-posts-img">
-                            <a href="#"><img alt="" src="images/event/fit_fine.jpg" class="img-responsive"></a>
+                            <a href="fit_fine.php"><img alt="" src="images/event/fit_fine.jpg" class="img-responsive"></a>
                             <span class="event-tag event-tag-default">Fit & fine</span>                                    
                         </div>
                     </div>
                     <div class="event-posts col-md-12 col-sm-6 margin-bottom-10">
-                        <h3><a href="#">Weight loss</a></h3>
+                        <h3><a href="weight_loss.php">Weight loss</a></h3>
                         <span>3kg/5kg/7kg/10kg/15kg/20kg</span>
                         <div class="event-posts-img">
-                            <a href="#"><img alt="" src="images/event/weight_loss.jpg" class="img-responsive"></a>
+                            <a href="weight_loss.php"><img alt="" src="images/event/weight_loss.jpg" class="img-responsive"></a>
                             <span class="event-tag event-tag-red">Weight loss</span>                                    
                         </div>
                     </div> 
 					<div class="event-posts col-md-12 col-sm-6 margin-bottom-10">
-                        <h3><a href="#">Cut &amp; Curves</a></h3>
+                        <h3><a href="cut_curves.php">Cut &amp; Curves</a></h3>
                         <span></span>
                         <div class="event-posts-img">
-                            <a href="#"><img alt="" src="images/event/cuts_and_curves.jpg" class="img-responsive"></a>
+                            <a href="cut_curves.php"><img alt="" src="images/event/cuts_and_curves.jpg" class="img-responsive"></a>
                             <span class="event-tag event-tag-green">Cut &amp; Curves</span>                                    
                         </div>
                     </div> 
