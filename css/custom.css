@@ -1,0 +1,240 @@
+/* Add here all your css styles (customizations) */
+/*Sidebar CSS
+------------------------------------*/
+/*Page Styles CSS*/
+.event-page h3,
+.event-page h3 a {
+	color: #555;
+	font-size: 20px;
+	line-height: 28px;
+	margin-bottom: 1px;
+	text-decoration: none;
+}
+
+.event-page h3 a:hover {
+	color: #72c02c;
+}
+
+.event-page span.event-tag {
+	top: 0;
+	left: 0;
+	color: #fff;
+	font-size: 14px;
+	padding: 2px 8px;
+	position: absolute;
+	font-style: inherit;
+}
+
+.event-page span.event-tag-default {background: #7f8c8d;}
+.event-page span.event-tag-red {background: #e74c3c;}
+.event-page span.event-tag-green {background: #2ecc71;}
+.event-page span.event-tag-blue {	background: #3498db;}
+.event-page span.event-tag-sea {	background: #1abc9c;}
+.event-page span.event-tag-brown {	background: #brown;}
+.event-page span.event-tag-orange {	background: #orange;}
+
+/*Magazine News*/
+.event-news {
+	margin-bottom: 20px;
+}
+
+.event-news h3 {
+	margin: 15px 0 10px;
+}
+
+.event-news .link strong {
+	color: #72c02c;
+}
+
+.event-news .link span {
+	color: #777;
+}
+
+.event-news a.read-more {
+	color: #72c02c;
+}
+
+.event-news .by-author {
+	margin-bottom: 8px;
+}
+
+.event-news-img {
+	overflow: hidden;
+	max-height: 150px;
+	position: relative;
+}
+
+/*Magazine Mini News*/
+.event-mini-news .post-author {
+	font-size: 11px;
+}
+
+.event-mini-news h3,
+.event-mini-news h3 a {
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 6px;
+}
+
+.event-mini-news .post-author {
+	margin-bottom: 8px;
+}
+
+.event-mini-news .post-author span {
+	color: #555;
+}
+
+.event-mini-news .post-author strong {
+	color: #72c02c;
+}
+
+.news-read-more {
+	margin: 20px 0; 
+}
+
+.news-read-more a {
+	font-size: 14px;
+}
+
+.news-read-more a:hover {
+	text-decoration: none;
+}
+
+.news-read-more i {
+	color: #fff;
+	padding: 2px 3px;
+	font-size: 14px;
+	background: #72c02c;
+}
+
+/*Sidebar Posts*/
+
+.event-posts h2,
+.event-posts h3 {
+	margin-top: -5px;
+}
+
+.event-posts span {
+	color: #777;
+	display: block;
+	font-size: 12px;
+	/*font-style: italic;*/
+	margin-bottom: 7px;
+}
+
+.event-posts span i {
+	font-style: normal;
+}
+
+.event-posts .event-posts-img {
+	overflow: hidden;
+	max-height: 130px;
+	position: relative;
+}
+
+.event-posts .event-posts-img:hover img {
+	opacity: 0.9;
+}
+
+/*Sidebar Categories*/
+.event-categories ul li {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.event-categories ul i {
+	color: #72c02c;
+	font-size: 14px;
+}
+
+/*Sidebar Social*/
+/* icons */
+.social-icon{font-size:18px}
+.social-icon ul li{display: inline-block;    margin-left:-2px;}
+.social-icon a{display:block;color:#fff;text-decoration:none;width:25px;height:25px;text-align:center;color:#fff;transition:all 250ms ease 0s;background:#EFEFEF;}
+.social-icon .twitter{background-color:#47C0D8}
+.social-icon .twitter:hover{border-radius:10px}
+
+.social-icon .facebook{background-color:#49699F}
+.social-icon .facebook:hover{border-radius:10px}
+.social-icon .dribble{background-color:#E65992}
+.social-icon .dribble:hover{border-radius:10px}
+.social-icon .youtube{background-color:#B72D24}
+.social-icon .youtube:hover{border-radius:10px}
+.social-icon .rss{background-color:#FE9900}
+.social-icon .rss:hover{border-radius:10px}
+
+/*Carousel
+------------------------------------*/
+/*carousel-v1*/
+.carousel-v1 .carousel-caption {
+   left: 0;
+   right: 0;
+   bottom: 0;
+   padding: 0px 2px;
+   background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-v1 .carousel-caption p {
+   color: #fff;
+   margin-bottom: 0;
+}
+
+.carousel-v1 .carousel-arrow a.carousel-control {
+   opacity: 1;
+   font-size:30px;
+   height:inherit;
+   width: inherit;
+   background: none;
+   text-shadow: none;
+   position: inherit;
+}
+
+.carousel-v1 .carousel-arrow a i {
+   top: 50%;
+   opacity: 0.6;
+   background: #000;
+   margin-top: -18px;
+   padding: 2px 12px; 
+   position: absolute;
+}
+.carousel-v1 .carousel-arrow a i:hover {
+   opacity: 0.8;
+}
+
+.carousel-v1 .carousel-arrow a.left i {
+   left: 0;
+}
+.carousel-v1 .carousel-arrow a.right i {
+   right: 0;
+}
+/* testimonials */
+.bx-wrapper .testimonials-thumbnail{ margin: 0px 0px 15px; }
+.bx-wrapper .testimonials-title{ text-align: center;  margin: 25px 15px 3px; font-size: 24px; line-height: 1; }
+.bx-wrapper .testimonials-carousel-thumbnail{ max-width: 35%; float: left; margin-right: 20px; }
+.bx-wrapper .testimonials-carousel-thumbnail img{ display: block;   margin-right: 20px;width: 100px;}
+.bx-wrapper .testimonials-carousel-context{ overflow: hidden; }
+.bx-wrapper .testimonials-name{ font-size: 18px; margin-bottom: 15px; color:#000000; font-weight:400;}
+.bx-wrapper span{ font-size: 11px; margin-left:10px; color:#aaa; font-family: Georgia, Arial, Helvetica, sans-serif; font-style:italic; }
+.bx-wrapper {position: relative;margin: 30px auto;padding: 0;width:100%;*zoom: 1;}
+.bx-wrapper .slide {padding:0;margin:0;display: block;}
+.bx-wrapper .bx-viewport {padding:10px;margin-left:0;z-index:1;width:100%;}
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {position: absolute;display:none;bottom: -30px;width: 100%;}
+.bx-wrapper .bx-loading {min-height: 50px;background: url(images/bx_loader.gif) center center no-repeat #fff;height: 100%;width: 100%;position: absolute;top: 0;left: 0;z-index: 2000;}
+.bx-wrapper .bx-pager {text-align: center;font-size: .85em;font-weight: bold;color: #666;padding-top: 20px;}
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+.bx-wrapper .bx-pager.bx-default-pager a {background: #666;text-indent: -9999px;display: block;width: 10px;height: 10px;margin: 0 5px;outline: 0;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {background: #000;}
+.bx-wrapper .bx-next {position: absolute;top: 0;right: 0;width: 30px;border-left:1px solid #ddd;height: 30px;cursor: pointer;background: #ED3131 url(../images/caousel-next.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-prev {position: absolute;top: 0px;right: 30px;border-right:1px solid #ddd;width: 30px;height: 30px;cursor: pointer;background: #ED3131 url(../images/caousel-prev.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-controls-direction a {position: absolute;top: 0;margin-top: 0;margin-right: 0px;outline: 0;width: 30px;height: 30px;text-indent: -9999px;z-index: 9999;}
+
+/* gallery */
+/* -------------------------------------------------- */
+/*	gallery
+/* -------------------------------------------------- */
+.img_gallery{}
+.img_gallery img { border: 1px solid #DDDDDD;border-radius: 2px; box-shadow: 0 0 5px #DDDDDD;   margin: 5px;    padding: 5px;}
