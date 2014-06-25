@@ -36,75 +36,10 @@
 </head> 
 <body class="boxed container">
 	<div class="wrapper">
-		<div class="header header-sd1">
-			<!-- Topbar -->
-			<div class="topbar-sd1 margin-bottom-5">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							<ul class="list-unstyled top-sd1-contacts">
-								<li>
-									<i class="fa fa-envelope"></i> Email: <a href="mailto:info@htmlstream.com">email@domain.com</a>
-								</li>
-								<li>
-									<i class="fa fa-phone"></i> Contacts: x xxx xxx xxx / y yyy yyy yyy 
-								</li>
-							</ul>
-						</div>
-
-						<div class="col-md-3 text-right pull-right" style="margin-top:4px">
-							 <div class="social-icon float_right">
-							<ul>
-								<li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
-								<li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a class="youtube" href=""><i class="fa fa-youtube"></i></a></li>
-								<li><a class="dribble" href=""><i class="fa fa-globe"></i></a></li>
-								<li><a class="rss" href=""><i class="fa fa-rss"></i></a></li>
-							</ul>
-						</div><!--/ .social-icons -->
-						</div>
-					</div>        
-				</div>
-			</div>
-        
-        <!-- End Topbar -->
-		</div>
+		<?php include('php/header.php');?>
         <!-- Navigation -->
 		
-		
-			 <div class="row" style="margin:0px -16px 39px">
-			 <div class="logo">
-							  <a href="#" class="navbar-brand"><img src="logo.png" style="margin-top:-10px;z-index:20" /></a>
-							  </div>
-					<div class="margin-bottom-10">
-							<nav role="navigation" class="navbar">
-						  <div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-							  <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							  </button>
-							</div>
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse bg-color-pink">
-							   <ul class="nav navbar-nav navbar-right">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Courses & Workshops</a></li>
-								<li><a href="#">Consultancy Services</a></li>
-								<li><a href="#">FAQ's</a></li>
-								
-							  </ul>
-							</div><!-- /.navbar-collapse -->
-						  </div><!-- /.container-fluid -->
-						</nav>
-					</div>
-				</div>
-		 <div style="clear:both"></div>
+		<?php include('php/menu.php');?>
 			
         <!-- End Navigation -->
     
@@ -320,79 +255,12 @@
 		<!--end right content-->
 	 </div>
 	 </div>
-         <!--footer-->
-		<div class="footer">
-			<div class="container">
-			<div class="col-md-3">
-						<!-- Contact Us -->
-						<div class="headline"><h2>Contact Us</h2></div> 
-						<address class="md-margin-bottom-40">
-							25,xxxxx Street, xxxxx <br>
-							Mulund, INDIA <br><span>
-							Phone: <a href="callto://xxx xxx xxx">xxx xxx xxx</a> </span><br><span>
-							Fax: <a href="callto://xxx xxx xxx">xxx xxx xxx</a> </span><br>
-							Email: <a class="" href="mailto:info@anybiz.com">info@yourdomain.com</a>
-						</address>
-						<!-- End Contact Us -->
-
-						<!-- Social Links -->
-						<div class="social-icon float_right">
-								<ul>
-									<li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
-									<li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
-									<li><a class="youtube" href=""><i class="fa fa-youtube"></i></a></li>
-									<li><a class="dribble" href=""><i class="fa fa-globe"></i></a></li>
-									<li><a class="rss" href=""><i class="fa fa-rss"></i></a></li>
-								</ul>
-							</div>
-						<!-- End Social Links -->
-			</div>
-			<div class="col-md-6">
-			</div>
-			<div class="col-md-3">
-			 <div class="headline"><h2>Our Servises</h2></div> 
-			 <div class="footrr-service">
-					<ul>
-						<li><i class="fa fa-heart"></i> <a title="Fit& fine-monthly/quaterly/yearly" href="">Fit& fine-monthly/quaterly/yearly</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Weight loss-3kg/5kg/7kg/10kg/15kg/20kg" href="">Weight loss-3kg/5kg/7kg/10kg/15kg/20kg</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Cut &amp; Curves" href="">Cut &amp; Curves</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Weight loss managment-yearly" href="">Weight loss managment-Yearly</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Weight gain" href="">Weight gain</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Kettlebells" href="">Kettlebells</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Yoga" href="">Yoga</a></li>
-						<li><i class="fa fa-heart"></i> <a title="Lipolysis" href="">Lipolysis</a></li>
-						<li><i class="fa fa-heart"></i> <a title="RF" href="">RF</a></li>
-						<li><i class="fa fa-heart"></i> <a title="SPA" href="">SPA</a></li>
-					</ul>
-			</div>
-		
-			
-			
-			</div>
-		
-		</div>
-		</div>
+           <!--footer-->
+		<?php include('php/footer.php')?>
 		<!--/footer-->
 		<!--copyright-->
-		<div class="copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">                     
-						<p>
-							2014 &copy; SalasarCoreSolution. ALL Rights Reserved. 
-							<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-						</p>
-					</div>
-					<div class="col-md-6">  
-						<a href="index.html">
-							<img alt="" src="img/logo2-default.png" id="logo-footer" class="pull-right">
-						</a>
-					</div>
-				</div>
-			</div> 
-		</div>
-		
-		   <!--/copyright-->
+			<?php include('php/copyright.php')?>
+		  <!--/copyright-->
     
 	</div>
 
