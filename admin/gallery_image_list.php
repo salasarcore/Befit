@@ -61,7 +61,7 @@ $galleryID=makeSafe(@$_REQUEST['galleryID']);
 Enter Image Description: <input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" /> 
 		<input type="submit" name="btnGo" value="Go" class="btn search" onclick="return check();">
 </div>
-<table width="100%" border="0" class="table table-bordered">
+<table class="table table-bordered">
 			<thead>
   <?php
   $rowsPerPage = 15;
@@ -78,15 +78,15 @@ Enter Image Description: <input type="text" name="txtFilter" id="txtFilter" valu
 		$res=mysql_query($sql);
 		if(mysql_affected_rows()>0)
 		{?>
-			
+			<thead>
 			<tr>
 			<th width="5%">#</th>
 			<th width="15%">IMAGE</th>
 			<th width="25%">IMAGE DESCRIPTION</th>
 			<th width="20%">DATE UPDATED</th>
-			<th width="25%">UPDATED BY <br>Employee Name[Emp_Code]</th>
+			<th width="25%">UPDATED BY</th>
 			</tr>
-			<thead>
+			</thead>
 			<tbody>
 			<?php 
 	$i=0;
@@ -95,7 +95,7 @@ Enter Image Description: <input type="text" name="txtFilter" id="txtFilter" valu
 	$i=$i+1;
 	?>
 	
-	  <tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?> onclick="selectID('<?php echo $row['image_id']; ?>')" >
+	  <tr onclick="selectID('<?php echo $row['image_id']; ?>')" >
 	    <td align="center" width="50">
 			<input type="radio" name="rdoID" value="<?php echo $row['image_id']; ?>" id="rdoID"/></td>
 		<td align="center" width="100">

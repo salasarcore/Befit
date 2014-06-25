@@ -3122,7 +3122,7 @@ select.input-group-sm[multiple] > .form-control, select.input-group-sm[multiple]
 }
 .navbar-static-top {
     border-width: 0 0 1px;
-    z-index: 1000;
+    z-index: 2;
 }
 @media (min-width: 768px) {
 .navbar-static-top {

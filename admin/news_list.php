@@ -1,31 +1,5 @@
 
 <?php 
-include_once("../functions/common.php");
-/**
- * Commented include("modulemaster.php"); as it is used in menu.php file.
- * DO not uncomment it. It is being commented for future reference.
- */
-//include("modulemaster.php");
-if(in_array(module_news_list,$modules)){
-	$id_admin=$_SESSION['empid'];
-	$level=$_SESSION['access_level'];
-	if($level!='Super Admin' && $level!='Admin')
-	{
-		if(!isAccessModule($id_admin, module_news_list))
-		{
-			redirect("pages.php","You are not authorised to view this page");
-			exit;
-		}
-	}
-}
-else{
-	echo "<script>location.href='pages.php';</script>";
-	exit;
-}
-
-$br_id=makeSafe(@$_POST['branches']);
-?>
-<?php 
 
 if(@$_GET['aStr']=='Y' || @$_GET['aStr']=='N')
 {
@@ -103,7 +77,7 @@ $name_filter=@$_POST['txtFilter'];
 				</td>
 				<td>
 					<div id="option_menu">
-						<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+						<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');"><i class="fa fa-plus-square"></i> Add New</a>
 					</div>
 				</td>
 			</tr>
@@ -111,18 +85,18 @@ $name_filter=@$_POST['txtFilter'];
 		</div>
 		<div class="search_bar">
 		Enter Subject Name: <input type="text" name="txtFilter"	id="txtFilter" value="<?php echo $name_filter;?>" />
-				<input	type="submit" name="btnGo" value="Go" class="btn search">
+				<input	type="submit" name="btnGo" value="Go" class="btn btn-info">
 		</div>
 		<br />
-		<table class="adminlist" style="cursor: pointer;">
+		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th width='200px'>DATE</th>
+					<th>DATE</th>
 					<th>SUBJECT</th>
 					<th>DESCRIPTION</th>
 					<!-- <th>ATTACHMENT</th> -->
 					<th width='100px'>PUBLISHED?</th>
-					<th width='200px'>UPDATED BY <br>Employee Name[Emp_Code]</th>
+					<th width='200px'>UPDATED BY</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -139,9 +113,7 @@ $name_filter=@$_POST['txtFilter'];
 					while($row=mysql_fetch_array($res))
 					{
 						$i=$i+1;
-						echo "<tr class=";
-						if($i%2==0) echo "row0"; else echo "row1";
-						echo ">";
+						echo "<tr>";
 						$tmp=new DateTime($row['ndate']);
 						echo "<td align='center'>".$tmp->format('jS-M-Y, g:i A')."</td>";
 						?>

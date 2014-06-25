@@ -1,5 +1,4 @@
 <?php 
-@session_start();
 include("../conn.php");
 include_once("../../functions/functions.php");
 

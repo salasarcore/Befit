@@ -61,7 +61,7 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 	</td>
 			<td>
 				<div id="option_menu">
-					<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
 					</div>
 			</td>
 		</tr>	
@@ -69,10 +69,10 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 	
 		<div class="search_bar">
 			Enter Subject: <input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" /> 
-		<input type="submit" name="btnGo" value="Go" class="btn search">
+		<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 		</div>
 		<br />
-		<table class="adminlist" style="cursor: pointer;">
+		<table class="table table-bordered">
 				 <thead>
 				<tr>
 					<th>DATE</th>
@@ -80,7 +80,7 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 					<th>DESCRIPTION</th>
 					<th>ATTACHMENT</th>
 					<th>PUBLISHED?</th>
-					<th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+					<th>UPDATED BY </th>
 				</tr>
 				</thead>
 				<tbody>
@@ -101,9 +101,7 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 								$i=$i+1;
 								
 								
-								echo "<tr class=";
-								  if($i%2==0) echo "row0"; else echo "row1";
-								  echo ">";
+								echo "<tr>";
 									
 									echo "<td align='center'>".date('jS-M-Y, g:i A', strtotime($row['ndate']))."</td>";
 								?>
@@ -115,7 +113,7 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 									echo "<td>".$str."</td>";
 									echo "<td align='center'>";
 									if($row['mime']!="")
-										echo "<a target='_blank' href='../site_img/notice/".DOMAIN_IDENTIFIER."_".base64_encode($row['nid']).".".$row['mime']."'><img src='../images/message_attachment.png' height='25' width='25'/></a>";
+										echo "<a target='_blank' href='../site_img/notice/".($row['nid']).".".$row['mime']."'><img src='../images/message_attachment.png' height='25' width='25'/></a>";
 									
 									echo "</td>";
 									
