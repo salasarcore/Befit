@@ -176,6 +176,7 @@ if(mysql_affected_rows()>0)
 	<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../plugins/bootstrap/js/bootstrap.min.js"></script> 
 	<script type="text/javascript" src="../js/back-to-top.js"></script>
+	
 	<!-- JS Implementing Plugins -->           
 	
 <script src="../plugins/sky-forms/version-2.0.1/js/jquery.min.js"></script>

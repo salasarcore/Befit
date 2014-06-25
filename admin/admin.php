@@ -3,8 +3,18 @@
 include('conn.php');
 //include('chk_session.php');
 
+@session_start();
+include_once("functions/common.php");
+
+include("functions/employee/dropdown.php");
+include("functions/functions.php");
+include("functions/comm_functions.php");
+
+
 
 ?>
+
+
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -23,10 +33,11 @@ include('conn.php');
    
 <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <!-- CSS Global Compulsory -->
+	    <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
 	  <link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
+    
 </head> 
 <body class="boxed container">
 	<div class="wrapper">
@@ -65,6 +76,7 @@ include('conn.php');
 	<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../plugins/bootstrap/js/bootstrap.min.js"></script> 
 	<script type="text/javascript" src="../js/back-to-top.js"></script>
+
 	<!-- JS Implementing Plugins -->           
 	<!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="../plugins/smartmenus/jquery.smartmenus.js"></script>

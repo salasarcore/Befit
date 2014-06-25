@@ -62,24 +62,24 @@
                                         <div class="col col-2">
                                             <label class="input">
                                                 
-                                                <input type="email" name="email">
-												<b class="tooltip tooltip-bottom-right">Needed to enter email id</b>
+                                                <input type="text" name="firstname">
+												<b class="tooltip tooltip-bottom-right">Needed to enter firstname</b>
                                             </label>
                                         </div>
 										<label class="label col col-2">Middle Name</label>
                                         <div class="col col-2">
                                             <label class="input">
                                                
-                                                <input type="email" name="email">
-												<b class="tooltip tooltip-bottom-right">Needed to enter email id</b>
+                                                <input type="text" name="middlename">
+												<b class="tooltip tooltip-bottom-right">Needed to enter middlename</b>
                                             </label>
                                         </div>
 										<label class="label col col-2">Last Name</label>
                                         <div class="col col-2">
                                             <label class="input">
                                                
-                                                <input type="email" name="email">
-												<b class="tooltip tooltip-bottom-right">Needed to enter email id</b>
+                                                <input type="text" name="lastname">
+												<b class="tooltip tooltip-bottom-right">Needed to enter lastname</b>
                                             </label>
                                         </div>
                                     </div>
@@ -91,14 +91,69 @@
                                         <div class="col col-9">
                                             <label class="input">
                                               
-                                                <input type="password" name="password">
-												<b class="tooltip tooltip-bottom-right">Needed to enter password</b>
+                                                <input type="text" name="address">
+												<b class="tooltip tooltip-bottom-right">Needed to enter address</b>
                                             </label>
                                             
                                         </div>
                                     </div>
                                 </section> 
-								
+                                <section>
+                                    <div class="row">
+                                        <label class="label col col-2">City</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                                
+                                                <input type="text" name="city">
+												<b class="tooltip tooltip-bottom-right">Needed to enter city</b>
+                                            </label>
+                                        </div>
+										<label class="label col col-2">Pin</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                               
+                                                <input type="text" name="pin">
+												<b class="tooltip tooltip-bottom-right">Needed to enter pin</b>
+                                            </label>
+                                        </div>
+										<label class="label col col-2">Office Tel. No.</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                               
+                                                <input type="text" name="offtelno">
+												<b class="tooltip tooltip-bottom-right">Needed to enter Office Tel. No.</b>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+								<section>
+                                    <div class="row">
+                                        <label class="label col col-2">Res. Tel. No.</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                                
+                                                <input type="text" name="restelno">
+												<b class="tooltip tooltip-bottom-right">Needed to enter Res. Tel. No.</b>
+                                            </label>
+                                        </div>
+										<label class="label col col-2">Mobile No.</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                               
+                                                <input type="text" name="mobileno">
+												<b class="tooltip tooltip-bottom-right">Needed to enter mobile no.</b>
+                                            </label>
+                                        </div>
+										<label class="label col col-2">Office Tel. No.</label>
+                                        <div class="col col-2">
+                                            <label class="input">
+                                               
+                                                <input type="text" name="offtelno">
+												<b class="tooltip tooltip-bottom-right">Needed to enter Office Tel. No.</b>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
                                 
                                 <section>
                                     <div class="row">

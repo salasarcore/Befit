@@ -44,26 +44,37 @@
 				  </li> 
 				  <li><a href="#">Payroll</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
+					  <li><a href="admin.php?src=employee_list.php">Employee List</a></li>
+ 	  <li><a href="admin.php?src=salary/employee_salary_setting.php">Employee Salary Setting</a></li>
+ 	<li><a href="admin.php?src=employee_attendance.php">Employee Monthly Attendance</a></li>
+ 	<li><a href="#">Employee Hourly Attendance</a></li>
+	 <li><a href="admin.php?src=salary/pay_allowances_list.php">Pay & Allowances Type</a></li> 
+	<li><a href="admin.php?src=salary/pay_deduction_list.php">Pay Deduction Type</a></li> 
+     <li><a href="admin.php?src=salary/pay_loan_purpose_list.php">PF Loan Purpose</a></li>
+	  <li><a href="admin.php?src=salary/employee_personal_information.php">Employee Pay Structure</a></li>
+ 	<li><a href="admin.php?src=salary/scroll_for_next_month.php">Scroll For Next Month</a></li>
+	  <li><a href="#" class="arrow">Reports</a> 
+			<ul> 
+				  <li><a href="admin.php?src=salary/pay_slip.php">Pay Slip</a></li>
+				  
+			</ul> 
+ 	  </li> 
+	
 					  
 					 </ul> 
 				  </li>	 
 				 <li><a href="#">Asset</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
+					 <li><a href="admin.php?src=asset/asset_list.php">Asset Master</a></li>
+						<li><a href="admin.php?src=asset/asset_record_list.php">Asset Record List</a></li>
 					  
 					 </ul> 
 				  </li>	 
 				<li><a href="#">Expense</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  
+			<li><a href="admin.php?src=expense/expense_category_list.php">Expense Category</a></li>
+	  <li><a href="admin.php?src=expense/expense_list.php">Expense List</a></li>
+										  
 					 </ul> 
 				 </li>	 
 				<li><a href="#">Utility</a>
