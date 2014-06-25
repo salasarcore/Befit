@@ -18,12 +18,11 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse bg-color-pink">
 							   <ul class="nav navbar-nav navbar-right">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Courses & Workshops</a></li>
-								<li><a href="#">Consultancy Services</a></li>
-								<li><a href="#">FAQ's</a></li>
-								
+									<li><a href="./">Home</a></li>
+									<li><a href="about_us.php" title="About Us">About Us</a></li>
+									<li><a href="courses_and_workshops.php" title="Courses and Workshops">Courses & Workshops</a></li>
+									<li><a href="consultancy_services.php">Consultancy Services</a></li>
+									<li><a href="faq.php">FAQ's</a></li>
 							  </ul>
 							</div><!-- /.navbar-collapse -->
 						  </div><!-- /.container-fluid -->

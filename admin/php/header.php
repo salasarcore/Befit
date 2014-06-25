@@ -71,7 +71,7 @@
 					  <li><a href="#">Notification</a></li>
 					  <li><a href="#">Academic Calendar</a></li>
 					  <li><a href="#">Notice List</a></li>
-					  <li><a href="#">Image Gallery</a></li>
+					  <li><a href="pages.php?src=gallery_list.php">Image Gallery</a></li>
 					  <li><a href="#">News/Press/Media</a></li>
 					  
 					 </ul> 
