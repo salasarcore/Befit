@@ -48,9 +48,9 @@ $galleryID=makeSafe(@$_REQUEST['galleryID']);
 	</td>
 	<td height="40px" cellpadding="1">
 		<div id="option_menu">
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-            <a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-            <a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+            <a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+            <a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
           
            </div>
 	</td>
@@ -61,7 +61,7 @@ $galleryID=makeSafe(@$_REQUEST['galleryID']);
 Enter Image Description: <input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" /> 
 		<input type="submit" name="btnGo" value="Go" class="btn search" onclick="return check();">
 </div>
-<table width="100%" border="0" class="adminlist" style="table-layout:fixed;cursor: pointer;">
+<table width="100%" border="0" class="table table-bordered">
 			<thead>
   <?php
   $rowsPerPage = 15;
@@ -99,7 +99,7 @@ Enter Image Description: <input type="text" name="txtFilter" id="txtFilter" valu
 	    <td align="center" width="50">
 			<input type="radio" name="rdoID" value="<?php echo $row['image_id']; ?>" id="rdoID"/></td>
 		<td align="center" width="100">
-		    <img src="../site_img/gallery/thumb/<?php echo DOMAIN_IDENTIFIER."_".base64_encode($row['image_id']).".".$row['mime']; ?>" width="30px" />
+		    <img src="../site_img/gallery/thumb/<?php echo $row['image_id'].".".$row['mime']; ?>" width="30px" />
 		
 		</td>
 		<td align="left" style="word-wrap: break-word;">&nbsp;<?php echo$row['image_description'];?></td>

@@ -68,11 +68,10 @@
 				 </li>	 
 				<li><a href="#">Utility</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Notification</a></li>
-					  <li><a href="#">Academic Calendar</a></li>
-					  <li><a href="#">Notice List</a></li>
+					  <li><a href="pages.php?src=academic_calender.php">Academic Calendar</a></li>
+					  <li><a href="pages.php?src=notice_list.php">Notification</a></li>
 					  <li><a href="pages.php?src=gallery_list.php">Image Gallery</a></li>
-					  <li><a href="#">News/Press/Media</a></li>
+					  <li><a href="pages.php?src=news_list.php">News/Press/Media</a></li>
 					  
 					 </ul> 
 				 </li>	 

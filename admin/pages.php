@@ -3,6 +3,8 @@
 include('conn.php');
 include_once("../functions/functions.php");
 $_SESSION['br_id']=1;
+$_SESSION['emp_name']="SD";
+$_SESSION['emp_id']=1;
 //include('chk_session.php');
 
 
