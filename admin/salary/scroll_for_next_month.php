@@ -143,12 +143,12 @@ function checkMe(frm){
 }
 </script>
 <div class="page_head">
-<div id="navigation"><a href="admin.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Scroll for Next Month</span></div>
+<div id="navigation"><a href="pages.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Scroll for Next Month</span></div>
 <h2>Scroll for Next Month</h2>
 </div>
 <br>
 <span id="spErr"><?php echo $Errs;?> </span>
-<form name="records" action="admin.php?src=salary/scroll_for_next_month.php&act=GENERATE" method="POST" onsubmit="return checkMe(this);">
+<form name="records" action="pages.php?src=salary/scroll_for_next_month.php&act=GENERATE" method="POST" onsubmit="return checkMe(this);">
 <table >
 <tr><td valign="top">
 	<table width="500px" class="shadow adminform" align="center">

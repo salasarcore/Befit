@@ -3,9 +3,9 @@ include_once("functions/common.php");
 /**
  * Commented include("modulemaster.php"); as it is used in menu.php file.
  * DO not uncomment it. It is being commented for future reference.
-
+ */
 //include("modulemaster.php");
-if(in_array(module_employee_attendance,$modules)){ 
+/*if(in_array(module_employee_attendance,$modules)){ 
 	$id_admin=$_SESSION['empid'];
 	$level=$_SESSION['access_level'];
 	if($level!='Super Admin' && $level!='Admin')
@@ -21,7 +21,7 @@ else{
 	echo "<script>location.href='pages.php';</script>";
 	exit;
 }
- */
+*/
 ?>
 <script  language="javascript">
 
@@ -155,7 +155,7 @@ function checkhrs(objchk)
 
 <div class="page_head">
 <div id="navigation">
-	<a href="admin.php">Home</a><a> Payroll</a> <span style="color: #000000;"> Employees Attendance</span>
+	<a href="pages.php">Home</a><a> Payroll</a> <span style="color: #000000;"> Employees Attendance</span>
 </div>
 <h2>Employees Attendance</h2>
 </div>
@@ -185,9 +185,10 @@ if(@$_REQUEST['act']=="save")
 {
 	$sql="SELECT eatt.* FROM emp_attendance_register as eatt
 	join employee as e on eatt.empid=e.empid
-	join employee_department as d on e.department_id=d.department_id and e.department_id='".$deptid."'
+	join employee_department as d on e.department_id=d.department_id and e.department_id='".$deptid."' join emp_sal_settings as es on es.empid=eatt.empid and es.pay_type='M'
 	where att_date='". $att_date ."'";
-	
+	 
+
 	$resC=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 	if(mysql_affected_rows($link)>0)
 	{
@@ -206,15 +207,20 @@ if(@$_REQUEST['act']=="save")
 				$err="error";
 		
 		if($err==""){
+
+
 				for($i=1;$i<=$ids;$i++)
 				{
 					
 					$att_type=substr(makeSafe($_POST[$i]),0,1);
 					$stu_id=substr(makeSafe($_POST[$i]),1);
+					
 					$hrsw="hrs".$stu_id;
-					$workhrs=makeSafe(@$_POST[$hrsw]);
+					
+					 $workhrs=makeSafe(@$_POST[$hrsw]);
+					
 					if($att_type=='P' && (trim($workhrs)=="" || floatval(trim($workhrs))==0))
-						$err="Working hours should not be zero or blank";
+						$err.="Working hours should not be zero or blank";
 	
 				}
 				if($err==""){
@@ -232,11 +238,19 @@ if(@$_REQUEST['act']=="save")
 					* so here, i have exploded the value using (.) symbol and checked whether second index value is 60 or not.
 					* If it is 60 then first index will be incremented by 1 to make it absolute working hours.
 					*/
-		
-							$sql="insert into emp_attendance_register(empid,att_date,att_type,updated_by,work_hours) values(".$stu_id.",'".$att_date."','".$att_type."','".makeSafe($_SESSION['emp_name'])."','".$workhrs."')";
-								
-							$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
-							
+					$sql="select es.* from emp_sal_settings as es where es.empid=".$stu_id;
+					$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
+					$row=mysql_fetch_array($res);
+					if($row['pay_type']=="M")
+					{
+						$sql="insert into emp_attendance_register(empid,att_date,att_type,updated_by,work_hours) values(".$stu_id.",'".$att_date."','".$att_type."','".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."','".$workhrs."')";
+						$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
+					}
+					if($row['pay_type']=="H" && $att_type=="A")
+					{
+						$sql="insert into emp_attendance_register(empid,att_date,att_type,updated_by,work_hours) values(".$stu_id.",'".$att_date."','".$att_type."','".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."','".$workhrs."')";
+						$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
+					}
 					}
 					echo "<div class='success'>".($i-1)." Employees Attendance Data Saved</div>";
 					}
@@ -261,7 +275,7 @@ if(@$_REQUEST['act']=="save")
 					<option value="0">--Select Department--</option>
 					<?php
 
-					$sql="select d.department_name,d.department_id from employee_department d where br_id= '".makesafe($_SESSION['br_id'])."' order by department_name";
+					$sql="select d.department_name,d.department_id from employee_department d  order by department_name";
 					$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 					while($row=mysql_fetch_array($res))
 						echo "<option value='".$row['department_id']."'>".$row['department_name']."</option>";
@@ -281,7 +295,7 @@ if(@$_REQUEST['act']=="save")
 			</td>
 			<td>
 				<div id="option_menu">
-					<a class="edit" href="javascript:void(0);"
+					<a class="btn btn-info" href="javascript:void(0);"
 						onClick="javascript:ActionScript('EDIT');">Edit</a>
 
 				</div>
@@ -296,7 +310,7 @@ if(@$_REQUEST['act']=="save")
 					<option value="L">Leave</option>
 					<option value="H">Holiday</option>
 				</select>
-				<input type="button" name="search" id="search" value="Go" class="btn search" onclick="return checkfilter();"/>
+				<input type="button" name="search" id="search" value="Go" class="btn btn-info" onclick="return checkfilter();"/>
 			</td>
 		</tr>
 	</table>

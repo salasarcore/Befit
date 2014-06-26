@@ -86,12 +86,12 @@ function Publish(act,imgid,spanid)
 	<td><h2>Employee List</h2></td>
 	<td>
 	<div id="option_menu">
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-		<a  class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
 		
-		<a  class="edit" href="javascript:void(0);" onClick="javascript:ExportExcel();">Export Excel</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ExportExcel();">Export Excel</a>
 		
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('view');">View Details</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('view');">View Details</a>
 	</div>
 	</td>
 </tr>	
@@ -112,7 +112,7 @@ $res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inc
 echo"</select>";?>
 </div>
 <br>
-<table width="100%" cellspacing="1" class="adminlist" style="cursor: pointer;">
+<table width="100%" border="0" class="table" style="cursor: pointer;">
   <thead>		
    <tr>
     <th>#</th>
@@ -156,7 +156,7 @@ $sqlWhere="";
 		$i=$i+1;
 	?>
 
-	<tr bgcolor=<?php if($i%2==0) echo "row0"; else echo "#row1"; ?>  onclick="selectID('<?php echo $row['empid']; ?>')" >
+	<tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?>  onclick="selectID('<?php echo $row['empid']; ?>')" >
 	 <td align="center"><input type="radio" name="rdoID" value="<?php echo $row['empid']; ?>" id="rdoID" /></td>
 		<td align="center"><img src="<?php echo is_file("../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime']) ? "../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime'] : "../images/".DEFAULT_IMAGE;?>" width="20px" /></td>
 		<td><?php echo $row['emp_name']; ?></td>

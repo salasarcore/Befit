@@ -81,9 +81,9 @@ if(makeSafe(isset($_GET['exp_cat_id'])) && makeSafe($_GET['exp_cat_id'])!="")
 			</td>
 			<td>
 				<div id="option_menu">
-					<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-					<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-					<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+					<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
 				</div>
 			</td>
 		</tr>
@@ -99,10 +99,10 @@ if(makeSafe(isset($_GET['exp_cat_id'])) && makeSafe($_GET['exp_cat_id'])!="")
 					<option value="Floating" <?php if(@$type_Filter=="Floating") echo "selected"; ?> >Floating</option>
 					</select>		
 			
-			<input type="submit" name="btnGo" value="Go" class="btn search">
+			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" class="adminlist" style="cursor: pointer;table-layout: fixed;">
+	<table width="100%" class="table" style="cursor: pointer;table-layout: fixed;">
 		<thead>
 		<tr>
 			<th colspan="6" style="word-wrap: break-word;">MAIN EXPENSE CATEGORY NAME : <?php echo strtoupper($results['name']); ?></th>

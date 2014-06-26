@@ -2,7 +2,7 @@
 <?php
 @session_start();
 
-include("../../globalConfig.php");
+include("../conn.php");
 
 $sql="update employee set activated ='".$_POST['act']."' where 	empid=".$_POST['empid'];
 $res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");

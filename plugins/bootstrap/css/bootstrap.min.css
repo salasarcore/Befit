@@ -95,7 +95,7 @@ optgroup {
     font-weight: 700;
 }
 table {
-    border-collapse: collapse;
+  
     border-spacing: 0;
 }
 td, th {
@@ -1817,7 +1817,7 @@ table {
     max-width: 100%;
 }
 th {
-    text-align: left;
+    text-align: center;
 }
 .table {
     margin-bottom: 20px;

@@ -78,9 +78,13 @@ function watermarkImage_passport ($SourceFile, $DestinationFile, $ext) {
 <head>
 <meta http-equiv="Content-Language" content="en-us">
 <title>EMPLOYEE</title>
-<link href="../css/classic.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../js/ajax.js"></script>
 <script type="text/javascript" src="../../js/date_time_currency_number_email.js"></script>
-<?php include('../modules/js_css_common.php');?>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<link rel="Stylesheet" type="text/css" href="../../css/jquery-ui.css" />
+<script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
+<link href="../css/classic.css" rel="stylesheet" type="text/css">
+
 <script>
 function chkMe()
 {
@@ -343,7 +347,7 @@ $designation_id=0;
 $department_id=0;
 if(@$action=="SAVE" || @$action=="UPDATE")
 {
-@include_once('../../classes/class.sample_image.php');
+@include_once('../classes/class.sample_image.php');
 
 $full_name=makeSafe($_POST['full_name']);
 $designation_id=makeSafe($_POST['designation']);
@@ -501,7 +505,8 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 			  	$mempid=$mempid+1;
 			  	
 				$sql="insert into employee(empid,emp_id,department_id, br_id,designation_id,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn, emp_mob, emp_epic, emp_pan, mstat, email, password,  mime,activated, father_name,mother_name,wife_husband,husband_no,father_no,home_phone,payment_type,updated_by,superior)";
-			 	$sql .=" values('".$mempid."','".trim($emp_id)."',".trim($department_id).",".trim($br_id).",".$designation_id.",'".trim($full_name)."','".trim($sex)."','".trim($hq)."','".trim($doj)."','".trim($dob)."','".trim($adt)."','".trim($present_address)."','".trim($permanent_address)."','".trim($ecn)."','".trim($mob)."','".trim($epic)."','".trim($pan)."','".trim($mstat)."','".trim($email)."','".trim($password)."','".trim($mime)."','N','".$father_name."','".$mother_name."','".$wife_husband."','".$husband_no."','".$father_no."','".$home_phone."','".$payment_type."', '".$superior."','".$_SESSION['emp_name']."')"; 
+			 	$sql .=" values('".$mempid."','".trim($emp_id)."',".trim($department_id).",".trim($br_id).",".$designation_id.",'".trim($full_name)."','".trim($sex)."','".trim($hq)."','".trim($doj)."','".trim($dob)."','".trim($adt)."','".trim($present_address)."','".trim($permanent_address)."','".trim($ecn)."','".trim($mob)."','".trim($epic)."','".trim($pan)."','".trim($mstat)."','".trim($email)."','".trim($password)."','".trim($mime)."','N','".$father_name."','".$mother_name."','".$wife_husband."','".$husband_no."','".$father_no."','".$home_phone."','".$payment_type."', '".$superior."','".$_SESSION['emp_name']."')";
+			 	echo $sql; 
 				$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 					if(mysql_affected_rows($link)>0)
 					{		

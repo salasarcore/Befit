@@ -61,7 +61,7 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 	</td>
 			<td>
 				<div id="option_menu">
-					<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
 					</div>
 			</td>
 		</tr>	
@@ -69,10 +69,10 @@ $name_filter= makeSafe(@$_POST['txtFilter']);
 	
 		<div class="search_bar">
 			Enter Subject: <input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" /> 
-		<input type="submit" name="btnGo" value="Go" class="btn search">
+		<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 		</div>
 		<br />
-		<table class="adminlist" style="cursor: pointer;">
+		<table class="table" style="cursor: pointer;">
 				 <thead>
 				<tr>
 					<th>DATE</th>

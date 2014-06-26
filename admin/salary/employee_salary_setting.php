@@ -89,17 +89,17 @@ function getSelected()
 </script>
 
 <div class="page_head">
-<div id="navigation"><a href="admin.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Employee Salary Setting List</span> </div>
+<div id="navigation"><a href="pages.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Employee Salary Setting List</span> </div>
 
-<form name="myForm" id="myForm" action="admin.php?src=salary/employee_salary_setting.php" method="POST">
+<form name="myForm" id="myForm" action="pages.php?src=salary/employee_salary_setting.php" method="POST">
 
 <table width="100%" class="adminform1">
 <tr>
 	<td><h2>Employee Salary Setting List</h2></td>
 	<td>
 	<div id="option_menu">
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('sett');">Salary Setting</a>
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('view');">View Salary Setting</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('sett');">Salary Setting</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('view');">View Salary Setting</a>
 	</div>
 	</td>
 </tr>	
@@ -120,7 +120,7 @@ $res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inc
 echo"</select>";?>
 </div>
 <br>
-<table width="100%" cellspacing="1" class="adminlist" style="cursor: pointer;">
+<table width="100%" cellspacing="1" class="table" style="cursor: pointer;">
   <thead>		
    <tr>
     <th><input type="checkbox" id="selectall" name="selectall" value="" onclick="javascript:selectallid();"/></th>
@@ -156,14 +156,14 @@ $sqlWhere="";
 		$sqlOrder =" order by empid desc";
 		$limit=" LIMIT $offset, $rowsPerPage ";
 		 $sql=$sql." ".$sqlWhere.$sqlOrder." ".$limit;
-		
+
 		$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 			while($row=mysql_fetch_array($res))
 		{
 		$i=$i+1;
 	?>
 
-	<tr bgcolor=<?php if($i%2==0) echo "row0"; else echo "#row1"; ?>  onclick="getSelected();"  >
+	<tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?>  onclick="getSelected();"  >
 	 <td align="center"><input type="checkbox" id="<?php echo $row['empid'];?>" name="rdoID" value="<?php echo $row['empid'];?>" onclick="getSelected();"/></td>
 		<td align="center"><img src="../site_img/emppic/<?php echo DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime']; ?>" width="20px" /></td>
 		<td><?php echo $row['emp_name']; ?></td>

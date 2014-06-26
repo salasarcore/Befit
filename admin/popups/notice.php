@@ -1,9 +1,9 @@
 <?php 
 @session_start();
-include("../../globalConfig.php");
-include("../../functions/employee/dropdown.php");
-include("../../functions/dropdown.php");
-include("../../functions/common.php");
+include("../conn.php");
+include("../functions/employee/dropdown.php");
+include("../functions/dropdown.php");
+include("../functions/common.php");
 include('../check_session.php');
 include("../../classes/class.sample_image.php");
 $ua=getBrowser();
@@ -11,19 +11,6 @@ $ua=getBrowser();
 ?>
 
 <link href="../css/classic.css" rel="stylesheet" type="text/css">
-<?php
-include('../modules/js_css_common.php');
-include '../modulemaster.php';
-$id=option_notice_list_add;
-$id_admin=$_SESSION['empid'];
-
-$level=$_SESSION['access_level'];
-if(($level!='Super Admin') && ($level!='Admin')){
-	if(!isAccessModule($id_admin,$id)){
-		echo "<div class='error' style='text-align:center;'>You are not authorised to view this page</div>";
-		exit;
-	}
-}?>
 <html>
 <head>
 <meta http-equiv="Content-Language" content="en-us">

@@ -62,9 +62,9 @@ function validatefilter()
 $name_filter=trim(@$_POST['txtFilter']);
 ?>
 <div class="page_head">
-<div id="navigation"><a href="admin.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Pay deduction List (All Branch)</span></div>
+<div id="navigation"><a href="pages.php">Home</a><a> Payroll</a>  <span style="color: #000000;">Pay deduction List (All Branch)</span></div>
 
-<form name="records" action="admin.php?src=salary/pay_deduction_list.php" method="POST" onsubmit="return validatefilter();">
+<form name="records" action="pages.php?src=salary/pay_deduction_list.php" method="POST" onsubmit="return validatefilter();">
 
 <table width="100%" class="adminform1">
 <tr>
@@ -73,19 +73,19 @@ $name_filter=trim(@$_POST['txtFilter']);
 	</td>
 	<td>
 		<div id="option_menu">
-			<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-			<a  class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-			<a  class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+			<a  class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
            </div>
 	</td>
 </tr>	
 </table>
 </div>
 <div class="search_bar">
-Pay Deduction Name :<input type="text" name="txtFilter" id="txtFilter" /> <input type="submit" name="btnGo" value="Go" class="btn search">
+Pay Deduction Name :<input type="text" name="txtFilter" id="txtFilter" /> <input type="submit" name="btnGo" value="Go" class="btn btn-info">
 </div>
 <br />
-<table width="100%" border="0" class="adminlist" style="cursor: pointer;">
+<table width="100%" border="0" class="table" style="cursor: pointer;">
   <thead>
   <tr>
     <th>#</th>

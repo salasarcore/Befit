@@ -1,8 +1,8 @@
 <?php
 @session_start();
-include('../../../globalConfig.php');
+include('../../conn.php');
 include('../../check_session.php');
-include("../../../functions/common.php");
+include("../../functions/common.php");
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -12,7 +12,7 @@ include("../../../functions/common.php");
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title></title>
 	<link href="../../css/classic.css" type="text/css" rel="stylesheet">
-	<?php include('../../modules/js_css_common.php');?>
+	<?php include('../../php/js_css_common.php');?>
 	<script>
 function chkMe()
 {

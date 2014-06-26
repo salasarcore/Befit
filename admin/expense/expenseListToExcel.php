@@ -2,7 +2,7 @@
 
 require_once '../phpexcel/Classes/PHPExcel.php';
 require_once '../phpexcel/Classes/PHPExcel/IOFactory.php';
-require_once '../../globalConfig.php';
+require_once '../conn.php';
 
 $query="select expense_list_id,date,amount, remark, credited_to,created_at,updated_by from expense_list order by expense_list_id asc";
 $result=mysql_query($query,$link);

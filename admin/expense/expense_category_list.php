@@ -33,7 +33,7 @@ function ActionScript(act)
 	  	alert("Please select a Expense Category");
 	}
 	else if(act=="expensemaster")
-		location.href="admin.php?src=expense/expense_master_list.php&exp_cat_id="+document.getElementById("exp_cat_id").value;
+		location.href="pages.php?src=expense/expense_master_list.php&exp_cat_id="+document.getElementById("exp_cat_id").value;
 	else
 	{
 		url="expense/popups/expense_category.php?act="+act+"&exp_cat_id="+document.getElementById("exp_cat_id").value;
@@ -71,10 +71,10 @@ function validateexpense(frm)
 			</td>
 			<td>
 				<div id="option_menu">
-					<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-					<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-					<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
-					<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('expensemaster');">Add Expense Master</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+					<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('expensemaster');">Add Expense Master</a>
 				</div>
 			</td>
 		</tr>
@@ -83,10 +83,10 @@ function validateexpense(frm)
 	<div class="search_bar">
 	<?php  $name_filter= makeSafe(@$_POST['txtFilter']); ?>
 			Expense Category Name :<input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" maxlength="200" />
-			<input type="submit" name="btnGo" value="Go" class="btn search">
+			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" border="0" class="adminlist" style="cursor: pointer;table-layout: fixed;">
+	<table width="100%" border="0" class="table" style="cursor: pointer;table-layout: fixed;">
 		<thead>
 			<tr>
 				<th>#</th>

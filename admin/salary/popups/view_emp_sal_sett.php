@@ -2,7 +2,7 @@
 <?php @session_start();
 include("../../conn.php");
 //include('../../check_session.php');
-include("../../../functions/common.php");
+include("../../functions/common.php");
 makeSafe(extract($_REQUEST));
  $empids = explode ( ",", $empID );
 
@@ -31,7 +31,7 @@ $row_emp = mysql_fetch_array(mysql_query("select * from employee where empid='".
  $sql = "SELECT  s.*, e.*, de.department_name, b.br_name, ds.designation_name 
  		FROM emp_sal_settings s, employee e, mst_departments de, mst_designations ds, mst_branch b 
  		WHERE s.empid='".$empid."' AND  s.session='".$_SESSION['d_session']."' AND  s.empid=e.empid  AND e.br_id=b.br_id AND e.designation_id=ds.designation_id  AND e.department_id=e.department_id limit 0,1";
-$res = mysql_query ($sql,$link); 
+ $res = mysql_query ($sql,$link); 
 
 if(mysql_num_rows($res)>0)
 {
@@ -66,7 +66,8 @@ $row = mysql_fetch_assoc($res);
 	
 	<?php $res2 = mysql_query("select * from emp_sal_settings  where empid='".$row['empid']."'  AND session = '".$_SESSION['d_session']."'  "); 
 		  
-	while ($row2 = mysql_fetch_array($res2)) { 
+	while ($row2 = mysql_fetch_array($res2)) {
+print_r($row2); 
 	?>
 	<tr>
 	<?php  $sql="select s.*, d.* from emp_sal_settings s, mst_departments d, session_section ses where s.study_dept_id=d.department_id AND s.study_dept_id=ses.department_id AND s. session = '".$_SESSION['d_session']."' AND s.study_dept_id ='".$row2['study_dept_id']."'";

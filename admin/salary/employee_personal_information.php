@@ -145,10 +145,10 @@ function StopSalary(act)
 	?>
 	<!--  	<a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
 		<a  class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a> -->
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:Earnings('add');">Earnings</a>
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:Deduction('add');">Deductions</a>
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:Loan('add');">Loan & Advance</a>
-		<a  class="addnew" href="javascript:void(0);" onClick="javascript:StopSalary('edit');">Stop Salary</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:Earnings('add');">Earnings</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:Deduction('add');">Deductions</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:Loan('add');">Loan & Advance</a>
+		<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:StopSalary('edit');">Stop Salary</a>
 	</div>
 	</td>
 </tr>	
@@ -171,7 +171,7 @@ echo"</select>";
 
 ?>
 </div>
-<table width="100%" cellspacing="1" class="adminlist" style="cursor: pointer;">
+<table width="100%" cellspacing="1" class="table" style="cursor: pointer;">
   <thead>		
    <tr>
     <th>#</th>
@@ -220,7 +220,7 @@ $sqlWhere="";
         
 	?>
 
-	<tr bgcolor=<?php if($i%2==0) echo "row0"; else echo "#row1"; ?> onclick="selectID('<?php echo $row['empid']; ?>');">
+	<tr class=<?php if($i%2==0) echo "row0"; else echo "#row1"; ?> onclick="selectID('<?php echo $row['empid']; ?>');">
 	 <td align='center'><input type="radio" name="rdoID" value="<?php echo $row['empid']; ?>" id="rdoID" onclick="selectID('<?php echo $row['empid']; ?>');"/></td>
 		<td style="width: 150px;">
 			<?php echo $row['emp_name']; ?>

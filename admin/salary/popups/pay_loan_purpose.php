@@ -12,7 +12,7 @@ include("../../functions/common.php");
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title></title>
 	<link href="../../css/classic.css" type="text/css" rel="stylesheet">
-	<?php include('../../modules/js_css_common.php');?>
+	<?php include('../../php/js_css_common.php');?>
 	
 <script>
 	function chkMe()

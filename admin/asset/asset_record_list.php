@@ -82,11 +82,11 @@ function ExportExcel()
 			<?php  $name_filter= makeSafe(@$_POST['txtFilter']); ?>
 			<td>
 				<div id="option_menu">
-					<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-					<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-					<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+					<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
 					
-					<a id="exportexcel" class="addnew" href="javascript:void(0);" onClick="javascript:ExportExcel();">Export Excel</a>
+					<a id="exportexcel" class="btn btn-info" href="javascript:void(0);" onClick="javascript:ExportExcel();">Export Excel</a>
 				
 				</div>
 			</td>
@@ -95,10 +95,10 @@ function ExportExcel()
 	</div>
 	<div class="search_bar">
 			Fee Asset Name :<input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" maxlength="200" />
-			<input type="submit" name="btnGo" value="Go" class="btn search">
+			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" border="0" class="adminlist" style="cursor: pointer;">
+	<table width="100%" border="0" class="table" style="cursor: pointer;">
 		<thead>
 			<tr>
 				<th>#</th>

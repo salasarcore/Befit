@@ -15,7 +15,7 @@ $action=makeSafe(@$_POST['action']);
 <meta http-equiv="Content-Language" content="en-us">
 <title>VIEW EMPLOYEE</title>
 <link href="../css/classic.css" rel="stylesheet" type="text/css">
-<?php include('../modules/js_css_common.php');?>
+<?php include('../php/js_css_common.php');?>
 <script type="text/javascript" src="../../js/date_time_currency_number_email.js"></script>
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript" language="JavaScript1.2" src="../../js/hint.js"></script>

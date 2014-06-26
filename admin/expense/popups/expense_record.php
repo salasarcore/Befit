@@ -331,7 +331,7 @@ function validateattachfile(filename)
      return validationStatus;
 }
 </script>
-<?php include('../../modules/js_css_common.php');?>
+<?php include('../../php/js_css_common.php');?>
 </head>
 <body>
 	<div id="middleWrap">

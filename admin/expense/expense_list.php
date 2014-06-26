@@ -92,12 +92,12 @@ function ExportExcel()
 </td>	
 	<td>
 		<div id="option_menu">
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-			<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-			<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:populateDetails('expensereport');">Print Report</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+			<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:populateDetails('expensereport');">Print Report</a>
 		
-			<a class="addnew" href="javascript:void(0);"
+			<a class="btn btn-info" href="javascript:void(0);"
 						onClick="javascript:ExportExcel();">Export Excel</a>
 			
 		</div>
@@ -146,7 +146,7 @@ function ExportExcel()
 		To
 		<input name="to_amount" type="text" class="date" id="to_amount" style="max-width: 6em;" onkeyup="if (/[^(\d*?)?$]/g.test(this.value)) this.value = this.value.replace(/[^(\d*?)?$]/g,'')" maxlength="10"/>
 		
-		<input type="button" onclick="populateDetails('')" value="Go" class="btn search"/>
+		<input type="button" onclick="populateDetails('')" value="Go" class="btn btn-info"/>
 		<a class="mylink" href="javascript:void(0);" style="font-size: 12px; margin-left: 20px;" onClick="javascript:populateDetails('today');">Today</a>,
 		<a class="mylink" href="javascript:void(0);" style="font-size: 12px;"  onClick="javascript:populateDetails('month');">Last Month</a>,
 		<a class="mylink" href="javascript:void(0);" style="font-size: 12px;" onClick="javascript:populateDetails('quarter');">Last Quarter</a>

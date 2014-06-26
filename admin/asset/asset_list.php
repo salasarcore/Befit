@@ -22,7 +22,6 @@ else{
 } */
 include_once("functions/common.php");
 ?>
-	<script type="text/javascript" src="js/modal.js"></script>
 <script>
 function selectID(objChk)
 {
@@ -66,7 +65,7 @@ function validateassetlist(frm)
 </div>
 
 <br>
-<form name="asset" action="admin.php?src=asset/asset_list.php"	method="POST" onsubmit="return validateassetlist(this);">
+<form name="asset" action="pages.php?src=asset/asset_list.php"	method="POST" onsubmit="return validateassetlist(this);">
 	<table width="100%" class="adminform1">
 		<tr>
 			<td>
@@ -74,9 +73,9 @@ function validateassetlist(frm)
 			</td>
 			<td>
 				<div id="option_menu">
-					<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-					<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-					<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+					<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+					<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
 				</div>
 			</td>
 		</tr>
@@ -85,10 +84,10 @@ function validateassetlist(frm)
 	<div class="search_bar">
 	<?php  $name_filter= makeSafe(@$_POST['txtFilter']); ?>
 			Fee Asset Name :<input type="text" name="txtFilter" id="txtFilter" value="<?php echo $name_filter;?>" maxlength="200" />
-			<input type="submit" name="btnGo" value="Go" class="btn search">
+			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" border="0" class="adminlist" style="cursor: pointer;table-layout: fixed;">
+	<table width="100%" border="0" class="table" style="cursor: pointer;table-layout: fixed;">
 		<thead>
 			<tr>
 				<th>#</th>

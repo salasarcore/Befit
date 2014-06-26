@@ -5,10 +5,10 @@ include("../../conn.php");
 include_once("../../functions/common.php");
 include_once("../../functions/comm_functions.php");
 makeSafe(extract($_REQUEST));
-$uploaddir="../site_img/expense/";
+$uploaddir="../../../site_img/expense/";
 ?>
 <br>
-<table id="tab" name="tab" width="100%" style="cursor: pointer;table-layout: fixed;" class="adminlist">
+<table id="tab" name="tab" width="100%" style="cursor: pointer;table-layout: fixed;" class="table">
 	<thead>
 		<tr>
 			<th>#</th>

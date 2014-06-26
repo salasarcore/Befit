@@ -1,10 +1,10 @@
 
 <?php 
-include_once("../functions/common.php");
+include_once("functions/common.php");
 /**
  * Commented include("modulemaster.php"); as it is used in menu.php file.
  * DO not uncomment it. It is being commented for future reference.
- */
+ 
 //include("modulemaster.php");
 if(in_array(module_news_list,$modules)){
 	$id_admin=$_SESSION['empid'];
@@ -21,7 +21,7 @@ if(in_array(module_news_list,$modules)){
 else{
 	echo "<script>location.href='pages.php';</script>";
 	exit;
-}
+}*/
 
 $br_id=makeSafe(@$_POST['branches']);
 ?>
@@ -103,7 +103,7 @@ $name_filter=@$_POST['txtFilter'];
 				</td>
 				<td>
 					<div id="option_menu">
-						<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+						<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
 					</div>
 				</td>
 			</tr>
@@ -111,10 +111,10 @@ $name_filter=@$_POST['txtFilter'];
 		</div>
 		<div class="search_bar">
 		Enter Subject Name: <input type="text" name="txtFilter"	id="txtFilter" value="<?php echo $name_filter;?>" />
-				<input	type="submit" name="btnGo" value="Go" class="btn search">
+				<input	type="submit" name="btnGo" value="Go" class="btn btn-info">
 		</div>
 		<br />
-		<table class="adminlist" style="cursor: pointer;">
+		<table class="table" style="cursor: pointer;">
 			<thead>
 				<tr>
 					<th width='200px'>DATE</th>

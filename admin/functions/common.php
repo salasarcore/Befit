@@ -5,8 +5,50 @@
 define("MESSAGE_UPLOAD_DIR", "site_img/message_attachments/");
 define("DEFAULT_IMAGE", "My_School_no.jpg");
 define("REGEX_EMAIL","/^(([\w-\.]{1,20})+@(([\w-]{3,20})+\.(com|net|org|info|coop|int|com\.au|co\.uk|org\.uk|ac\.uk|co\.in|[a-z]{2,4})))?$/");
+define("MAX_GRADE_LIMIT", "5");
+
+/**
+ * THIS CONSTANT IS DEFINE FOR CUSTOMIZED APPLY ONLINE FORM FEATURE RELEASE DATE
+ */
+
+define("CUSTOMIZED_APPLY_ONLINE_FORM_RELEASE_DATE", "2014-06-11");
+
+/**
+ * THESE CONSTANTS ARE USED FOR CUSTOMIZED APPLY ONLINE SETTINGS
+ */
+
+define("NUMERIC", "/^[0-9]+$/");
+define("ALPHABATES", "/^[a-zA-Z ]+$/");
+define("ALPHANUM","/^[a-zA-Z0-9 ]+$/");
 
 
+
+/**
+ * THIS CONSTANT IS DEFINE FOR NOTIFICATION(EMAIL/SMS) MODULE 
+ */
+define("ONLINE_APPLICATION","1");
+define("APPLCATION_ACCEPTED","2");
+define("APPLCATION_REJECTED","3");
+define("LEAVE_APPLICATION","4");
+define("LECTURE_SCHEDULE","5");
+define("EVENT","6");
+define("STUDENT_PROMOTION","7");
+define("EXAMINATION_SCHEDULE","8");
+define("FEE_COLLECTION","9");
+define("SCHOOL_REG","10");
+define("ADMIN_ONLINE_APPLICATION","11");
+define("ADMIN_SCHOOL_APPLICATION","12");
+define("CONTACT_US_SCHOOL","13");
+define("CHANGE_PASSWORD","14");
+define("FORGOT_PASSWORD","15");
+define("EMPLOYEE_REG","16");
+define("HELP_DESK","17");
+define("SCHOOL_ACTIVATION","18");
+define("LECTURE_CANCEL","19");
+define("STUDENT_ATTENDANCE","20");
+define("LECTURE_ATTENDANCE","21");
+define("STUDENT_ATTENDANCE_EDIT","22");
+define("LECTURE_ATTENDANCE_EDIT","23");
 
 function redirect($url,$msg)
 {
@@ -154,5 +196,72 @@ function replaceChar($string){
  
 if(!isset($_SESSION['sid'])) create_session();
 
+/**
+ * this fuction is used for getting browser's information
+ */
+function getBrowser()
+{
+	$u_agent = $_SERVER['HTTP_USER_AGENT'];
+	$bname = 'Unknown';
+	$platform = 'Unknown';
+	$version= "";
 
+	//First get the platform?
+	if (preg_match('/linux/i', $u_agent)) {
+		$platform = 'linux';
+	}
+	elseif (preg_match('/macintosh|mac os x/i', $u_agent)) {
+		$platform = 'mac';
+	}
+	elseif (preg_match('/windows|win32/i', $u_agent)) {
+		$platform = 'windows';
+	}
+
+	// Next get the name of the useragent yes seperately and for good reason
+	if(preg_match('/MSIE/i',$u_agent) )
+	{
+		$bname = 'Internet Explorer';
+		$ub = "MSIE";
+	}
+	
+	
+	 else if (preg_match('/Trident\/[0-9\.]+/', $u_agent) && preg_match('/rv/i', $u_agent)) 
+	 {
+		$bname = 'Internet Explorer';
+		$ub = "MSIE";
+		
+	 }	
+	
+	elseif(preg_match('/Firefox/i',$u_agent))
+	{
+		$bname = 'Mozilla Firefox';
+		$ub = "Firefox";
+	}
+	elseif(preg_match('/Chrome/i',$u_agent))
+	{
+		$bname = 'Google Chrome';
+		$ub = "Chrome";
+	}
+	elseif(preg_match('/Safari/i',$u_agent))
+	{
+		$bname = 'Apple Safari';
+		$ub = "Safari";
+	}
+	elseif(preg_match('/Opera/i',$u_agent))
+	{
+		$bname = 'Opera';
+		$ub = "Opera";
+	}
+	elseif(preg_match('/Netscape/i',$u_agent))
+	{
+		$bname = 'Netscape';
+		$ub = "Netscape";
+	}
+
+
+	return array(
+			'name'      => $bname,
+	);
+}
+ 
 ?>

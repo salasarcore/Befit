@@ -1,8 +1,8 @@
 <?php 
 @session_start();
-include("../../../globalConfig.php");
+include("../../conn.php");
 include('../../check_session.php');
-include_once("../../../functions/common.php");
+include_once("../../functions/common.php");
 include_once("../../functions/comm_functions.php");
 
 $department_id=makeSafe($_GET['dept_id']);

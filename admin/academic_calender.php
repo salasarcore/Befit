@@ -77,11 +77,11 @@ $('document').ready(function(){
 <td><h2>Academic Calendar</h2></td>
 <td>
 <div id="option_menu">
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
-			<a class="edit" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
-			<a class="delete" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('invitepeople');">Send Invitations</a>
-			<a class="addnew" href="javascript:void(0);" onClick="javascript:ActionScript('attendance');">Event Attendance</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('edit');">Edit</a>
+			<a class="btn btn-danger" href="javascript:void(0);" onClick="javascript:ActionScript('delete');">Delete</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('invitepeople');">Send Invitations</a>
+			<a class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('attendance');">Event Attendance</a>
 		    
 </div></td></tr></table>
 </div>
