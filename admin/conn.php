@@ -11,6 +11,6 @@ mysql_select_db ("befit_ladies_gym");
 define("SITE_URL_BRANCH_ADMIN", 'http://localhost/befit/admin');
 @session_start();
 $rowsPerPage=20;
-$currency="$";
+$currency="Rs";
 Define("DOMAIN_IDENTIFIER",$subdomainname);
 ?>

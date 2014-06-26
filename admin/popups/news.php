@@ -1,31 +1,14 @@
 <?php 
-@session_start();
-include("../../globalConfig.php");
-include("../../functions/employee/dropdown.php");
-include("../../functions/dropdown.php");
-include("../../functions/common.php");
+include("../conn.php");
+include_once("../../functions/functions.php");
+
 include('../check_session.php');
 include("../../fckeditor/fckeditor.php") ;
-$ua=getBrowser();
-@session_start();
 $Errs="";
 
 ?>
-<link href="../css/classic.css" rel="stylesheet" type="text/css">
+<link href="../css/popup.css" rel="stylesheet" type="text/css">
 <?php
-include('../modules/js_css_common.php');
-include '../modulemaster.php';
-
-$id=option_news_list_add;
-$id_admin=$_SESSION['empid'];
-
-$level=$_SESSION['access_level'];
-if(($level!='Super Admin') && ($level!='Admin')){
-	if(!isAccessModule($id_admin,$id)){
-		echo "<div class='error' style='text-align:center;'>You are not authorised to view this page</div>";
-		exit;
-	}
-}
 if(@$_GET['act']=="send")
 {
 	@$subj=	makeSafe($_POST['subj']);
@@ -51,12 +34,6 @@ if(@$_GET['act']=="send")
 <meta http-equiv="Content-Language" content="en-us">
 <title>NEWS/PRESS/MEDIA</title>
 <link rel="shortcut icon" href="../saplimg/favicon.ico">
-<script type="text/javascript"   src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
-<script type="text/javascript" src="../../js/ajax.js"></script>
-<link rel="Stylesheet" type="text/css" href="../../css/jquery-ui.css" />
-
-
 <script type="text/javascript">
 /**
 *This section gives an JavaScript error during runtime and it is not required, that's why commented
@@ -114,6 +91,7 @@ function fn(frm)
 		<td  <?php if ( @$ua['name']=='Google Chrome') echo "style='border-bottom: 1px solid black;  border-top: 1px solid black;'";?> style=" border-top: 1px solid black;'">
 				
 			<?php
+			
 				$sBasePath="../../fckeditor/";
 				$oFCKeditor = new FCKeditor('solution') ;
 				$oFCKeditor->BasePath = $sBasePath ;

@@ -1,7 +1,6 @@
 <?php 
 
 include('conn.php');
-//include_once("functions/functions.php");
 $_SESSION['br_id']=1;
 $_SESSION['emp_name']="SD";
 $_SESSION['emp_id']=1;
@@ -40,13 +39,11 @@ include("functions/comm_functions.php");
 <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 	    <!-- CSS Global Compulsory -->
-	    
-		<?php include('php/js_css_common.php');?>
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-	  <link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
-      <link rel="stylesheet" href="css/style.css">
-	  	<link rel="stylesheet" href="../css/modal.css" type="text/css" />
-	<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
+		<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+		<link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/modal.css" type="text/css" />
+		<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
     
 </head> 
 <body class="boxed container">

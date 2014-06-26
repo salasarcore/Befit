@@ -49,7 +49,7 @@ $name_filter=makeSafe(@$_POST['txtFilter']);
 <div id="navigation"><a href="pages.php">Home</a><a> Utility</a>   <span style="color: #000000;">Gallery List</span></div>
 
 <form name="records" action="pages.php?src=gallery_list.php&page=<?php echo makeSafe(@$_GET['page']); ?>" method="POST">
-<table width="100%" class="adminform1">
+<table width="100%" class="adminform">
 <tr>
 	<td>
 		<h2>Gallery List</h2>
@@ -70,7 +70,7 @@ Enter Gallery Name: <input type="text" name="txtFilter" id="txtFilter" value="<?
 		<input type="submit" name="btnGo" value="Go" class="btn btn-info" onclick="return check();">
 </div>
 <br />
-<table width="100%" border="0" class="adminlist" style="table-layout:fixed;cursor: pointer;">
+<table class="table table-bordered">
   <thead>
 
 
@@ -96,7 +96,7 @@ if($name_filter!="")
     <th width="25%">GALLERY NAME</th>
     <th width="25%">GALLERY DESCRIPTION</th>
     <th width="15%">DATE UPDATED</th>
-     <th width="20%">UPDATED BY <br>Employee Name[Emp_Code]</th>
+     <th width="20%">UPDATED BY</th>
   </tr>
   </thead>
     <tbody>

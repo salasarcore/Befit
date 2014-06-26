@@ -5,12 +5,12 @@ include("../functions/employee/dropdown.php");
 include("../functions/dropdown.php");
 include("../functions/common.php");
 include('../check_session.php');
-include("../../classes/class.sample_image.php");
-$ua=getBrowser();
+
 
 ?>
 
-<link href="../css/classic.css" rel="stylesheet" type="text/css">
+<link href="../css/popup.css" rel="stylesheet" type="text/css">
+
 <html>
 <head>
 <meta http-equiv="Content-Language" content="en-us">
@@ -96,7 +96,6 @@ function validateattachfile(filename)
 <span id="spErr"><?php echo @$msg;?></span>
 
 <?php
-@session_start();
 include("../../fckeditor/fckeditor.php") ;
 $Errs="";$msg="";
 if(@$_GET['act']=="send")
@@ -136,7 +135,7 @@ else
 			if (!($_FILES["file"]["error"] > 0))
 			{
 				$extn=explode('.',$_FILES["file"]["name"]);
-				$upath="../../site_img/notice/".DOMAIN_IDENTIFIER."_".base64_encode($nid).".".$extn[1];
+				$upath="../../site_img/notice/".($nid).".".$extn[1];
 	            move_uploaded_file($_FILES["file"]["tmp_name"],$upath);
 				// watermark function
 	           
