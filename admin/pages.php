@@ -18,8 +18,8 @@ include("functions/comm_functions.php");
 
 
 ?>
-
-
+<?php
+include('php/js_css_common.php');?>
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -78,7 +78,8 @@ include("functions/comm_functions.php");
 			<?php include('php/copyright.php');?>
 </div>
 
-	<!-- JS Global Compulsory -->           
+	<!-- JS Global Compulsory -->          
+	<script type="text/javascript" src="../js/jquery-1.8.24.ui.min.js"></script> 
 	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../plugins/bootstrap/js/bootstrap.min.js"></script> 
@@ -92,12 +93,8 @@ include("functions/comm_functions.php");
     <script type="text/javascript" src="../plugins/smartmenus/jquery.smartmenus.bootstrap.js"></script><script type="text/javascript"></script>
 <script type="text/javascript" src="../js/dhtmlwindow.js"></script>
 <script type="text/javascript" src="../js/modal.js"></script>
-	<script type='text/JavaScript' src='../js/jquery.js'></script>
-	<script type="text/javascript" src="../js/ajax.js"></script>
-<script type="text/javascript" src="../js/date_time_currency_number_email.js"></script>
-
-<link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
-<script type="text/javascript" src="../js/Ujquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/Ujquery-ui.min.js"></script>
+	<link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
 	<!--[if lt IE 9]>
 		<script src="plugins/respond.js"></script>
 	<![endif]-->			

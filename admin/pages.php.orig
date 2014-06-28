@@ -1,10 +1,15 @@
 <?php 
 
 include('conn.php');
-
+<<<<<<< HEAD
+//include_once("functions/functions.php");
+=======
+>>>>>>> 058ae00c0b2c5203d7f51d88c3ef746c671ee939
 $_SESSION['br_id']=1;
 $_SESSION['emp_name']="SD";
 $_SESSION['emp_id']=1;
+$_SESSION['d_session']="2012-2013";
+$_SESSION['access_level']="Super Admin";
 //include('chk_session.php');
 
 @session_start();
@@ -38,14 +43,22 @@ include("functions/comm_functions.php");
 <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 	    <!-- CSS Global Compulsory -->
+<<<<<<< HEAD
+	    
+		<?php include('php/js_css_common.php');?>
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
 	  <link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
-
-
       <link rel="stylesheet" href="css/style.css">
 	  	<link rel="stylesheet" href="../css/modal.css" type="text/css" />
 	<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
-
+=======
+		<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+		<link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/modal.css" type="text/css" />
+		<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
+>>>>>>> 058ae00c0b2c5203d7f51d88c3ef746c671ee939
+    
 </head> 
 <body class="boxed container">
 	<div class="wrapper">
@@ -93,7 +106,12 @@ include("functions/comm_functions.php");
     <script type="text/javascript" src="../plugins/smartmenus/jquery.smartmenus.bootstrap.js"></script><script type="text/javascript"></script>
 <script type="text/javascript" src="../js/dhtmlwindow.js"></script>
 <script type="text/javascript" src="../js/modal.js"></script>
-	
+	<script type='text/JavaScript' src='../js/jquery.js'></script>
+	<script type="text/javascript" src="../js/ajax.js"></script>
+<script type="text/javascript" src="../js/date_time_currency_number_email.js"></script>
+
+<link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
+<script type="text/javascript" src="../js/Ujquery-ui.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="plugins/respond.js"></script>
 	<![endif]-->			

@@ -23,6 +23,13 @@ else{
 }
 */
 ?>
+
+<script type="text/javascript"   src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/Ujquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/ajax.js"></script>
+<link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
+<?php
+include('php/js_css_common.php');?>
 <script  language="javascript">
 
 function getdiff(obj)

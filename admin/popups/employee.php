@@ -10,7 +10,14 @@ include("../classes/class.sample_image.php");
 $act=makeSafe(@$_GET['act']);
 $empID=makeSafe(@$_GET['empID']);
 $action=makeSafe(@$_POST['action']);
-
+?>
+<script type="text/javascript"   src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
+<script type="text/javascript" src="../../js/ajax.js"></script>
+<link href="../css/classic.css" rel="stylesheet" type="text/css">
+<link rel="Stylesheet" type="text/css" href="../../css/jquery-ui.css" />
+<?php
+include('../php/js_css_common.php');
 function watermarkImage_passport ($SourceFile, $DestinationFile, $ext) {
 
 	
@@ -506,7 +513,6 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 			  	
 				$sql="insert into employee(empid,emp_id,department_id, br_id,designation_id,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn, emp_mob, emp_epic, emp_pan, mstat, email, password,  mime,activated, father_name,mother_name,wife_husband,husband_no,father_no,home_phone,payment_type,updated_by,superior)";
 			 	$sql .=" values('".$mempid."','".trim($emp_id)."',".trim($department_id).",".trim($br_id).",".$designation_id.",'".trim($full_name)."','".trim($sex)."','".trim($hq)."','".trim($doj)."','".trim($dob)."','".trim($adt)."','".trim($present_address)."','".trim($permanent_address)."','".trim($ecn)."','".trim($mob)."','".trim($epic)."','".trim($pan)."','".trim($mstat)."','".trim($email)."','".trim($password)."','".trim($mime)."','N','".$father_name."','".$mother_name."','".$wife_husband."','".$husband_no."','".$father_no."','".$home_phone."','".$payment_type."', '".$superior."','".$_SESSION['emp_name']."')";
-			 	echo $sql; 
 				$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 					if(mysql_affected_rows($link)>0)
 					{		

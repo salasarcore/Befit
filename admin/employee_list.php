@@ -28,6 +28,8 @@ else{
 $br_id=makeSafe(@$_POST['branches']);
 ?>
 
+
+
 <script>
 function selectID(objChk)
 {

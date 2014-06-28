@@ -33,8 +33,8 @@
 				  </li>	
 				  <li><a href="#">Admission</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Applied Candidates</a></li>
-					  <li><a href="#">Registered Candidates</a></li>
+					  <li><a href="pages.php?src=applied_student_list.php">Applied Candidates</a></li>
+					  <li><a href="pages.php?src=admission_register.php">Registered Candidates</a></li>
 					  <li><a href="#">Course-wise Candidates</a></li>
 					 </ul> 
 				  </li>	
