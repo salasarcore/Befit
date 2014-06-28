@@ -40,11 +40,12 @@ include('php/js_css_common.php');?>
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 	    <!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-		<link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
+		
 		<link rel="stylesheet" href="css/style.css">
+		<link href="../plugins/smartmenus/jquery.smartmenus.bootstrap.css" rel="stylesheet"> 
 		<link rel="stylesheet" href="../css/modal.css" type="text/css" />
 		<link rel="stylesheet" href="../css/dhtmlwindow.css" type="text/css" />
-    
+       <link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
 </head> 
 <body class="boxed container">
 	<div class="wrapper">
@@ -94,7 +95,7 @@ include('php/js_css_common.php');?>
 <script type="text/javascript" src="../js/dhtmlwindow.js"></script>
 <script type="text/javascript" src="../js/modal.js"></script>
 	<script type="text/javascript" src="../js/Ujquery-ui.min.js"></script>
-	<link rel="Stylesheet" type="text/css" href="../css/jquery-ui.css" />
+	
 	<!--[if lt IE 9]>
 		<script src="plugins/respond.js"></script>
 	<![endif]-->			
