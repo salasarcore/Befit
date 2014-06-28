@@ -23,7 +23,7 @@
 						<li><a href="pages.php?src=department_list.php">Course Master</a></li>
 						<li><a href="pages.php?src=session_section_list.php">Course Wise Batches</a></li>
 						<li><a href="pages.php?src=bank_list.php">Bank Master</a></li>
-						<li><a href="#" class="dropdown-menu">Contact Category</a>
+						<li><a href="#">Contact Category</a>
 							<ul class="dropdown-menu">
 								<li><a href="pages.php?src=contact_category.php">Contact Category Master</a></li>
 								<li><a href="pages.php?src=contact_us.php">List of Enquirers</a></li>
@@ -47,7 +47,7 @@
 						<li><a href="pages.php?src=fee/fee_expected_list.php">Fee Expected</a></li>
 						<li><a href="pages.php?src=fee/monthly_expected_list.php">Monthly Expected Fees</a></li>
 						<li><a href="pages.php?src=fee/fee_collect.php">Fee Collection</a></li>
-						<li><a href="#" class="dropdown-menu">Reports</a>
+						<li><a href="#">Reports</a>
 							  <ul class="dropdown-menu">
 								<li><a href="pages.php?src=fee/fee_discount_report.php">Fee Discount</a></li>
 							  </ul>
@@ -66,7 +66,7 @@
 						<li><a href="pages.php?src=salary/pay_loan_purpose_list.php">PF Loan Purpose</a></li>
 						<li><a href="pages.php?src=salary/employee_personal_information.php">Employee Pay Structure</a></li>
 						<li><a href="pages.php?src=salary/scroll_for_next_month.php">Scroll For Next Month</a></li>
-						<li><a href="#" class="arrow">Reports</a> 
+						<li><a href="#">Reports</a> 
 							<ul class="dropdown-menu"> 
 								  <li><a href="pages.php?src=salary/pay_slip.php">Pay Slip</a></li>
 								  
@@ -76,7 +76,7 @@
 				  </li>	 
 				 <li><a href="#">Asset</a>
 					<ul class="dropdown-menu">
-					 <li><a href="pages.php?src=asset/asset_list.php">Asset Master</a></li>
+						<li><a href="pages.php?src=asset/asset_list.php">Asset Master</a></li>
 						<li><a href="pages.php?src=asset/asset_record_list.php">Asset Record List</a></li>
 					  
 					 </ul> 
