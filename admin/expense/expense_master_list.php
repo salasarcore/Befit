@@ -102,7 +102,7 @@ if(makeSafe(isset($_GET['exp_cat_id'])) && makeSafe($_GET['exp_cat_id'])!="")
 			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" class="table" style="cursor: pointer;table-layout: fixed;">
+	<table width="100%" class="table table-bordered"" style="cursor: pointer;table-layout: fixed;">
 		<thead>
 		<tr>
 			<th colspan="6" style="word-wrap: break-word;">MAIN EXPENSE CATEGORY NAME : <?php echo strtoupper($results['name']); ?></th>

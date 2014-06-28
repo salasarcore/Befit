@@ -29,7 +29,7 @@ if($count>0)
 <div style="float:right;margin-right: 100px;font-weight: bold;font-size:12px;" ><li>Blue color indicates working hours for <font color="#0000FF">lecturers</font>. </li><li>Red color indicates working hours for <font color="#FF0000">others</font>.</li></div>
 
 <br><br><br>
-<table class="table" width="auto" style="cursor: pointer;" name="employeelist" id="employeelist">
+<table class="table table-bordered"" width="auto" style="cursor: pointer;" name="employeelist" id="employeelist">
 	<thead>
 		<tr>
 			<th align="center" width="50px;">#</th>

@@ -33,7 +33,7 @@ document.myForm.submit();
 }
 function ActionScript(act)
 {
-	 var checkValues = $('input[name=rdoID[]]:checked').map(function()
+	 var checkValues = $('input[name=rdoID]:checked').map(function()
             {
                 return $(this).val();
             }).get();
@@ -120,7 +120,7 @@ $res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inc
 echo"</select>";?>
 </div>
 <br>
-<table width="100%" cellspacing="1" class="table" style="cursor: pointer;">
+<table width="100%" cellspacing="1" class="table table-bordered"" style="cursor: pointer;">
   <thead>		
    <tr>
     <th><input type="checkbox" id="selectall" name="selectall" value="" onclick="javascript:selectallid();"/></th>

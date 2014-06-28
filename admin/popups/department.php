@@ -43,14 +43,14 @@ function validatedepartment()
 
 if(dept_name.trim()=="")
 {
-	alert('Department name should not be blank');
+	alert('Course name should not be blank');
 	document.frmManu.txtdeptName.value="";
 	document.frmManu.txtdeptName.focus();
 	return false;
 }
 else if(dept_code.trim()=="")
 {
-	alert('Department code should not be blank');
+	alert('Course code should not be blank');
 	document.frmManu.txtdept_code.value="";
 	document.frmManu.txtdept_code.focus();
 	return false;
@@ -87,9 +87,9 @@ if(@$action=="SAVE" || @$action=="UPDATE")
     if($action=="SAVE")
 	{
 		if(trim($dept_name)=="")
-			$Errs= "<div class='error'>Please Enter Department Name</div>";
+			$Errs= "<div class='error'>Please Enter Course Name</div>";
 		elseif(trim($dept_code)=="")
-			$Errs= "<div class='error'>Please Enter Department Code</div>";
+			$Errs= "<div class='error'>Please Enter Course Code</div>";
 		else
 		{
 			$query="select * from mst_departments where (department_code='".$dept_code."' or department_name='".$dept_name."') and br_id=".$_SESSION['br_id'];
@@ -98,9 +98,9 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			{
 					$row = mysql_fetch_array($res, MYSQL_ASSOC);
 					if(@$dept_name==@$row['department_name'])
-						$Errs= "<div class='error'>Duplicate Department Name</div>";
+						$Errs= "<div class='error'>Duplicate Course Name</div>";
 					elseif(@$dept_code==@$row['department_code'])
-						$Errs= "<div class='error'>Duplicate Department Code</div>";
+						$Errs= "<div class='error'>Duplicate Course Code</div>";
 			}
 			else
 			{
@@ -120,9 +120,9 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 	{
 		
 		if(trim($dept_name)=="")
-			$Errs= "<div class='error'>Please Enter Department Name</div>";
+			$Errs= "<div class='error'>Please Enter Course Name</div>";
 		elseif(trim($dept_code)=="")
-			$Errs= "<div class='error'>Please Enter Department Code</div>";
+			$Errs= "<div class='error'>Please Enter Course Code</div>";
 		else
 		{
 		$query="select * from mst_departments where (department_code='".$dept_code."' or  department_name='".$dept_name."') and br_id=".$_SESSION['br_id']." and department_id!=".$departmentID;
@@ -131,9 +131,9 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 		{
 					$row = mysql_fetch_array($res, MYSQL_ASSOC);
 					if(@$dept_name==@$row['department_name'])
-						$Errs= "<div class='error'>Duplicate Department Name</div>";
+						$Errs= "<div class='error'>Duplicate Course Name</div>";
 					elseif(@$dept_code==@$row['department_code'])
-						$Errs= "<div class='error'>Duplicate Department Code</div>";
+						$Errs= "<div class='error'>Duplicate Course Code</div>";
 		}
 		else
 		{
@@ -163,7 +163,7 @@ if(@$action=="DELETE")
 	$result  = mysql_query($query) or die('Error, query failed');
 	if(mysql_affected_rows($link)>0)
 	{
-		$Errs= "<div class='error'>You can not delete this department as it is already assigned to some student(s)</div>";
+		$Errs= "<div class='error'>You can not delete this Course as it is already assigned to some student(s)</div>";
 	}
 	else
 	{
@@ -171,11 +171,11 @@ if(@$action=="DELETE")
 	$result  = mysql_query($query) or die('Error, query failed');
 	if(mysql_affected_rows($link)>0)
 	{
-		$Errs= "<div class='success'>Designation Deleted Successfully</div>";
+		$Errs= "<div class='success'>Course Deleted Successfully</div>";
 	}
 	else
 	{
-		$Errs= "<div class='error'>Employee Department Not Deleted Successfully</div>";
+		$Errs= "<div class='error'> Course Not Deleted Successfully</div>";
 	}
 	}
 }

@@ -83,7 +83,7 @@ Enter Category Name: <input type="text" name="txtFilter" value="<?php echo $strf
 <input type="submit" name="submit" id="submit" value="Go" class="btn btn-info"/>
 
 </div>
-<table style="width:100%;margin-top:10px;cursor: pointer;" cellspacing="0" class="table">
+<table style="width:100%;margin-top:10px;cursor: pointer;" cellspacing="0" class="table table-bordered"">
 
   <thead>		
    <tr>

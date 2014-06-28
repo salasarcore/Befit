@@ -22,7 +22,7 @@ $result=mysql_query($sql);
 }	
 </style>
 
-<table width="100%" border="0" class="table" align="center" id="tabone" style="cursor:pointer;" >
+<table width="100%" border="0" class="table table-bordered"" align="center" id="tabone" style="cursor:pointer;" >
   <thead>
   <tr>
     <th>#</th>

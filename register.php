@@ -9,7 +9,6 @@ include("admin/functions/comm_functions.php");
 $self=$_SERVER['PHP_SELF'];
 if(isset($_POST['login_submit']))
 {	
-
 $br_id=1;
 	$Errs="";
 	$firstname=makeSafe(@$_POST['firstname']);
@@ -771,12 +770,7 @@ $(document).ready(function(){
                                         	</div>	
                                     </div>
                                 </section>
-                                <section>
-                                    <div class="row">
-                                          <label class="label col col-10">Health History Checklist</label>
-                                         	
-                                    </div>
-                                </section>
+                               
                                                
                                 
                                                   <section>

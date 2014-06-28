@@ -8,7 +8,7 @@ makeSafe(extract($_REQUEST));
 $uploaddir="../../../site_img/expense/";
 ?>
 <br>
-<table id="tab" name="tab" width="100%" style="cursor: pointer;table-layout: fixed;" class="table">
+<table id="tab" name="tab" width="100%" style="cursor: pointer;table-layout: fixed;" class="table table-bordered"">
 	<thead>
 		<tr>
 			<th>#</th>

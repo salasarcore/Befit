@@ -92,7 +92,7 @@ Enter Employee Department Name: <input type="text" name="txtFilter" id="txtFilte
 	<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 </div>
 
-<table width="100%" border="0" class="table" style="cursor: pointer;">
+<table width="100%" border="0" class="table table-bordered"" style="cursor: pointer;">
   <thead>
   <tr>
     <th>#</th>

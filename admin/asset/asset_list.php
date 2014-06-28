@@ -87,7 +87,7 @@ function validateassetlist(frm)
 			<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 	</div>
 	<br />
-	<table width="100%" border="0" class="table" style="cursor: pointer;table-layout: fixed;">
+	<table width="100%" border="0" class="table table-bordered"" style="cursor: pointer;table-layout: fixed;">
 		<thead>
 			<tr>
 				<th>#</th>

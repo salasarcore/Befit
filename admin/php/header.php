@@ -21,6 +21,7 @@
 					  <li><a href="pages.php?src=session_list.php">Session Master</a></li>
 		<li><a href="pages.php?src=employee_department_list.php">Employee Department Master</a></li>
 		<li><a href="pages.php?src=department_list.php">Course Master</a></li>
+			<li><a href="pages.php?src=session_section_list.php">Course Wise Batches</a></li>
 		<li><a href="pages.php?src=bank_list.php">Bank Master</a></li>
 		<li><a href="#" class="arrow">Contact Category</a>
 		  <ul>
@@ -35,16 +36,24 @@
 					<ul class="dropdown-menu">
 					  <li><a href="pages.php?src=applied_student_list.php">Applied Candidates</a></li>
 					  <li><a href="pages.php?src=admission_register.php">Registered Candidates</a></li>
-					  <li><a href="#">Course-wise Candidates</a></li>
+					  <li><a href="pages.php?src=admitted_student_list.php">Course-wise Candidates</a></li>
 					 </ul> 
 				  </li>	
-				  <li><a href="#">Fee</a>
-					<ul class="dropdown-menu">
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  <li><a href="#">Sub menu1</a></li>
-					  
-					 </ul> 
+				<li><a href="#" >Fees</a>
+ <ul class="dropdown-menu">
+	 <li><a href="pages.php?src=fee/fee_category_list.php">Fee Category Master</a></li>
+	  <li><a href="pages.php?src=fee/fee_discount_list.php">Fee Discount Master</a></li>
+	 <li><a href="pages.php?src=fee/fee_fine_list.php">Fee Fine Master</a></li>
+	 <li><a href="pages.php?src=fee/fee_expected_list.php">Fee Expected</a></li>
+	 <li><a href="pages.php?src=fee/monthly_expected_list.php">Monthly Expected Fees</a></li>
+	  <li><a href="pages.php?src=fee/fee_collect.php">Fee Collection</a></li>
+	  <li><a href="#" class="arrow">Reports</a>
+		  <ul>
+		<li><a href="pages.php?src=fee/fee_discount_report.php">Fee Discount</a></li>
+		  </ul>
+		</li>
+  </ul>
+</li>
 				  </li>	 
 				 <!-- <li><a href="#">Employee</a>
 					<ul class="dropdown-menu">

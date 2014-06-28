@@ -87,7 +87,7 @@ $name_filter=@$_POST['txtFilter'];
 Loan Purpose Name :<input type="text" name="txtFilter" id="txtFilter"/> <input type="submit" name="btnGo"  class="btn btn-info" value="Go">
 </div>
 <br />
-<table width="100%" border="0" class="table" style="cursor: pointer;">
+<table width="100%" border="0" class="table table-bordered"" style="cursor: pointer;">
   <thead>
   <tr>
     <th>#</th>

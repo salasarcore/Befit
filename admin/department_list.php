@@ -42,7 +42,7 @@ function ActionScript(act)
 {
 	if(document.getElementById("departmentID").value=="" && act !="add")
 	{
-	  alert("Please select a Department");
+	  alert("Please select a Course");
 	  
 	}
 	else
@@ -92,7 +92,7 @@ Enter Course Name: <input type="text" name="txtFilter" id="txtFilter" value="<?p
 	<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 </div>
 <br>
-<table width="100%" border="0" class="table" style="cursor: pointer;">
+<table width="100%" border="0" class="table table-bordered"" style="cursor: pointer;">
   <thead>
   <tr>
     <th>#</th>

@@ -3,7 +3,7 @@ function department($department_id)
 {
 if(@$department_id=="") $department_id=0;
 echo "<select size=\"1\" name=\"department\" id=\"department\">";
-echo "<option value=\"0\" selected>--Select Department--</option>";
+echo "<option value=\"0\" selected>--Select Course--</option>";
 $sql="select department_id,department_name  from mst_departments where br_id=".$_SESSION['br_id']." order by department_name";
 $res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused".mysql_error());
 	while($row1=mysql_fetch_array($res))

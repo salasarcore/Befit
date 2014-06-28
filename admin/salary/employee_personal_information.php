@@ -171,7 +171,7 @@ echo"</select>";
 
 ?>
 </div>
-<table width="100%" cellspacing="1" class="table" style="cursor: pointer;">
+<table width="100%" cellspacing="1" class="table table-bordered"" style="cursor: pointer;">
   <thead>		
    <tr>
     <th>#</th>
