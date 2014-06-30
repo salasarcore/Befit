@@ -6,9 +6,9 @@ include("../functions/dropdown.php");
 include("../functions/common.php");
 include("../functions/comm_functions.php");
 include('../check_session.php');
-//require '../sms/SmsSystem.class.php';
-//include("../email_settings.php");
-//$smssend = new SMS(); //create object instance of SMS class
+require '../sms/SmsSystem.class.php';
+include("../../email_settings.php");
+$smssend = new SMS(); //create object instance of SMS class
 ?>
 <script type="text/javascript"   src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
@@ -144,9 +144,9 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 							else
 							{		
 								$newstuid=getNextMaxId("mst_students","stu_id")+1;
-								$sql="INSERT INTO mst_students(stu_id,reg_no,br_id,adm_form_no,stu_fname,stu_mname,stu_lname,sex,dob,doa,email,present_address,city,off_tel_no,res_tel_no,mob,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no,mobile_clinic,contact_person_name,contact_person_telno,admission_date,updated_by)";
+								$sql="INSERT INTO mst_students(stu_id,reg_no,br_id,adm_form_no,stu_fname,stu_mname,stu_lname,sex,dob,doa,email,present_address,city,off_tel_no,res_tel_no,mob,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no,mobile_clinic,contact_person_name,contact_person_telno,health_history_checklist,admission_date,updated_by)";
 							
-								$sql =$sql ." SELECT ".$newstuid.",'".$reg_no."',br_id,adm_form_no,stu_fname,stu_mname,stu_lname,sex,dob,doa,email,present_address,city,off_tel_no,res_tel_no,mob,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no,mobile_clinic,contact_person_name,contact_person_telno,'".$adt."','".makeSafe($_SESSION['emp_name'])."' FROM admission_application where adm_form_no=".$adm_form_no;
+								$sql =$sql ." SELECT ".$newstuid.",'".$reg_no."',br_id,adm_form_no,stu_fname,stu_mname,stu_lname,sex,dob,doa,email,present_address,city,off_tel_no,res_tel_no,mob,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no,mobile_clinic,contact_person_name,contact_person_telno,health_history_checklist,'".$adt."','".makeSafe($_SESSION['emp_name'])."' FROM admission_application where adm_form_no=".$adm_form_no;
 								$res=mysql_query($sql,$link);
 								if(mysql_affected_rows($link)>0)
 									{
@@ -191,7 +191,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 											/*$session = makeSafe($_REQUEST['session']);
 											$sessionquery = mysql_fetch_assoc(mysql_query("select section from session_section where department_id=".$department_id));
 											$getmobilequery = mysql_fetch_assoc(mysql_query("select stu_fname, student_mobile, mob from admission_application where adm_form_no=".$adm_form_no));
-												
+												*/
 											//email query 
 										 	$query_local = "select * from notification_setting where module_id = ".APPLCATION_ACCEPTED." and  notification_type='E' and sending_type='A' " ; // module_id = '2' for Application Accepted
 											$res_local = mysql_query($query_local,$link);
@@ -200,36 +200,32 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 											if($num_local>0) {
 												
 											$query_t = "SELECT e.*, g.* FROM notification_module_master e, global_email_template g  WHERE e.module_id=g.email_module_id and available_for_school='Y'  AND  e.module_name = 'Application Accepted'";
-											$sql_t = mysql_query($query_t,$scslink) or die('Error. Query failed.');
+											$sql_t = mysql_query($query_t) or die('Error. Query failed.');
 											$nums = mysql_num_rows($sql_t);
 											$gettemp = mysql_fetch_assoc($sql_t);
 											$template = $gettemp['email_temp_format'];
 
-											$query="select distinct session_id,session,section  from session_section where department_id=".$department_id." and freeze='N' and admission_open='Y' AND session_id  = ".$session." ";
+											$query="select distinct session_id,session,section,department_name  from session_section as ss, mst_departments as d where d.department_id=ss.department_id and ss.department_id=".$department_id." and freeze='N' and admission_open='Y' AND session_id  = ".$session." ";
 											$result=mysql_query($query);
 											$rows=mysql_fetch_array($result);
 											$sess=$rows['session'];
 											$sectn=$rows['section'];
+											$department_name=$rows['department_name'];
 											$reg=makeSafe($_POST['reg_no']);
-											$subject = "Student Admission Accepted";
-											$path = POPUP;
+											$subject = "Admission Accepted";
+											$path = "../../logo.png";
 											$stu_name = $stu_fname." ".$stu_lname;
 											
-											if(@$nums>0 && $p_email!="") {
+											if(@$nums>0 && $email!="") {
 										
 													$hashvalue = array($stu_name,$branch_name,$sess,$department_name,$sectn,$reg);
 													$temp_value = getEmailMessage($template,$hashvalue);
-													$sendEmail = Sending_EMail($temp_value,$p_email,$subject,$path);
+													$sendEmail = Sending_EMail($temp_value,$email,$subject,$path);
 												}//nums
-											if(@$nums>0 && $student_email!="") {
-												
-													$hashvalue = array($stu_name,$branch_name,$sess,$department_name,$sectn,$reg);
-													$temp_value = getEmailMessage($template,$hashvalue);
-													$sendEmail = Sending_EMail($temp_value,$student_email,$subject,$path);
-											   }//nums
+											
 											}//$num_local
 											
-											//sms query
+										/*	//sms query
 											
 												$querysetting="select * from notification_setting where module_id=".APPLCATION_ACCEPTED." and notification_type='S' and sending_type='A'";
 												$resquerysetting=mysql_query($querysetting,$link);
@@ -264,23 +260,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 										}
 										else
 											$msg="<div class='error'>Record Not Saved Successfully</div>";
-										/*$dept=getDetailsById("mst_departments","department_id",$department_id);
-										$section=getDetailsById("session_section","session_id",$session);
-										$session_id1="select session_id from session where session_name='".$section['session']."'";
-										$res=mysql_query($session_id1);
-										$rowsession=mysql_fetch_array($res);
-										$today=date("Y-m-d");
-										$sqlh="select * from homework where department='".$dept['department_name']."' and section='".$section['section']."' and session_id=".$rowsession['session_id']." and lastsubmissiondate>='".$today."'";
-										
-										$resh=mysql_query($sqlh);
-			
-										while($row=mysql_fetch_assoc($resh))
-										{
-											
-											$sqlhw="insert into homework_student (st_id,rollno,hw_id,session_id,department,section)";
-											$sqlhw=$sqlhw."values(".$stu_id.",".$roll_no.",".$row['hw_id'].",".$rowsession['session_id'].",'".$dept["department_name"]."','".$section['section']."')";
-											$res=mysql_query($sqlhw) or die("Unable to connect to Server,We are sorry for inconvienent caused");
-										}*/
+									
 									}
 							}
 						}

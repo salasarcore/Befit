@@ -51,7 +51,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 					$ext=explode('.', $_FILES["attachfile"]["name"]);
 					$tmp_name = $_FILES["attachfile"]["tmp_name"];
 					if(@$action=="SAVE") $name=base64_encode($newexpense_list_id); else $name=base64_encode($expense_list_id);
-					$filepath=$uploaddir.DOMAIN_IDENTIFIER."_".$name.".".$ext[1];
+					$filepath=$uploaddir.$name.".".$ext[1];
 					if (move_uploaded_file($tmp_name,$filepath ))
 						$attachfile=$ext[1];
 					else
@@ -85,14 +85,14 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			if(@$deletefile=="remove")
 			{
 				$expenserecorddetails=getDetailsById("expense_list","expense_list_id",$expense_list_id);
-				@unlink($uploaddir.DOMAIN_IDENTIFIER."_".base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
+				@unlink($uploaddir.base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
 				$attachfile="";
 				$check="removed";
 			}
 			if(@$_FILES["attachfile"]["name"]!="")
 			{
 				$expenserecorddetails=getDetailsById("expense_list","expense_list_id",$expense_list_id);
-				@unlink($uploaddir.DOMAIN_IDENTIFIER."_".base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
+				@unlink($uploaddir.base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
 				
 				$allowed = array('application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','text/plain','application/vnd.ms-excel','application/pdf','image/gif','image/jpeg','image/jpg','image/pjpeg','image/x-png','image/png');
 				$upload="";
@@ -104,7 +104,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 					$ext=explode('.', $_FILES["attachfile"]["name"]);
 					$tmp_name = $_FILES["attachfile"]["tmp_name"];
 					if(@$action=="SAVE") $name=base64_encode($newexpense_list_id); else $name=base64_encode($expense_list_id);
-					$filepath=$uploaddir.DOMAIN_IDENTIFIER."_".$name.".".$ext[1];
+					$filepath=$uploaddir.$name.".".$ext[1];
 					if (move_uploaded_file($tmp_name,$filepath ))
 						$attachfile=$ext[1];
 					else
@@ -135,7 +135,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 if(@$action=="DELETE")
 {
 		$expenserecorddetails=getDetailsById("expense_list","expense_list_id",$expense_list_id);
-		@unlink($uploaddir.DOMAIN_IDENTIFIER."_".base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
+		@unlink($uploaddir.base64_encode(@$expense_list_id).".".$expenserecorddetails['mime']);
 		$query  = "delete  FROM expense_list where expense_list_id=".@$expense_list_id;
 		$result  = mysql_query($query) or die('Error, query failed');
 		if(mysql_affected_rows($link)>0){
@@ -190,7 +190,6 @@ if(@$act=="edit" || @$act=="delete" )
 <script type="text/javascript" src="../../../js/jquery.js"></script>
 <link rel="Stylesheet" type="text/css" href="../../../css/jquery-ui.css" />
 <script type="text/javascript" src="../../../js/Ujquery-ui.min.js"></script>
-<?php include('../../php/js_css_common.php');?>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#credited_to,#amount_currency').keyup(function(){
@@ -409,7 +408,7 @@ function validateattachfile(filename)
 				</tr>
 				<tr>
 				<?php if(@$attachfile!=""){?><tr><td align="right">Attached File :</td><td>
-				<a href="<?php echo $uploaddir.DOMAIN_IDENTIFIER."_".base64_encode(@$expense_list_id).".".$attachfile; ?>" target="_blank"><img src="../../css/classic/message_attachment.png" id="fileattached" height="20px" width="20px"/></a>
+				<a href="<?php echo $uploaddir.base64_encode(@$expense_list_id).".".$attachfile; ?>" target="_blank"><img src="../../css/classic/message_attachment.png" id="fileattached" height="20px" width="20px"/></a>
 				<img name="image" id ="delimage" alt="cancel" src="../../css/classic/close.png" width="15px" height="15px" title="Delete the file" style="cursor: pointer; vertical-align: top;">
 				<input type="hidden" name="deletefile" id="deletefile" value="">
 				</td></tr><?php }?>

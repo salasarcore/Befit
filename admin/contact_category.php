@@ -90,7 +90,7 @@ Enter Category Name: <input type="text" name="txtFilter" value="<?php echo $strf
    <th width="20px">#</th>
     <th>CATEGORY NAME</th>
     <th>UPDATED ON</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>

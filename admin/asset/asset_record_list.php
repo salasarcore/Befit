@@ -144,7 +144,7 @@ function ExportExcel()
 				<td align="center">&nbsp;<?php echo $row['quantity']*$row['price'];?></td>
 				<td align="center">&nbsp;<?php echo ($row['on_demand']=="Y") ? "YES" : "NO"; ?></td>
 				<td align="center"><?php echo date("jS-M-Y",strtotime($row['received_date']));?></td>
-				<td align="center"><?php if($row['attachment']!="") {?><a href="<?php echo $uploaddir.DOMAIN_IDENTIFIER."_".$row['attachment']; ?>" target="_blank"><img src="css/classic/message_attachment.png" height="20px" width="20px"/></a><?php }?></td>
+				<td align="center"><?php if($row['attachment']!="") {?><a href="<?php echo $uploaddir.$row['attachment']; ?>" target="_blank"><img src="css/classic/message_attachment.png" height="20px" width="20px"/></a><?php }?></td>
 				<td align="center"><?php echo date("jS-M-Y, g:iA",strtotime($row['created_at']));?></td>
 				<td align="center"><?php echo date("jS-M-Y, g:iA",strtotime($row['updated_at']));?></td>
 				<td align="center"><?php echo $row['updated_by'];?></td>

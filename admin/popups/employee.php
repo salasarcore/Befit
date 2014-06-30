@@ -7,6 +7,9 @@ include("../functions/dropdown.php");
 include("../functions/functions.php");
 include("../functions/common.php");
 include("../classes/class.sample_image.php");
+include('../../email_settings.php');
+require '../sms/SmsSystem.class.php';
+$smssend = new SMS(); //create object instance of SMS class
 $act=makeSafe(@$_GET['act']);
 $empID=makeSafe(@$_GET['empID']);
 $action=makeSafe(@$_POST['action']);
@@ -522,13 +525,36 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 						{
 							$extn=explode('.',$_FILES["file"]["name"]);
 								
-							$upath="../../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($mempid).".".$extn[1];
+							$upath="../../site_img/emppic/".base64_encode($mempid).".".$extn[1];
 
 							$SourceFile = $_FILES["file"]["tmp_name"];
 							watermarkImage_passport ($SourceFile, $upath,$extn[1]); }
+							// email query
+							$query_local = "select * from notification_setting where module_id = ".EMPLOYEE_REG." and  notification_type='E' and sending_type='A' " ; // module_id = 16 for Employee Registration
+							$res_local = mysql_query($query_local,$link);
+							$num_local = mysql_num_rows($res_local);
+							if($num_local>0) {
+									
+								$query_t = "SELECT e.*, g.* FROM notification_module_master e, global_email_template g  WHERE e.module_id=g.email_module_id and available_for_school='Y'  AND  e.module_name = 'Employee Registration'";
+								$sql_t = mysql_query($query_t) or die('Error. Query failed.');
+								$nums = mysql_num_rows($sql_t);
+								$gettemp = mysql_fetch_assoc($sql_t);
+								$template = $gettemp['email_temp_format'];
+								if($nums>0) {
+									$schoolname = "Befit Ladies Gym";
+									$url = "http://localhost/admin";
+									$subject="Employee Registation";
+									$path="../../logo.png";
+										
+									$hashvalue = array($full_name,$schoolname,$url,$emp_id,$password);
+									$temp_value = getEmailMessage($template,$hashvalue);
+									$sendEmail = Sending_EMail($temp_value,$email,$subject,$path); } }
+									
+									$msg= "<div class='success'>Employee Registration completed</div>";
 						
 						}
-						$msg= "<div class='success'>Employee Registration completed</div>";
+						
+						
 						if($action=="SAVE")
 							$act=="add";
 							else
@@ -581,7 +607,7 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 						{
 							$extn=explode('.',$_FILES["file"]["name"]);
 							$mime=$extn[1];
-							$upath="../../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($empID).".".$extn[1];
+							$upath="../../site_img/emppic/".base64_encode($empID).".".$extn[1];
 						    $SourceFile = $_FILES["file"]["tmp_name"];
 						   
 							watermarkImage_passport ($SourceFile, $upath,$mime);
@@ -757,8 +783,7 @@ function ClearField(frm){
 				  </script></td>
 	<td align="right">Place of posting</td><td class="redstar">:</td>
 	<td><?php branches($br_id);?>
-		<span class="hint">Select Your Work location<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_location"></div></td>
+			<div id="err_location"></div></td>
 	</tr>
 	<tr>
 	<td  align="right">Date Of Birth</td><td class="redstar"> : </td>
@@ -810,54 +835,46 @@ function ClearField(frm){
     <tr>
 		<td  align="right">Mother Name</td><td> : </td>
         <td>
-            <input name="mother_name"	id="mother_name" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$mother_name;?>"  maxlength="255"/>            <span class="hint">Enter Home/Emergency Contact No<span class="hint-pointer">&nbsp;</span></span>
-            <div id="err_mother_name"></div>	</td>
+            <input name="mother_name"	id="mother_name" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$mother_name;?>"  maxlength="255"/><div id="err_mother_name"></div>	</td>
         <td></td><td></td>
     </tr>
     <tr>    
         <td  align="right">Spouse Name</td><td> : </td>
         <td>
-            <input name="wife_husband" id="wife_husband" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$wife_husband;?>"  maxlength="255" />            <span class="hint">Enter Father Contact No<span class="hint-pointer">&nbsp;</span></span>
-            <div id="err_wife_husband"></div>	
+            <input name="wife_husband" id="wife_husband" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$wife_husband;?>"  maxlength="255" /><div id="err_wife_husband"></div>	
          </td>
          <td align="right" >Spouse Contact No</td><td> : </td>
 	<td>
-		&nbsp;<input name="husband_no" id="husband_no" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$husband_no;?>" />		<span class="hint">Enter your Contact No<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_husband_no"></div>	</td>
+		&nbsp;<input name="husband_no" id="husband_no" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$husband_no;?>" /><div id="err_husband_no"></div>	</td>
 	</tr>
 	<tr>
 	<td  align="right" >Emergency Contact No </td><td class="redstar"> : </td>
 	<td>
-		<input name="ecn" id="ecn" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$ecn;?>" />		<span class="hint">Enter Home/Emergency Contact No<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_ecn"></div>	</td>
+		<input name="ecn" id="ecn" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$ecn;?>" /><div id="err_ecn"></div>	</td>
 	<td  align="right">Mobile No</td><td class="redstar"> : </td>
 	<td>
-		&nbsp;<input name="mob" id="mob" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit")echo @$mob;?>" />		<span class="hint">Enter your Contact No<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_mob"></div>	</td>
+		&nbsp;<input name="mob" id="mob" maxlength="50"  type="text" value="<?php if($act=="add") ""; elseif($act=="edit")echo @$mob;?>" /><div id="err_mob"></div>	</td>
 	</tr>
 	<tr>
 	<td  align="right">Voter Card No</td><td > : </td>
-	<td><input name="epic" id="epic" type="text" maxlength="255"  value="<?php  if($act=="add") ""; elseif($act=="edit") echo @$epic;?>" />		<span class="hint">Enter your EPIC No<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_epic"></div></td>
+	<td><input name="epic" id="epic" type="text" maxlength="255"  value="<?php  if($act=="add") ""; elseif($act=="edit") echo @$epic;?>" /><div id="err_epic"></div></td>
 		
-	<td  align="right">PAN No</td><td > : </td>	<td>&nbsp;<input name="pan" id="pan" type="text" maxlength="255" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$pan;?>" />		<span class="hint">Enter your PAN No<span class="hint-pointer">&nbsp;</span></span>
-		<div id="err_pan"></div></td>
+	<td  align="right">PAN No</td><td > : </td>	<td>&nbsp;<input name="pan" id="pan" type="text" maxlength="255" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$pan;?>" /><div id="err_pan"></div></td>
 	</tr>
 	<tr>
   
 	<tr>
 	<td align="right">Email ID</td><td class="redstar"> : </td>
 	<td>
-		<input name="email" id="email" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$email;?>" maxlength="255" />		<span class="hint">Enter your E-mailID.<span class="hint-pointer">&nbsp;</span></span>		<div id="err_email"></div>	</td>
+		<input name="email" id="email" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$email;?>" maxlength="255" /><div id="err_email"></div>	</td>
 		
 	<td align="right">Home Phone</td><td> : </td>
-	<td>&nbsp;<input name="home_phone" id="home_phone" maxlength="50" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$home_phone;?>" />		<span class="hint">Enter Your  Home Landline Number.<span class="hint-pointer">&nbsp;</span></span>		<div id="err_home_phone"></div></td>
+	<td>&nbsp;<input name="home_phone" id="home_phone" maxlength="50" type="text" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$home_phone;?>" /><div id="err_home_phone"></div></td>
 	</tr>
 	<tr>
 	<td  align="right">Password</td><td class="redstar"> : </td>
 	<td>
 		<input name="password" id="password" maxlength="20" type="password" value="<?php if($act=="add") ""; elseif($act=="edit") echo @$password;?>"/>
-		<span class="hint">Enter your password<span class="hint-pointer">&nbsp;</span></span>
 		<div id="err_password"></div>	</td>
 	<td  align="right">Payment Type</td><td class="redstar"> : </td>
 	<td>
@@ -867,7 +884,6 @@ function ClearField(frm){
 			<option value="Cash"<?php if($act=="edit") if($payment_type=="Cash") echo "selected";?>>Cash</option>
 			<option value="Online"<?php if($act=="edit") if($payment_type=="Online") echo "selected";?>>Online</option>
 		</select>
-		<span class="hint">Please select Payment Type<span class="hint-pointer">&nbsp;</span></span>
 		<div id="err_payment_type"></div>
 	</td>
 	</tr>

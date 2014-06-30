@@ -68,7 +68,7 @@ $uploaddir="../../../site_img/expense/";
 		<td align="center"><?php echo date("jS-M-Y",strtotime($row['date']));?></td>
 		<td align="center"><?php echo round($row['amount']); ?></td>
 		<td align="center"><?php echo $row['amount_currency']; ?></td>
-		<td align="center"><?php if($row['mime']!="") {?><a href="<?php echo $uploaddir.DOMAIN_IDENTIFIER."_".base64_encode($row['expense_list_id']).".".$row['mime']; ?>" target="_blank"><img src="css/classic/message_attachment.png" height="20px" width="20px"/></a><?php }?></td>
+		<td align="center"><?php if($row['mime']!="") {?><a href="<?php echo $uploaddir.base64_encode($row['expense_list_id']).".".$row['mime']; ?>" target="_blank"><img src="css/classic/message_attachment.png" height="20px" width="20px"/></a><?php }?></td>
 		<td style="word-wrap: break-word;" align="center"><?php echo $row['remark']; ?></td>
 		<td align="center"><?php echo $row['credited_to']; ?></td>
 		<td align="center"><?php echo date("jS-M-Y, g:iA",strtotime($row['created_at']));?></td>

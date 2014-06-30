@@ -106,7 +106,7 @@ Fee Discount Name:<input type="text" name="txtFilter" id="txtFilter" value="<?ph
     <th>DISCARDED ?</th>
     <th>CREATED AT</th>
     <th>UPDATED AT</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   </thead>
   <tbody>

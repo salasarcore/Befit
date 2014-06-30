@@ -6,9 +6,9 @@ include("../functions/employee/dropdown.php");
 include("../functions/dropdown.php");
 include("../functions/common.php");
 include('../check_session.php');
-//require '../sms/SmsSystem.class.php';
-//include("../../email_settings.php");
-//$smssend = new SMS(); //create object instance of SMS class
+require '../sms/SmsSystem.class.php';
+include("../../email_settings.php");
+$smssend = new SMS(); //create object instance of SMS class
 ?>
 <link href="../css/classic.css" rel="stylesheet" type="text/css">
 <?php
@@ -79,36 +79,31 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 		$res=mysql_query($sql) or die("Unable to connect to Server,We are sorry for inconvienent caused");
 		$msg="<div class='success'>Rejected Successfully</div>";
 		//email query 
-		/*$query_local = "select * from notification_setting where module_id = ".APPLCATION_REJECTED." and  notification_type='E' and sending_type='A' " ; // module_id = '3' for APPLICATION REJECTED
+		$query_local = "select * from notification_setting where module_id = ".APPLCATION_REJECTED." and  notification_type='E' and sending_type='A' " ; // module_id = '3' for APPLICATION REJECTED
 		$res_local = mysql_query($query_local,$link);
 		$num_local = mysql_num_rows($res_local);
 		
 	    if($num_local>0) {
 	 	$query_t = "SELECT e.*, g.* FROM notification_module_master e, global_email_template g  WHERE e.module_id=g.email_module_id and available_for_school='Y' AND  e.module_name = 'Application Rejected'";
-	 	$sql_t = mysql_query($query_t,$scslink) or die('Error. Query failed.');
+	 	$sql_t = mysql_query($query_t) or die('Error. Query failed.');
 	 	$nums = mysql_num_rows($sql_t);
 	 	$gettemp = mysql_fetch_assoc($sql_t);
 	 	$template = $gettemp['email_temp_format'];
-		$subject = "Student Admission Rejected";
-		$path=POPUP;
+		$subject = "Admission Rejected";
+		$path="../../logo.png";
 		if ($rejected_cause!="") {  $cause = "Reason : ".$rejected_cause; }  else {  $cause="";}
 		
-		if(@$nums>0 && $p_email!="") {
+		if(@$nums>0 && $email!="") {
 			
 			$hashvalue = array($stu_name,$cause);
 			$temp_value = getEmailMessage($template,$hashvalue);
-			$sendEmail = Sending_EMail($temp_value,$p_email,$subject,$path);
+			$sendEmail = Sending_EMail($temp_value,$email,$subject,$path);
 		}//nums
 		
-		if(@$nums>0 && $student_email!="") {
-				
-			$hashvalue = array($stu_name,$cause);
-			$temp_value = getEmailMessage($template,$hashvalue);
-			$sendEmail = Sending_EMail($temp_value,$student_email,$subject,$path);
-		}//nums
+		
 		
 	 }//$num_local
-		//sms query
+	/*	//sms query
 		
 		$query = "SELECT * FROM sms_settings WHERE template_type='T' AND send_type='A' AND approved_status='Y' AND module_name ='Application Rejected'";
 		$sql = mysql_query($query) or die('Error. Query failed.');

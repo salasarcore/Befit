@@ -103,7 +103,7 @@ Enter Session Name: <input type="text" name="txtFilter" id="txtFilter" value="<?
     <th>SESSION START DATE</th>
     <th>FREEZED</th>
     <th>DATE UPDATED</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY </th>
   </tr>
   <thead>
   <tbody>

@@ -165,7 +165,7 @@ $sqlWhere="";
 
 	<tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?>  onclick="getSelected();"  >
 	 <td align="center"><input type="checkbox" id="<?php echo $row['empid'];?>" name="rdoID" value="<?php echo $row['empid'];?>" onclick="getSelected();"/></td>
-		<td align="center"><img src="../site_img/emppic/<?php echo DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime']; ?>" width="20px" /></td>
+		<td align="center"><img src="../site_img/emppic/<?php echo base64_encode($row['empid']).".".$row['mime']; ?>" width="20px" /></td>
 		<td><?php echo $row['emp_name']; ?></td>
 		<td align="center"><?php echo $row['emp_id']; ?></td>
 		<td align="center"><?php echo $row['sex']; ?></td>

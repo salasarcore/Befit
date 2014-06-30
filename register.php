@@ -6,6 +6,11 @@ include_once("admin/functions/common.php");
 include("admin/functions/employee/dropdown.php");
 include("admin/functions/functions.php");
 include("admin/functions/comm_functions.php");
+require 'admin/sms/SmsSystem.class.php';
+
+include('email_settings.php');
+$smssend = new SMS(); //create object instance of SMS class
+
 $self=$_SERVER['PHP_SELF'];
 if(isset($_POST['login_submit']))
 {	
@@ -15,6 +20,9 @@ $br_id=1;
 	$middlename=makeSafe(@$_POST['middlename']);
 	$lastname=makeSafe(@$_POST['lastname']);
 	$sex=makeSafe($_POST['sex']);	
+	$health=array();
+	$health=$_POST['check'];
+	$health_his_check=implode(",",$health);
 	
 	$yy1=makeSafe(@$_POST['year1']);
 	$mm1=makeSafe(@$_POST['month1']);
@@ -133,20 +141,79 @@ $city=makeSafe($_POST['city']);
 	{
 		
 		$newformid=getNextMaxId("admission_application","adm_form_no")+1;
-		$sql="INSERT INTO admission_application(adm_form_no,br_id,stu_fname,stu_mname,stu_lname,sex,dob,doa,present_address ,city,off_tel_no,res_tel_no,mob,email,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no, mobile_clinic,contact_person_name,contact_person_telno,date_applied) ";
+		$sql="INSERT INTO admission_application(adm_form_no,br_id,stu_fname,stu_mname,stu_lname,sex,dob,doa,present_address ,city,off_tel_no,res_tel_no,mob,email,pin,occupation,height,weight,physical_activity,present_medications,presently_pregnant,physician,present_physical_activity,physician_name,clinic_no, mobile_clinic,contact_person_name,contact_person_telno,health_history_checklist,date_applied) ";
 		$sql =$sql ." values(".$newformid.",".$br_id.",'".$firstname."','".$middlename."','".$lastname."','".$sex."','".$dob."','".$doa."','".$address."','".$city."','".$offtelno."',";
-		$sql =$sql ." '".$restelno."','".$mobileno."','".$email."','".$pin."','".$occupation."','".$height."','".$weight."','".$physicalactivity."','".$presentmedications."','".$presentlypregnant."','".$physician."','".$presentphysicalactivity."','".$physicianname."','".$clinicno."','".$mobileclinic."','".$contactpersonname."','".$contactpersontelno."','".date('Y-m-d h:i:s')."')";
+		$sql =$sql ." '".$restelno."','".$mobileno."','".$email."','".$pin."','".$occupation."','".$height."','".$weight."','".$physicalactivity."','".$presentmedications."','".$presentlypregnant."','".$physician."','".$presentphysicalactivity."','".$physicianname."','".$clinicno."','".$mobileclinic."','".$contactpersonname."','".$contactpersontelno."','".$health_his_check."','".date('Y-m-d h:i:s')."')";
 	
 		$res=mysql_query($sql,$link);
 		if(mysql_affected_rows($link)>0)
 		{
-			$message="Record Saved Successfully";
-	}
+		/*	$_SESSION['sms_t_count']=0;
+			$query2 = "SELECT SUM(spd.no_of_transactional_purchase) as sms_t_count, SUM(spd.no_of_promotional_purchase) as sms_p_count FROM schools sc LEFT JOIN school_sms_purchase_dtls spd ON sc.schoolid = spd.school_id WHERE sc.domain_identifier = '".$subdomainname."'";
+			$res2 = mysql_query($query2, $scslink);
+			if($res2)
+			{
+				$row2 = mysql_fetch_assoc($res2);
+				$tquery = "select count(sms_type) as t_count from sms_transaction_log where sms_type='T'";
+			
+				$tres = mysql_query($tquery,$link);
+			
+				if($tres)
+					$trow = mysql_fetch_assoc($tres);
+			
+				$_SESSION['sms_t_count']= $row2['sms_t_count'] - $trow['t_count'];
+			}
+				
+			if($_SESSION['sms_t_count']>0){
+				if($numrows>0)
+				{
+					/**
+					 * This if block indicates that the module has auto sms sending setting. Hence we will call the functions defined in the SmsSystem.class.php file.
+					 */
+				/*	$schoolname = SCHOOL_NAME;
+					$hashvalues = array($schoolname,$stu_fname,$newformid);
+					$message = $smssend->getSmsMessage($getresult['template_format'],$hashvalues);
+					$mobile = $stu_mob;
+					$send_to = 'MEMBER';
+					
+						$mobile = $mob;
+											
+					$sendMessage = $smssend->sendTransactionalSMS($getresult['template_id'],$mobile,$message,trim($sms_sender_id));
+					$logInsert = $smssend->insertLog($sendMessage,$stu_fname,trim($message),$mobile,$send_to,'T');
+				}
+			
+			
+	}*/
+			$query_local1 = "select * from notification_setting where module_id = ".ONLINE_APPLICATION." and  notification_type='E' and sending_type='A' " ; // module_id = '1' is online application
+			$res_local1 = mysql_query($query_local1,$link);
+			$num_local1 = mysql_num_rows($res_local1);
+			
+			
+	if($num_local1>0)
+	{
+		$query_t = "SELECT e.*, g.* FROM notification_module_master e, global_email_template g  WHERE e.module_id=g.email_module_id  AND  e.module_name = 'Online Application' and available_for_school='Y' ";
+		$sql_t = mysql_query($query_t) or die('Error, Query failed.');
+		$nums = mysql_num_rows($sql_t);
+		$gettemp = mysql_fetch_assoc($sql_t);
+		$subject="Online Application";
+		$path = "logo.png";
+		$template = $gettemp['email_temp_format'];
+			
+		if(@$nums>0 && $email!="")
+		{
+			$hashvalue = array($firstname);
+	
+			$temp_value = getEmailMessage($template,$hashvalue);
+			$sendEmail = Sending_EMail($temp_value,$email,$subject,$path);
+		}
+		
+	}//$num_local1
+	$message="Record Saved Successfully";
 }
 	
 }
 
-	
+}
 
 ?>
 
@@ -199,13 +266,12 @@ $city=makeSafe($_POST['city']);
 
 function chkME(frm)
 {
-alert("hello");
 if(trim(frm.firstname.value)==""){
 	alert("Please Enter First Name");
 	frm.firstname.focus();
 	return false;
 }
-/*if(trim(document.frm.lastname.value)==""){
+if(trim(document.frm.lastname.value)==""){
 	alert("Please Enter Last Name");
 	document.frm.lastname.focus();
 	return false;
@@ -261,7 +327,7 @@ if(mobileno<10){
 	document.frm.mobileno.focus();
 	return false;
 }
-*/
+
 
 return true;
 }
@@ -395,7 +461,7 @@ $(document).ready(function(){
                                         </div>
 										<label class="label col col-2">Sex</label>
                                         <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
                                                
                                                 <select name="sex" id="sex">
                                                 <option value="MALE">MALE</option>
@@ -422,7 +488,7 @@ $(document).ready(function(){
                                     <div class="row">
 										<label class="label col col-2">Date of Birth</label>
                                         <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
                                                
                                             <select name="month1"> 
 					<option value=0 selected>Month</option>
@@ -442,7 +508,7 @@ $(document).ready(function(){
 				</label>
 				</div>
 				  <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
 					<select name="day1">
 					<option value=0>Day</option>
 						<?php 
@@ -465,7 +531,7 @@ $(document).ready(function(){
 						  </label>
 						  </div>
 						    <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
 						  
 						  <select name="year1"> 
 							 <option value="0" selected>Year</option> 
@@ -486,7 +552,7 @@ $(document).ready(function(){
                                     <div class="row">
                                         <label class="label col col-2">Anniversary</label>
                                          <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
                                                
                                             <select name="month2"> 
 					<option value=0 selected>Month</option>
@@ -506,7 +572,7 @@ $(document).ready(function(){
 				</label>
 				</div>
 				  <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
 					<select name="day2">
 					<option value=0>Day</option>
 						<?php 
@@ -529,7 +595,7 @@ $(document).ready(function(){
 						  </label>
 						  </div>
 						    <div class="col col-2">
-                                            <label class="input">
+                                            <label class="select">
 						  
 						  <select name="year2"> 
 							 <option value="0" selected>Year</option> 
@@ -580,25 +646,8 @@ $(document).ready(function(){
                                 </section>
                                              <section>
                                     <div class="row">
-                                        <label class="label col col-8">Are you currently involved in any physical activity?</label>
-                                        <div class="col col-2">
-                                            <label class="input">
-                                                
-                                                <input type="radio" name="physicalactivity" value="YES">YES
-                                   
-												
-                                            </label>
-                                        </div>
-										<div class="col col-2">
-                                            <label class="input">
-                                                
-                                              
-                                                        <input type="radio" name="physicalactivity" value="NO">NO
-                                               
-											
-                                            </label>
-                                        	</div>	
-                                       
+                                        <label class="label col col-7">Are you currently involved in any physical activity?</label><input type="radio" name="physicalactivity" value="YES">YES <input type="radio" name="physicalactivity" value="NO">NO
+                                                               
                                     </div>
                                 </section>
                                                  <section>
@@ -653,9 +702,9 @@ $(document).ready(function(){
                                 </section>
                                    <section>
                                     <div class="row">
-                                        <label class="label col col-10">Does your physician know you are participating in exercise program?</label>
-                                        		
-                                       
+                                        <label class="label col col-7">Does your physician know you are participating in exercise program?</label>
+                                        		   <input type="radio" name="physician" value="YES">YES
+                                       <input type="radio" name="physician" value="NO">NO
                                     </div>
                                 </section>
                                        <section>
@@ -663,7 +712,7 @@ $(document).ready(function(){
                                          <div class="col col-2">
                                             <label class="input">
                                                 
-                                                <input type="radio" name="physician" value="YES">YES
+                                             
                                                 
                                                
 										
@@ -673,7 +722,7 @@ $(document).ready(function(){
                                             <label class="input">
                                                 
                                               
-                                                <input type="radio" name="physician" value="NO">NO
+                                                
                                                
 											
                                             </label>
@@ -770,7 +819,41 @@ $(document).ready(function(){
                                         	</div>	
                                     </div>
                                 </section>
-                               
+                                <section>
+                                    <div class="row">
+                                          <label class="label col col-10">Health History Checklist</label>
+                                           </div></section>
+                                         <section>
+                                           <div class="row">
+                                         	<input type="checkbox" name="check[]" value='Muscle'> Muscle joint or back disorder that could be aggravated by physical activity<br>
+                                         	<input type="checkbox" name="check[]" value="History_of_heart"> History of heart problem in immediate family <br>
+                                         	<input type="checkbox" name="check[]" value="Recent_surgery_history"> Recent surgery in last three immediate family<br>
+                                         	<input type="checkbox" name="check[]" value="Recent_surgery_last_three_month"> Recent Surgery in last three months <br>
+                                         	<input type="checkbox" name="check[]" value="High_cholesterol_level"> High cholesterol level <br>
+                                         	<input type="checkbox" name="check[]" value="High_trigyceride_level"> High trigyceride level<br>
+                                         	<input type="checkbox" name="check[]" value="Heart_Disease"> Heart Disease <br>
+                                         	<input type="checkbox" name="check[]" value="High_Blood_Pressure"> High Blood Pressure<br>
+                                         	<input type="checkbox" name="check[]" value="Chest_Pain"> Chest Pain <br>
+                                         	<input type="checkbox" name="check[]" value="Stroke"> Stroke<br>
+                                         	<input type="checkbox" name="check[]" value="Irregular_Heartbeats"> Irregular Heartbeats<br>
+                                         	<input type="checkbox" name="check[]" value="Shortness_of_Breath"> Shortness of Breath<br>
+                                         	<input type="checkbox" name="check[]" value="Lung_Problem"> Lung Problem <br>
+                                         	<input type="checkbox" name="check[]" value="Asthma"> Asthma<br>
+                                         	<input type="checkbox" name="check[]" value="Allergies_Depression"> Allergies Depression<br>
+                                         	<input type="checkbox" name="check[]" value="Dizziness"> Dizziness<br>
+                                         	<input type="checkbox" name="check[]" value="Fainting_Spells"> Fainting Spells<br>
+                                         	<input type="checkbox" name="check[]" value="Severe_headaches"> Severe headaches<br>
+                                         	<input type="checkbox" name="check[]" value="Seizures_or_Convulsion"> Seizures or Convulsion<br>
+                                         	<input type="checkbox" name="check[]" value="Numbness_or_tingling"> Numbness or tingling<br>
+                                         	<input type="checkbox" name="check[]" value="Anemia"> Anemia<br>
+                                         	<input type="checkbox" name="check[]" value="Anxiety"> Anxiety<br>
+                                         	<input type="checkbox" name="check[]" value="Use_of_Laxatives_or_diuretics"> Use of Laxatives or diuretics<br>
+                                         	<input type="checkbox" name="check[]" value="Alcoholism_substance"> Alcoholism substance<br>
+                                         	
+                                         	
+                                       
+                                    </div>
+                                </section>
                                                
                                 
                                                   <section>

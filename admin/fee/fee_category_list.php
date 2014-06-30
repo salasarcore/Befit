@@ -93,7 +93,7 @@ function validatefeecat(frm)
 				<th width="31%">DESCRIPTION</th>
 				<th width="15%">CREATED AT</th>
 				<th width="15%">UPDATED AT</th>
-				<th width="15%">UPDATED BY <br>Employee Name[Emp_Code]</th>
+				<th width="15%">UPDATED BY</th>
 			</tr>
 		</thead>
 		<tbody>

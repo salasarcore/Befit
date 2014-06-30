@@ -160,7 +160,7 @@ $sqlWhere="";
 
 	<tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?>  onclick="selectID('<?php echo $row['empid']; ?>')" >
 	 <td align="center"><input type="radio" name="rdoID" value="<?php echo $row['empid']; ?>" id="rdoID" /></td>
-		<td align="center"><img src="<?php echo is_file("../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime']) ? "../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($row['empid']).".".$row['mime'] : "../images/".DEFAULT_IMAGE;?>" width="20px" /></td>
+		<td align="center"><img src="<?php echo is_file("../site_img/emppic/".base64_encode($row['empid']).".".$row['mime']) ? "../site_img/emppic/".base64_encode($row['empid']).".".$row['mime'] : "../images/".DEFAULT_IMAGE;?>" width="20px" /></td>
 		<td><?php echo $row['emp_name']; ?></td>
 		<td align="center"><?php echo $row['emp_id']; ?></td>
 		<td align="center"><?php echo $row['sex']; ?></td>

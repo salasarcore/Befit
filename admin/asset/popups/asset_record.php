@@ -49,7 +49,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 					$ext=explode('.', $_FILES["attachfile"]["name"]);
 					$tmp_name = $_FILES["attachfile"]["tmp_name"];
 					if(@$action=="SAVE") $name=base64_encode($newassetrecid); else $name=base64_encode($assetrecID);
-					$filepath=$uploaddir.DOMAIN_IDENTIFIER."_".$name.".".$ext[1];
+					$filepath=$uploaddir.$name.".".$ext[1];
 					if (move_uploaded_file($tmp_name,$filepath ))
 						$attachfile=$name.".".$ext[1];
 					else
@@ -75,14 +75,14 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			if(@$deletefile=="remove")
 			{
 				$assetrecorddetails=getDetailsById("asset_record","asset_record_id",$assetrecID);
-				@unlink($uploaddir.DOMAIN_IDENTIFIER."_".$assetrecorddetails[attachment]);
+				@unlink($uploaddir.$assetrecorddetails[attachment]);
 				$attachfile="";
 				$check="removed";
 			}
 			if(@$_FILES["attachfile"]["name"]!="")
 			{
 				$assetrecorddetails=getDetailsById("asset_record","asset_record_id",$assetrecID);
-				@unlink($uploaddir.DOMAIN_IDENTIFIER."_".$assetrecorddetails[attachment]);
+				@unlink($uploaddir.$assetrecorddetails[attachment]);
 				
 				$allowed = array('application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','text/plain','application/vnd.ms-excel','application/pdf','text/html','image/gif','image/jpeg','image/jpg','image/pjpeg','image/x-png','image/png');
 				$upload="";
@@ -94,7 +94,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 					$ext=explode('.', $_FILES["attachfile"]["name"]);
 					$tmp_name = $_FILES["attachfile"]["tmp_name"];
 					if(@$action=="SAVE") $name=base64_encode($newassetrecid); else $name=base64_encode($assetrecID);
-					$filepath=$uploaddir.DOMAIN_IDENTIFIER."_".$name.".".$ext[1];
+					$filepath=$uploaddir.$name.".".$ext[1];
 					if (move_uploaded_file($tmp_name,$filepath ))
 						$attachfile=$name.".".$ext[1];
 					else
@@ -125,7 +125,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 if(@$action=="DELETE")
 {
 		$assetrecorddetails=getDetailsById("asset_record","asset_record_id",$assetrecID);
-		@unlink($uploaddir.DOMAIN_IDENTIFIER."_".$assetrecorddetails[attachment]);
+		@unlink($uploaddir.$assetrecorddetails[attachment]);
 		$query  = "delete  FROM asset_record where asset_record_id=".@$assetrecID;
 		$result  = mysql_query($query) or die('Error, query failed');
 		if(mysql_affected_rows($link)>0)
@@ -346,7 +346,7 @@ function validateattachfile(filename)
 				</tr>
 				<tr>
 				<?php if(@$attachfile!=""){?><tr><td align="right">Attached File :</td><td>
-				<a href="<?php echo "../../../site_img/assets/".DOMAIN_IDENTIFIER."_".$attachfile; ?>" target="_blank"><img src="../../css/classic/message_attachment.png" id="fileattached" height="20px" width="20px"/></a>
+				<a href="<?php echo "../../../site_img/assets/".$attachfile; ?>" target="_blank"><img src="../../css/classic/message_attachment.png" id="fileattached" height="20px" width="20px"/></a>
 				<img name="image" id ="delimage" alt="cancel" src="../../css/classic/close.png" width="15px" height="15px" title="Delete the file" style="cursor: pointer; vertical-align: top;">
 				<input type="hidden" name="deletefile" id="deletefile" value="">
 				</td></tr><?php }?>

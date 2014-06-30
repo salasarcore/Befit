@@ -148,7 +148,7 @@ function ActionScript(act)
 				<th width="5%">DEPARTMENT - SECTION</th>
 				<th width="10%">CREATED AT</th>
 				<th width="10%">UPDATED AT</th>
-				<th width="10%">UPDATED BY <br>Employee Name[Emp_Code]</th>
+				<th width="10%">UPDATED BY</th>
 			</tr>
 		</thead>
 		<tbody>

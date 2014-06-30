@@ -187,7 +187,25 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 	
 	$pin=makeSafe($_POST['pin']);
 	$mob=makeSafe($_POST['mob']);
+	$occupation=makeSafe($_POST['occupation']);
+	$height=makeSafe($_POST['height']);
+	$weight=makeSafe($_POST['weight']);
+	$offtelno=makeSafe($_POST['off_tel_no']);
+	$restelno=makeSafe($_POST['res_tel_no']);
+	$physicalactivity=makeSafe($_POST['physical_activity']);
+	$presentmedications=makeSafe($_POST['present_medications']);
+	$presentlypregnant=makeSafe($_POST['presently_pregnant']);
+	$physician=makeSafe($_POST['physician']);
+	$presentphysicalactivity=makeSafe($_POST['present_physical_activity']);
+	$physicianname=makeSafe($_POST['physician_name']);
+	$clinicno=makeSafe($_POST['clinic_no']);
+	$mobileclinic=makeSafe($_POST['mobile_clinic']);
+	$contactpersonname=makeSafe($_POST['contact_person_name']);
+	$contactpersontelno=makeSafe($_POST['contact_person_telno']);
 	
+	$health=array();
+	$health=$_POST['check'];
+	$healthhistory=implode(",",$health);
 	if(@$action=="SAVE")
 		{	
 			if (!is_numeric($pin))
@@ -208,7 +226,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 				$sql="update mst_students set stu_fname='".$stu_fname."',stu_mname='".$stu_mname."',stu_lname='".$stu_lname."',sex='".$sex."',dob='".$dob."'";
 				$sql =$sql .",email='".$email."'";
 				$sql =$sql .",present_address='".$present_address."'";
-				$sql =$sql .",mob='".$mob."',pin='".$pin."',updated_by='".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."' where stu_id=".$_GET['studentID'];
+				$sql =$sql .",mob='".$mob."',pin='".$pin."',city='".$city."',off_tel_no='".$offtelno."',res_tel_no='".$restelno."',occupation='".$occupation."',height='".$height."',weight='".$weight."',physical_activity='".$physicalactivity."',present_medications='".$presentmedications."',presently_pregnant='".$presentlypregnant."',physician='".$physician."',present_physical_activity='".$presentphysicalactivity."',physician_name='".$physicianname."',clinic_no='".$clinicno."',mobile_clinic='".$mobileclinic."',contact_person_name='".$contactpersonname."',contact_person_telno='".$contactpersontelno."',health_history_checklist='".$healthhistory."',updated_by='".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."' where stu_id=".$_GET['studentID'];
 				$res=mysql_query($sql,$link) or die(mysql_error($link));
 				if(mysql_affected_rows($link)==0)
 					$msg="<div class='success'>No Data Changed</div>";
@@ -256,6 +274,9 @@ $sql="SELECT * FROM mst_students WHERE stu_id=".makeSafe($_GET['studentID']);
 	$mobileclinic=$row['mobile_clinic'];
 	$contactpersonname=$row['contact_person_name'];
 	$contactpersontelno=$row['contact_person_telno'];
+	$healthhistory=$row['health_history_checklist'];
+	$health=array();
+	$health=explode(",",$healthhistory);
 	}
 	
 ?>
@@ -453,6 +474,32 @@ Contact Person Name	</td>
 			<td align="right" class="redstar"  style="text-align: left;">
 Contact Person No.	</td>
 		<td><input type="text" name="contactpersontelno" value="<?php echo $contactpersontelno;?>"></td>	  </tr>
+		<tr><td align="right" class="redstar" colspan="4" style="text-align: left;">Health History Checklist</td></tr>
+		<tr>
+		<td colspan="4"><input type="checkbox" name="check[]" value='Muscle'> Muscle joint or back disorder that could be aggravated by physical activity<br>
+                                         	<input type="checkbox" name="check[]" value="History_of_heart" <?php if (in_array("History_of_heart", $health)) echo "checked"; ?>> History of heart problem in immediate family <br>
+                                         	<input type="checkbox" name="check[]" value="Recent_surgery_history" <?php if (in_array("Recent_surgery_history", $health)) echo "checked"; ?>> Recent surgery in last three immediate family<br>
+                                         	<input type="checkbox" name="check[]" value="Recent_surgery_last_three_month" <?php if (in_array("Recent_surgery_last_three_month", $health)) echo "checked"; ?>> Recent Surgery in last three months <br>
+                                         	<input type="checkbox" name="check[]" value="High_cholesterol_level" <?php if (in_array("High_cholesterol_level", $health)) echo "checked"; ?>> High cholesterol level <br>
+                                         	<input type="checkbox" name="check[]" value="High_trigyceride_level" <?php if (in_array("High_trigyceride_level", $health)) echo "checked"; ?>> High trigyceride level<br>
+                                         	<input type="checkbox" name="check[]" value="Heart_Disease" <?php if (in_array("Heart_Disease", $health)) echo "checked"; ?>> Heart Disease <br>
+                                         	<input type="checkbox" name="check[]" value="High_Blood_Pressure" <?php if (in_array("High_Blood_Pressure", $health)) echo "checked"; ?>> High Blood Pressure<br>
+                                         	<input type="checkbox" name="check[]" value="Chest_Pain" <?php if (in_array("Chest_Pain", $health)) echo "checked"; ?>> Chest Pain <br>
+                                         	<input type="checkbox" name="check[]" value="Stroke" <?php if (in_array("Stroke", $health)) echo "checked"; ?>> Stroke<br>
+                                         	<input type="checkbox" name="check[]" value="Irregular_Heartbeats" <?php if (in_array("Irregular_Heartbeats", $health)) echo "checked"; ?>> Irregular Heartbeats<br>
+                                         	<input type="checkbox" name="check[]" value="Shortness_of_Breath" <?php if (in_array("Shortness_of_Breath", $health)) echo "checked"; ?>> Shortness of Breath<br>
+                                         	<input type="checkbox" name="check[]" value="Lung_Problem" <?php if (in_array("Lung_Problem", $health)) echo "checked"; ?>> Lung Problem <br>
+                                         	<input type="checkbox" name="check[]" value="Asthma" <?php if (in_array("Asthma", $health)) echo "checked"; ?>> Asthma<br>
+                                         	<input type="checkbox" name="check[]" value="Allergies_Depression" <?php if (in_array("Allergies_Depression", $health)) echo "checked"; ?>> Allergies Depression<br>
+                                         	<input type="checkbox" name="check[]" value="Dizziness" <?php if (in_array("Dizziness", $health)) echo "checked"; ?>> Dizziness<br>
+                                         	<input type="checkbox" name="check[]" value="Fainting_Spells" <?php if (in_array("Fainting_Spells", $health)) echo "checked"; ?>> Fainting Spells<br>
+                                         	<input type="checkbox" name="check[]" value="Severe_headaches" <?php if (in_array("Severe_headaches", $health)) echo "checked"; ?>> Severe headaches<br>
+                                         	<input type="checkbox" name="check[]" value="Seizures_or_Convulsion" <?php if (in_array("Seizures_or_Convulsion", $health)) echo "checked"; ?>> Seizures or Convulsion<br>
+                                         	<input type="checkbox" name="check[]" value="Numbness_or_tingling" <?php if (in_array("Numbness_or_tingling", $health)) echo "checked"; ?>> Numbness or tingling<br>
+                                         	<input type="checkbox" name="check[]" value="Anemia" <?php if (in_array("Anemia", $health)) echo "checked"; ?>> Anemia<br>
+                                         	<input type="checkbox" name="check[]" value="Anxiety" <?php if (in_array("Anxiety", $health)) echo "checked"; ?>> Anxiety<br>
+                                         	<input type="checkbox" name="check[]" value="Use_of_Laxatives_or_diuretics" <?php if (in_array("Use_of_Laxatives_or_diuretics", $health)) echo "checked"; ?>> Use of Laxatives or diuretics<br>
+                                         	<input type="checkbox" name="check[]" value="Alcoholism_substance" <?php if (in_array("Alcoholism_substance", $health)) echo "checked"; ?>> Alcoholism substance<br></td></tr>
 	<tr><td colspan="4" align="center" ><input class="btn save" type="submit" value='UPDATE' /> 
 	<input type='hidden' name='action' value="SAVE" />
 	<input type="button" class="btn close" value="CLOSE" onClick="parent.emailwindow.close();">

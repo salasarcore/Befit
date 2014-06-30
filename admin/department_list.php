@@ -100,7 +100,7 @@ Enter Course Name: <input type="text" name="txtFilter" id="txtFilter" value="<?p
     <th>COURSE CODE</th>
     <th>ABOUT COURSE</th>
     <th>COURSE LAST UPDATED</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>

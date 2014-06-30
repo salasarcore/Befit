@@ -91,11 +91,11 @@ $department_id=makeSafe(@$_POST['department']);
   <tr>
     <th>#</th>
     <th>REGISTRATION NO</th>
-	<th> NAME</th>
-       <th>DEPARTMENT</th>
+	<th>NAME</th>
+    <th>DEPARTMENT</th>
     <th>SESSION</th>
     <th>BATCH</th>
-      <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>
@@ -111,11 +111,9 @@ $department_id=makeSafe(@$_POST['department']);
 	    <td><input type="radio" name="rdoID" value="<?php echo $row['stu_id']; ?>" id="rdoID" /></td>
 		<td>&nbsp;<?php echo $row['reg_no'];?></td>
 		<td>&nbsp;<?php echo$row['stu_name'];?></td>
-		
 		<td>&nbsp;<?php echo$row['department_name'];?></td>
 		<td>&nbsp;<?php echo$row['session'];?></td>
 		<td>&nbsp;<?php echo$row['section'];?></td>
-		
 		<td>&nbsp;<?php echo$row['updated_by'];?></td>
 		
 	  </tr>

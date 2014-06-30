@@ -4,17 +4,7 @@
 
 	<!-- CSS
   ================================================== -->
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/style.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/common.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/menu.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/skeleton.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/layout.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/JQthems/blue/jquery-ui.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/plugin/jtable/themes/lightcolor/gray/jtable.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/modal.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/dhtmlwindow.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo SITE_URL_BRANCH_ADMIN;?>/scs_css/validationEngine.jquery.css"  type="text/css" />
+	
 	
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

@@ -44,7 +44,7 @@ if(@$act=="upload")
 				|| ($_FILES["file"]["type"] == "image/png"))
 		{
 			$extn=explode('.',$_FILES["file"]["name"]);
-			$upath="../../site_img/stuimg/".DOMAIN_IDENTIFIER."_".base64_encode($studentID).".".$extn[1];
+			$upath="../../site_img/stuimg/".base64_encode($studentID).".".$extn[1];
 			$SourceFile = $_FILES["file"]["tmp_name"];//Source image
 			upload_image($upath,130,170,1);
 			$f = new SimpleImage;

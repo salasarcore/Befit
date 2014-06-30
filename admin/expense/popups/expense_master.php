@@ -102,7 +102,7 @@ if(@$act=="edit" || @$act=="delete" )
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../../css/classic.css" type="text/css" rel="stylesheet">
-<?php include('../../php/js_css_common.php');?>
+
 <script type="text/javascript" src="../../../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){

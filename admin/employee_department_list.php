@@ -100,7 +100,7 @@ Enter Employee Department Name: <input type="text" name="txtFilter" id="txtFilte
     <th>DEPARTMENT CODE</th>
     <th>ABOUT DEPARTMENT</th>
     <th>DEPARTMENT LAST UPDATED</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>

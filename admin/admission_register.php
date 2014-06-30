@@ -125,7 +125,7 @@ Name/Registration Number :<input type="text" name="txtFilter" value="">
     <th>DOB</th>
 	<th>PRESENT ADDRESS</th>
 	<th>MOBILE</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>
@@ -148,7 +148,7 @@ $rowsPerPage=20;
 		?>
 	  <tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?> onclick="selectID('<?php echo $row['stu_id']; ?>')" >
 	    <td><input type="radio" name="rdoID" value="<?php echo $row['stu_id']; ?>" id="rdoID" /></td>
-		<td><img src="<?php echo is_file("../site_img/stuimg/".DOMAIN_IDENTIFIER."_".base64_encode($row['stu_id']).".".$row['mime']) ? "../site_img/stuimg/".DOMAIN_IDENTIFIER."_".base64_encode($row['stu_id']).".".$row['mime'] : "../images/".DEFAULT_IMAGE; ?>" width="30px" /></td>
+		<td><img src="<?php echo is_file("../site_img/stuimg/".base64_encode($row['stu_id']).".".$row['mime']) ? "../site_img/stuimg/".base64_encode($row['stu_id']).".".$row['mime'] : "../images/".DEFAULT_IMAGE; ?>" width="30px" /></td>
 		<td>&nbsp;<?php echo $row['reg_no'];?></td>
 		<td>&nbsp;<?php echo $row['stu_name'];?></td>
 		<td>&nbsp;<?php echo date("jS-M-Y",strtotime($row['dob']));?></td>

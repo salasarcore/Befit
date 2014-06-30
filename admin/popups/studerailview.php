@@ -57,7 +57,7 @@ $adminsiondate=$date->format('jS-M-Y');
 $date2 = new DateTime($res['dob']);
 $dob=$date2->format('jS-M-Y');
 
-is_file("../../site_img/stuimg/".DOMAIN_IDENTIFIER."_".base64_encode($studentID).".".$res['mime']) ? $pic="../../site_img/stuimg/".DOMAIN_IDENTIFIER."_".base64_encode($studentID).".".$res['mime'] : $pic="../../images/".DEFAULT_IMAGE; 
+is_file("../../site_img/stuimg/".base64_encode($studentID).".".$res['mime']) ? $pic="../../site_img/stuimg/".base64_encode($studentID).".".$res['mime'] : $pic="../../images/".DEFAULT_IMAGE; 
 
 ?>
 

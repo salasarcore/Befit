@@ -30,25 +30,7 @@ define("ONLINE_APPLICATION","1");
 define("APPLCATION_ACCEPTED","2");
 define("APPLCATION_REJECTED","3");
 define("LEAVE_APPLICATION","4");
-define("LECTURE_SCHEDULE","5");
-define("EVENT","6");
-define("STUDENT_PROMOTION","7");
-define("EXAMINATION_SCHEDULE","8");
-define("FEE_COLLECTION","9");
-define("SCHOOL_REG","10");
-define("ADMIN_ONLINE_APPLICATION","11");
-define("ADMIN_SCHOOL_APPLICATION","12");
-define("CONTACT_US_SCHOOL","13");
-define("CHANGE_PASSWORD","14");
-define("FORGOT_PASSWORD","15");
-define("EMPLOYEE_REG","16");
-define("HELP_DESK","17");
-define("SCHOOL_ACTIVATION","18");
-define("LECTURE_CANCEL","19");
-define("STUDENT_ATTENDANCE","20");
-define("LECTURE_ATTENDANCE","21");
-define("STUDENT_ATTENDANCE_EDIT","22");
-define("LECTURE_ATTENDANCE_EDIT","23");
+define("EMPLOYEE_REG","4");
 
 function redirect($url,$msg)
 {

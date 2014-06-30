@@ -11,6 +11,7 @@ include("../functions/common.php");
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <link rel="Stylesheet" type="text/css" href="../../css/jquery-ui.css" />
 <script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
+<?php include('../php/js_css_common.php');?>
 <?php
 
 $act=makeSafe(@$_GET['act']);
@@ -194,7 +195,7 @@ function ClearField(frm){
 	
 	<input name="adt" type="text" class="date"	id="adt" value="<?php if($act=="add") echo ""; else echo @$sdate;?>" size="11"  <?php if(@$act=="delete") echo "disabled"; ?>/>	
 	
-        <script type="text/javascript">
+   <!--     <script type="text/javascript">
 				  $(function() {
 						$( "#adt" ).datepicker({
 							numberOfMonths: [1,2],
@@ -203,7 +204,7 @@ function ClearField(frm){
 						});
 					});
 
-				  </script>    </td>
+				  </script>  -->  </td>
 	<tr>
     <td align="right">last Updated : </td>
     <td><?php echo @$last_updated; ?></td>
@@ -244,6 +245,16 @@ function ClearField(frm){
 <script language=javascript>
 
 document.getElementById("spErr").innerHTML= "<?php echo $msg; ?>";
+
+document.ready(function(){
+$(function() {
+	$( "#adt" ).datepicker({
+		numberOfMonths: [1,2],
+		dateFormat: 'yy-mm-dd',
+		maxDate: new Date()
+	});
+});
+});
 
    </script>
 

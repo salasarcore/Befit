@@ -40,7 +40,7 @@ $result  = mysql_query($sql) or die('Error, query failed');
 
 $res=mysql_fetch_array($result);
 
-is_file("../../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($empID).".".$res['mime']) ? $pic="../../site_img/emppic/".DOMAIN_IDENTIFIER."_".base64_encode($empID).".".$res['mime'] : $pic="../../images/".DEFAULT_IMAGE;
+is_file("../../site_img/emppic/".base64_encode($empID).".".$res['mime']) ? $pic="../../site_img/emppic/".base64_encode($empID).".".$res['mime'] : $pic="../../images/".DEFAULT_IMAGE;
 ?>
 
 
