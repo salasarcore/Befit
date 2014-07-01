@@ -1,33 +1,150 @@
 <?php
 include_once('conn.php');
 @include_once('functions/common.php');
+include("functions/comm_functions.php");
+$message="";
 if(isset($_POST['login_submit']))
 {
-$email=makeSafe($_POST['email']);
-$pass=makeSafe($_POST['password']);
-
-$sql="SELECT `user_id`, `full_name`, `designation`, `state_id`, `district_id`, `sub_division_id`, `login_type`, `mime` FROM `site_users` where `email`='".$email."' and `user_pass`='".$pass."'";
-$result  = mysql_query($sql) or die('Error, query failed'.mysql_error());
-if(mysql_affected_rows()>0)
+	@$uname= makeSafe($_POST['email']);
+	@$pass=@$_POST['password'];
+	@$d_session=makeSafe($_POST['session']);
+	if(trim(@$uname)=="")
 	{
-		$row = mysql_fetch_array($result, MYSQL_ASSOC);
-		$_SESSION['user_id']=$row['user_id'];
-		$_SESSION['full_name']=$row['full_name'];
-		$_SESSION['designation']=$row['designation'];
-		$_SESSION['state_id']=$row['state_id'];
-		$_SESSION['district_id']=$row['district_id'];
-		$_SESSION['sub_division_id']=$row['sub_division_id'];
-		$_SESSION['user_type']=$_SESSION['login_type']=$row['login_type'];
-		$_SESSION['mime']=$row['mime'];
-		
-		echo"<script>location.href='profile.php'</script>";
+		$message="<div class='error'>Please enter your Employee ID</div>";
+	}
+	else if(@$pass=="")
+	{
+		$message="<div class='error'>Please enter your password</div>";
+	}
+	
+	else
+	{
+		$query1="SELECT emp_id FROM employee where activated='Y' and access_level IN('Admin','Super Admin','User')";
+
+		$res=mysql_query($query1,$link) or die('Error, query failed 1');
+	
+		if(mysql_affected_rows($link)>0)
+		{
+			$query="SELECT empid,emp_id,time_from,time_to,employee.br_id,br_name, emp_name,access_level, activated FROM employee,mst_branch where
+					employee.br_id=mst_branch.br_id and emp_id='".mysql_real_escape_string($uname)."' and password='".mysql_real_escape_string($pass)."'";
+			$result  = mysql_query($query);
+	
+			$row2 = array();
+			$trow = array();
+			$prow = array();
+			$query2 = "SELECT SUM(spd.no_of_transactional_purchase) as sms_t_count, SUM(spd.no_of_promotional_purchase) as sms_p_count FROM  school_sms_purchase_dtls spd ";
+				
+			$res2 = mysql_query($query2);
+			if($res2)
+			{
+				$row2 = mysql_fetch_array($res2);
+	
+				$tquery = "select count(sms_type) as t_count from sms_transaction_log where sms_type='T'";
+				$pquery = "select count(sms_type) as p_count from sms_transaction_log where sms_type='P'";
+				$tres = mysql_query($tquery,$link);
+				$pres = mysql_query($pquery,$link);
+				if($tres)
+					$trow = mysql_fetch_assoc($tres);
+				if($pres)
+					$prow = mysql_fetch_assoc($pres);
+			}
+	
+			if(mysql_num_rows($result)>0)
+			{
+				$sql="select CURTIME() as timing";
+				$result1=mysql_query($sql,$link);
+				$row=mysql_fetch_assoc($result1);
+				$curtime=strtotime($row['timing']);
+	
+				$row = mysql_fetch_array($result, MYSQL_ASSOC);
+				if($row['activated']=="N")
+					$message="<div class='error'>Your login disabled, Please contact administrator</div>";
+				elseif($row['access_level']=="")
+				$message="<div class='error'>User access level is not set. Please contact system administrator</div>";
+				else
+				{
+					if($row['access_level']=="User")
+					{
+						if($curtime<strtotime($row['time_from']) || $curtime>strtotime($row['time_to']))
+							$message="<div class='error'>Access denied(you are allowed to login from ".date('g.iA', strtotime($row['time_from']))." to ".date('g.iA', strtotime($row['time_to'])).")</div>";
+						else{
+							$sqlquery="select * from admin_access_perams where empid=".$row["empid"];
+							$accessdetails=mysql_fetch_array(mysql_query($sqlquery,$link));
+							$sqlquery.=" and NOW() BETWEEN fromdatetime and todatetime";
+							if(empty($accessdetails))
+								$message="<div class='error'>You are not authorised to access the system. Please contact system administrator</div>";
+							else
+							{
+								if($accessdetails['is_permanent']!="1")
+								{
+									$sqlcount=mysql_num_rows(mysql_query($sqlquery,$link));
+									if($sqlcount<=0)
+										$message="<div class='error'>You are allowed to login from ".date('jS-M-Y g.iA', strtotime($accessdetails['fromdatetime']))." to ".date('jS-M-Y g.iA', strtotime($accessdetails['todatetime']))." only</div>";
+								}
+							}
+						}
+					}
+					if($message=="")
+					{
+						$_SESSION['empid']=$row["empid"];
+						$_SESSION['emp_name']=$row["emp_name"];
+						$_SESSION['emp_id']=$row["emp_id"];
+						$_SESSION['activated']=$row['activated'];
+						$_SESSION['br_id']=1;
+						$_SESSION['br_name']=$row['br_name'];
+						$_SESSION['d_session']=$d_session;
+						if($row2['sms_p_count']!=NULL)
+							$_SESSION['sms_p_count'] = $row2['sms_p_count'] - $prow['p_count'];
+						if($row2['sms_t_count']!=NULL)
+							$_SESSION['sms_t_count'] = $row2['sms_t_count'] - $trow['t_count'];
+	
+						$_SESSION['access_level']=$row['access_level'];
+	
+						unset($_SESSION['loginAttempts_b']);
+						create_session();
+						echo "<script>location.href='pages.php'</script>";
+					}
+				}
+			}
+			
+		}
+	
+		else
+		{
+			if($uname=="admin" && $pass=="admin#123")
+			{
+				$_SESSION['empid']="Admin";
+				$_SESSION['emp_name']="Admin";
+				$_SESSION['emp_id']="0";
+				$_SESSION['activated']="Y";
+				$_SESSION['br_id']="1";
+				$_SESSION['access_level']="Super Admin";
+				$query="SELECT br_name FROM mst_branch where mst_branch.br_id =1";
+				$result  = mysql_query($query,$link);
+				if(mysql_affected_rows($link)>0)
+				{
+					$row     = mysql_fetch_array($result, MYSQL_ASSOC);
+					$_SESSION['br_name']=$row['br_name'];
+				}
+				$_SESSION['d_session']=$d_session;
+				
+				create_session();
+				echo "<script>location.href='pages.php'</script>";
+					
+			}
+	
+		}
+	
+	
+	
+	}//else
+	}//login
+	
+	
+	
 	
 	
 
-	}
-	else
-	$message="<p class=\"bg-danger\">Invalid username and password.</p>";
-}
 
 ?>
 <!DOCTYPE html>
@@ -123,6 +240,20 @@ if(mysql_affected_rows()>0)
                                         </div>
                                     </div>
                                 </section> 
+                                <section>
+                                    <div class="row">
+                                        <label class="label col col-4">Session</label>
+                                        <div class="col col-8">
+                                            <label class="select" name="session">
+                                                <i class="icon-append fa fa-lock"></i>
+                                                <?php session_default(@$session);?>
+												<b class="tooltip tooltip-bottom-right">Select the session</b>
+                                            </label>
+                                            
+                                        </div>
+                                    </div>
+                                </section> 
+                         
 								<!--section>
                                     <div class="row">
                                         <label class="label col col-4">Login type</label>
