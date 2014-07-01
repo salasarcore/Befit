@@ -74,9 +74,9 @@ $offset = ($pageNum - 1) * $rowsPerPage;
 		$sqlImg="SELECT image_id,image_description, gallery_id, mime from  gallery_images where gallery_id=".$row['gallery_id'];
 		$resImg=mysql_query($sqlImg) or die("Unable to connect to Server, We are sorry for inconvienent caused".mysql_error());
 		$rowImg     = mysql_fetch_array($resImg, MYSQL_ASSOC);
-		$imgPath="site_img/gallery/thumb/".DOMAIN_IDENTIFIER."_".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
+		$imgPath="site_img/gallery/thumb/".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
 if(is_file($imgPath))
-$imgPath="site_img/gallery/thumb/".DOMAIN_IDENTIFIER."_".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
+$imgPath="site_img/gallery/thumb/".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
 		else
 			$imgPath="site_img/gallery/thumb/no.jpg";
 		

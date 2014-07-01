@@ -43,9 +43,9 @@ if(keyval in localStorage)
 <table align="center" width="100%" style="padding: 5px 0 5px 0;">
 <tr>
 		<td width="15%"  align="center">
-		<img src="<?php echo is_file('../../../site_img/school_logo/'.@$subdomainname.'.png')?'../../../site_img/school_logo/'.@$subdomainname.'.png':'../../../site_img/school_logo/demo.png';?> " width="100px" />
+		<img src="../../../logo.png" width="100px" />
 		</td>
-		<td align="center"><h2><?php echo @SCHOOL_NAME;?></h2>
+		<td align="center"><h2>Befit Ladies Gym</h2>
 		<?php 
 		$query="SELECT * FROM mst_branch where br_name='".@$_SESSION['br_name']."'";
 		$res=mysql_query($query) or die('Error, query failed');
@@ -80,12 +80,12 @@ $total_discount=0;
 ?>
 <br>
 <table width="100%" >
-<tr><td align="center">DEPARTMENT WISE FEES DISCOUNT DETAILS <?php if(trim(@$collection_date)!="") echo "OF ".date("jS-M-Y",strtotime($collection_date)); ?></td></tr>
+<tr><td align="center">COURSE WISE FEES DISCOUNT DETAILS <?php if(trim(@$collection_date)!="") echo "OF ".date("jS-M-Y",strtotime($collection_date)); ?></td></tr>
 <tr>
 <td valign="top">
 <table width="100%" style="frame:box;border: 1px solid; border-collapse: collapse; table-layout:fixed; font-size: 14px;" >
 <tr>
-  	<th style="border-bottom: 1px solid #000000;" align="center">DEPARTMENT NAME</th>
+  	<th style="border-bottom: 1px solid #000000;" align="center">COURSE NAME</th>
   	<th style="border-bottom: 1px solid #000000;" align="center">TOTAL AMOUNT</th>
   	<th style="border-bottom: 1px solid #000000;" align="center">TOTAL COLLECTED</th>
   	<th style="border-bottom: 1px solid #000000;" align="center">TOTAL DISCOUNT</th>
@@ -146,7 +146,7 @@ elseif ($act=="student")
 		$department=getDetailsById("mst_departments","department_id",$stu_class['department_id']);
 		$section=getDetailsById("session_section","session_id",$stu_class['session_id']);
 ?>
-<div align="center"><u>STUDENT DETAILS</u></div>
+<div align="center"><u>MEMBER DETAILS</u></div>
 <table width="100%"  id="mytable">
 <tr>
 <td align="left" style="padding-left: 20px;">Name : <?php echo $stu_details['stu_fname']." ".$stu_details['stu_mname']." ".$stu_details['stu_lname']?></td>
@@ -154,8 +154,8 @@ elseif ($act=="student")
 </tr>
 
 <tr>
-<td align="left" style="padding: 0 20px 0 20px;">Section : <?php echo $section['section']?></td>
-<td align="right" style="padding: 0 20px 0 20px;">Department : <?php echo $department['department_name']?></td>
+<td align="left" style="padding: 0 20px 0 20px;">Batch : <?php echo $section['section']?></td>
+<td align="right" style="padding: 0 20px 0 20px;">Course : <?php echo $department['department_name']?></td>
 </tr>
 
 <tr>
@@ -270,7 +270,7 @@ $total_discount+=round($row['discount']);
 </table>
 <hr />
 <table  width="100%" >
-<tr><td></td><td align="right" style="padding-right: 50px;">For <?php echo @SCHOOL_NAME;?></td></tr>
+<tr><td></td><td align="right" style="padding-right: 50px;">For Befit Ladies Gym</td></tr>
 <tr><td colspan="2" align="center"><input type="button" id="print" name="print" value="Print" onClick="printpage();" /></td></tr>
 </table> 
 </div>

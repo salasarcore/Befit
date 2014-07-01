@@ -71,9 +71,9 @@ border:1px solid black;
 <table align="center" width="700" style="padding: 5px 0 5px 0;">
 <tr>
 		<td width="15%"  align="center">
-		<img src="<?php echo is_file('../../../site_img/school_logo/'.@$subdomainname.'.png')?'../../../site_img/school_logo/'.@$subdomainname.'.png':'../../../site_img/school_logo/demo.png';?> " width="100px" />
+		<img src="../../../logo.png" width="100px" />
 		</td>
-		<td align="center"><h2><?php echo @SCHOOL_NAME;?></h2>
+		<td align="center"><h2>Befit Ladies Gym</h2>
 		<?php 
 		$query="SELECT * FROM mst_branch where br_name='".@$_SESSION['br_name']."'";
 		$res=mysql_query($query) or die('Error, query failed');
@@ -218,7 +218,7 @@ border:1px solid black;
 	<hr / style="width:700px" >
 		<br/>
 <table style="width:700px" >
-<tr><td></td><td align="right" style="padding-right: 50px;">For <?php echo @SCHOOL_NAME;?></td></tr>
+<tr><td></td><td align="right" style="padding-right: 50px;">For Befit Ladies Gym</td></tr>
 <tr><td colspan="2" align="center"><input type="button" id="print" name="print" value="PRINT" onClick="printpage();" /></td></tr>
 </table> 
 </td></tr></table>

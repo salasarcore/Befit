@@ -19,6 +19,9 @@
 							<div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse bg-color-pink">
 							   <ul class="nav navbar-nav navbar-right">
 									<li><a href="./">Home</a></li>
+									<li><a href="gallery.php" title="Image Gallery">Image Gallery</a></li>
+									<li><a href="notice_list.php" title="Notice">Notice</a></li>
+									<li><a href="news.php" title="News">News/Press/Media</a></li>
 									<li><a href="about_us.php" title="About Us">About Us</a></li>
 									<li><a href="courses_and_workshops.php" title="Courses and Workshops">Courses & Workshops</a></li>
 									<li><a href="consultancy_services.php">Consultancy Services</a></li>

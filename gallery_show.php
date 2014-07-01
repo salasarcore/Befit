@@ -93,10 +93,10 @@ include_once("admin/functions/common.php");?>
 	  {
 		
 	
-		$imgPath="site_img/gallery/thumb/".DOMAIN_IDENTIFIER."_".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
-$imgPathBig="site_img/gallery/bigimg/".DOMAIN_IDENTIFIER."_".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
+		$imgPath="site_img/gallery/thumb/".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
+$imgPathBig="site_img/gallery/bigimg/".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
 if(is_file($imgPath))
-$imgPath="site_img/gallery/thumb/".DOMAIN_IDENTIFIER."_".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
+$imgPath="site_img/gallery/thumb/".base64_encode($rowImg['image_id']).".".$rowImg['mime'];
 		else
 			$imgPath="site_img/gallery/thumb/no.jpg";
 		

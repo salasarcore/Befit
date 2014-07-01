@@ -10,7 +10,7 @@ $departdetails=getDetailsById("employee_department","department_id",$department_
 
 ?>
 
-<table width="100%" cellspacing="1" class="shadow adminform" style=" frame:box;border: 1px solid; border-collapse: collapse;">
+<table width="70%" cellspacing="1" class="shadow adminform" style=" frame:box;border: 1px solid; border-collapse: collapse;">
   <thead>	
   <tr style="border-bottom: 1px solid;">
     <th colspan="5"  style="border-right: 1px solid;"><?php echo strtoupper($departdetails['department_name']);?></th>

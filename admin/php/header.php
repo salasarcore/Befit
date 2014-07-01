@@ -23,13 +23,13 @@
 						<li><a href="pages.php?src=department_list.php">Course Master</a></li>
 						<li><a href="pages.php?src=session_section_list.php">Course Wise Batches</a></li>
 						<li><a href="pages.php?src=bank_list.php">Bank Master</a></li>
-						<li><a href="#">Contact Category</a>
+						<!-- <li><a href="#">Contact Category</a>
 							<ul class="dropdown-menu">
 								<li><a href="pages.php?src=contact_category.php">Contact Category Master</a></li>
 								<li><a href="pages.php?src=contact_us.php">List of Enquirers</a></li>
 		 
 							</ul> 
-						</li>
+						</li>-->
 					 </ul>
 				</li>	
 				<li><a href="#">Admission</a>
@@ -60,7 +60,7 @@
 						<li><a href="pages.php?src=employee_list.php">Employee List</a></li>
 						<li><a href="pages.php?src=salary/employee_salary_setting.php">Employee Salary Setting</a></li>
 						<li><a href="pages.php?src=employee_attendance.php">Employee Monthly Attendance</a></li>
-						<li><a href="pages.php?src=academic_calender.php">Employee Hourly Attendance</a></li>
+						<!-- <li><a href="pages.php?src=academic_calender.php">Employee Hourly Attendance</a></li>-->
 						<li><a href="pages.php?src=salary/pay_allowances_list.php">Pay & Allowances Type</a></li> 
 						<li><a href="pages.php?src=salary/pay_deduction_list.php">Pay Deduction Type</a></li> 
 						<li><a href="pages.php?src=salary/pay_loan_purpose_list.php">PF Loan Purpose</a></li>
@@ -129,13 +129,14 @@
           
             <!-- Right nav -->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="bootstrap-navbar.html">Welcome:ssss</a></li>
+              <li><a href="bootstrap-navbar.html">Welcome:<?php echo $_SESSION['emp_name'];?></a></li>
               <li><a href="#">My Account</a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Change Password</a>
 				  
 				  
 				  </li>
+				  <li><a href="logout.php" >Logout</a></li>
                   
                 </ul>
               </li>
