@@ -5,12 +5,12 @@
  */
 
 @session_start();
-require_once("../../../globalConfig.php");
+require_once("../../conn.php");
 include('../../check_session.php');
-include_once("../../../functions/common.php");
+include_once("../../functions/common.php");
 
-$sql = "SELECT e.*, g.* FROM notification_module_master e, global_sms_templates g  WHERE e.module_id=g.module_id and available_for_school='Y' and module_name != 'Contact Us' and module_name != 'Admin Online Application' and module_name != 'Help Desk'";
-$res = mysql_query($sql,$scslink) or die('Query failed.');?>
+$sql = "SELECT e.*, g.* FROM notification_module_master e, global_sms_templates g  WHERE e.module_id=g.module_id and available_for_school='Y'";
+$res = mysql_query($sql) or die('Query failed.');?>
 
 <option value="select" selected>---TEMPLATES---</option>
 <?php 

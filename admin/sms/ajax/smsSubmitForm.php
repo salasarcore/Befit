@@ -72,19 +72,19 @@ if($act=="search")
 				else if(@$type=="T")
 				{
 					$check = "SELECT e.*, g.* FROM notification_module_master e, global_sms_templates g  WHERE e.module_id=g.module_id and  template_id=".$template_id;
-					$run = mysql_query($check, $scslink) or die('Unable to connect to server. We are sorry for the inconvenience caused.');
+					$run = mysql_query($check) or die('Unable to connect to server. We are sorry for the inconvenience caused.');
 					$fetch = mysql_fetch_assoc($run);
 					if($fetch['module_name'] == 'Online Application' || $fetch['module_name'] == 'Change Password')
 					{
 						if($fetch['module_name'] == 'Online Application')
 						{
 							$studetails=getDetailsById("admission_application","adm_form_no",$stuid);
-							$temparray = array(SCHOOL_NAME,$studetails['stu_fname'], $stuid);
+							$temparray = array($studetails['stu_fname'], $stuid);
 						}
 						else
 						{
 							$studetails=getDetailsById("mst_students","stu_id",$stuid);
-							$temparray = array(SCHOOL_NAME,$studetails['stu_fname']);
+							$temparray = array($studetails['stu_fname']);
 						}
 						
 							$mobile = $studetails['mob'];
@@ -99,8 +99,8 @@ if($act=="search")
 								$mobile = $studetails['mob'];
 					
 						}
-						$temparray[$index] = SCHOOL_NAME;
-						$index++;
+						//$temparray[$index] = SCHOOL_NAME;
+						//$index++;
 						$temparray[$index] = $studetails['stu_fname'];
 						$index++;
 						$length = count($hashvalues);

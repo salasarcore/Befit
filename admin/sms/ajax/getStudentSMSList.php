@@ -35,9 +35,9 @@ else
 		$flag = 'online';
 		$sqlWhere="";
 		$i=0;
-		$sql = "SELECT adm_form_no as stu_id, stu_fname, stu_mname, stu_lname, father_name, mother_name, mob, department_id FROM admission_application where br_id=".@$_SESSION['br_id'];
-		if(makeSafe(isset($_REQUEST['department_id'])) && makeSafe($_REQUEST['department_id'])!=0)
-			$sqlWhere .=" AND department_id=".makeSafe($_REQUEST['department_id'])." ";
+		$sql = "SELECT adm_form_no as stu_id, stu_fname, stu_mname, stu_lname, mob,email FROM admission_application where br_id=".@$_SESSION['br_id'];
+		//if(makeSafe(isset($_REQUEST['department_id'])) && makeSafe($_REQUEST['department_id'])!=0)
+		//	$sqlWhere .=" AND department_id=".makeSafe($_REQUEST['department_id'])." ";
 		$sqlOrder =" order by stu_fname ";
 		$sql=$sql." ".$sqlWhere.$sqlOrder;
 		$res=mysql_query($sql,$link) or die("Unable to connect to Server, We are sorry for inconvienent caused 2");
@@ -65,7 +65,7 @@ else
 		<tr>
 			<th><input type="checkbox" id="selectall" name="selectall" value="" onclick="selectallid();" /></th>
 			<th><?php if($flag!="") echo 'ADMISSION FORM NUMBER'; else echo 'STUDENT ROLL NUMBER'; ?></th>
-			<?php if($flag!=""){?>
+			<?php if($flag==""){?>
 			<th>DEPARTMENT</th>
 			<?php }?>
 			<th>
@@ -90,15 +90,14 @@ else
 	<tr onclick="getSelected();">
 		<td align='center'><input type="checkbox" id="<?php echo $row['stu_id'];?>" name="rdoID[]" value="<?php echo $row['stu_id'];?>" onclick="getSelected();" /></td>
 		<td align="center"><?php if($flag == "") echo $row['rollno']; else echo $row['stu_id']; ?></td>
-		<?php if($flag!=""){?>
+		<?php if($flag==""){?>
 			<td align="center"><?php $deptname = mysql_fetch_assoc(mysql_query("SELECT * from mst_departments where department_id=".$row['department_id']));
 			echo $deptname['department_name'];
 			?>			
 			</td>
 			<?php }?>
 		<td align="center"><?php 
-		if(makeSafe($_REQUEST['sendto'])=="STUDENT")
-				echo $row['stu_fname'].' '.$row['stu_mname'].' '.$row['stu_lname'];
+						echo $row['stu_fname'].' '.$row['stu_mname'].' '.$row['stu_lname'];
 		?></td>
 		<td align="center">
 		<?php 

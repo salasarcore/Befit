@@ -23,6 +23,7 @@ else{
 	echo "<script>location.href='pages.php';</script>";
 	exit;
 }*/
+
 $br_id=makeSafe(@$_POST['branches']);
 $Errs="";
 ?>
@@ -79,7 +80,7 @@ function check()
 		alert('You have exceeded your maximum SMS sending limit. Please contact the system administrator for more details.');
     	return false;
 	}
-	 var checkValues = $('input[name=rdoID[]]:checked').map(function()
+	/* var checkValues = $('input[name=rdoID[]]:checked').map(function()
 	            {
 	                return $(this).val();
 	            }).get();
@@ -87,8 +88,8 @@ function check()
      {
     	alert("Please select a student to send message.");
  		return false;
-     }
-     else if($('#template_id').val() == "select")
+     }*/
+      if($('#template_id').val() == "select")
  	{
  		alert('Please select a template');
  		$('#template_id').focus();
@@ -120,7 +121,7 @@ function check()
             $('#schedule_time').focus();
         }
     }
-    var checkValues = $('input[name=rdoID[]]:checked').map(function()
+   /* var checkValues = $('input[name=rdoID[]]:checked').map(function()
             {
                 return $(this).val();
             }).get();
@@ -128,7 +129,7 @@ function check()
  	{
 		alert("Please select a student to send message.");
 		return false;
- 	}
+ 	}*/
  	if($('#template_id').val() == "select")
 	{
 		alert('Please select a template');

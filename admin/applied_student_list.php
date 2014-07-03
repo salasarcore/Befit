@@ -99,18 +99,14 @@ function ActionScriptReject()
 		return true;
 	  }
 }
-/*function ActionScriptapply()
+function ActionScriptapply()
 {
-	var value='<?php echo $old;?>';
-	if(value=="old")
-		url="popups/apply_online.php?act=add&fromID="+document.getElementById("fromID").value;
-	else
-		url="popups/apply_online_customized.php?act=add&fromID="+document.getElementById("fromID").value;
 	
+		url="popups/apply_online.php?act=add&fromID="+document.getElementById("fromID").value;
 		open_modal(url,800,600,"APPLY ONLINE")
 		return true;
 
-}*/
+}
 function ActionScriptbranchadmins()
 {
 		url="popups/branch_admins.php"
@@ -151,8 +147,8 @@ $adt=makeSafe(@$_POST['adt']);
 	<td>
 		<div id="option_menu">
 			<!-- <a  class="addnew" href="javascript:void(0);" onClick="javascript:ActionScriptEdit();">Edit</a>
-			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptbranchadmins();">SMS Alerts</a>	
-			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptapply();">Apply Online</a>	 -->		
+			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptbranchadmins();">SMS Alerts</a>	-->
+			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptapply();">Apply Online</a>	
 			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptView();">View Profile</a>
 			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript();">Accept Application</a>
 			<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScriptReject();">Reject Application</a>

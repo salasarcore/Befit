@@ -22,14 +22,13 @@
 						<li><a href="pages.php?src=employee_department_list.php">Employee Department Master</a></li>
 						<li><a href="pages.php?src=department_list.php">Course Master</a></li>
 						<li><a href="pages.php?src=session_section_list.php">Course Wise Batches</a></li>
-						<li><a href="pages.php?src=bank_list.php">Bank Master</a></li>
-						<!-- <li><a href="#">Contact Category</a>
+						<li><a href="#">Contact Category</a>
 							<ul class="dropdown-menu">
 								<li><a href="pages.php?src=contact_category.php">Contact Category Master</a></li>
 								<li><a href="pages.php?src=contact_us.php">List of Enquirers</a></li>
 		 
 							</ul> 
-						</li>-->
+						</li>
 					 </ul>
 				</li>	
 				<li><a href="#">Admission</a>
@@ -47,6 +46,7 @@
 						<li><a href="pages.php?src=fee/fee_expected_list.php">Fee Expected</a></li>
 						<li><a href="pages.php?src=fee/monthly_expected_list.php">Monthly Expected Fees</a></li>
 						<li><a href="pages.php?src=fee/fee_collect.php">Fee Collection</a></li>
+						<li><a href="pages.php?src=bank_list.php">Bank Master</a></li>
 						<li><a href="#">Reports</a>
 							  <ul class="dropdown-menu">
 								<li><a href="pages.php?src=fee/fee_discount_report.php">Fee Discount</a></li>

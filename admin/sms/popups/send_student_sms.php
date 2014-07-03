@@ -25,6 +25,7 @@ if (trim($action) == "SAVE") {
 		foreach ( $stuids as $stuid ) {
 			$studetails=getDetailsById("mst_students","stu_id",$stuid);
 			$result = $smssend->sendSMS($studetails['mob'],trim($message_text));
+			if($send_to=="STUDENT") $send_to="MEMBER";
 			$query = $smssend->insertLog($result,$studetails['stu_fname'],trim($message_text),$studetails['mob'],$send_to);
 			if($query)
 			{

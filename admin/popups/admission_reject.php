@@ -103,7 +103,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 		
 		
 	 }//$num_local
-	/*	//sms query
+		//sms query
 		
 		$query = "SELECT * FROM sms_settings WHERE template_type='T' AND send_type='A' AND approved_status='Y' AND module_name ='Application Rejected'";
 		$sql = mysql_query($query) or die('Error. Query failed.');
@@ -121,27 +121,18 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 		{
 			if($numrows>0)
 			{
-				$schoolname = SCHOOL_NAME;
-				$branchquery = mysql_query('select br_contact from mst_branch where br_id='.$_SESSION['br_id']) or die(mysql_error());
-				if($branchquery)
-					$branch_num = mysql_fetch_assoc($branchquery);
-				else
-					$branch_num = "";
-				$hashvalues = array($schoolname,$stu_name,$rejected_cause,$branch_num['br_contact']);
+				
+				$hashvalues = array($stu_name,$rejected_cause);
 				$message = $smssend->getSmsMessage($getresult['template_format'],$hashvalues);
-				$getmobilequery = mysql_fetch_assoc(mysql_query("select student_mobile, mob from admission_application where adm_form_no=".$adm_form_no));
-				$mobile = $getmobilequery['student_mobile'];
-				$send_to = 'STUDENT';
-				if($mobile=="")
-				{
+				$getmobilequery = mysql_fetch_assoc(mysql_query("select  mob from admission_application where adm_form_no=".$adm_form_no));
+				
+				$send_to = 'MEMBER';
 					$mobile = $getmobilequery['mob'];
-					$send_to = 'PARENT';
-				}
-				$sendMessage = $smssend->sendTransactionalSMS($getresult['template_id'],$mobile,$message,trim($sms_sender_id));
+					$sendMessage = $smssend->sendTransactionalSMS($getresult['template_id'],$mobile,$message,trim($sms_sender_id));
 				$logInsert = $smssend->insertLog($sendMessage,$stu_name,trim($message),$mobile,$send_to,'T');
 			}
 		}
-		}*/
+		}
 	}
 	
 		

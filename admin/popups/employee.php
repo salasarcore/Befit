@@ -550,6 +550,26 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 									$temp_value = getEmailMessage($template,$hashvalue);
 									$sendEmail = Sending_EMail($temp_value,$email,$subject,$path); } }
 									
+									//sms query
+									$querysetting="select * from notification_setting where module_id=".EMPLOYEE_REG." and notification_type='S' and sending_type='A'";
+									$resquerysetting=mysql_query($querysetting,$link);
+									$numrows1 = mysql_num_rows($resquerysetting);
+									if($numrows1>0)
+									{
+										$query = "SELECT e.*, g.* FROM notification_module_master e, global_sms_templates g  WHERE e.module_id=g.module_id  AND  e.module_name='Employee Registration' and available_for_school='Y' ";
+										$sql = mysql_query($query);
+										$numrows = mysql_num_rows($sql);
+										$getresult = mysql_fetch_assoc($sql);
+										if($_SESSION['sms_t_count'] > 0 && $numrows > 0)
+										{
+											$send_to='EMPLOYEE';
+											$hashvalues = array($full_name,$emp_id,$password);
+											$message = $smssend->getSmsMessage($getresult['template_format'],$hashvalues);
+											$sendMessage = $smssend->sendTransactionalSMS($getresult['template_id'],$mob,$message,trim($sms_sender_id));
+											$logInsert = $smssend->insertLog($sendMessage,$full_name,trim($message),$mob,$send_to,'T');
+										}
+									}
+									
 									$msg= "<div class='success'>Employee Registration completed</div>";
 						
 						}

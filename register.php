@@ -81,27 +81,27 @@ $city=makeSafe($_POST['city']);
 		redirect($self,"Invalid pincode");
 		
 	}
-	elseif ($mobileno=="" && !(ctype_digit($mobileno)))
+	elseif ($mobileno!="" && !(ctype_digit($mobileno)))
 	{
 		redirect($self,"Invalid mobile number");
 	
 	}
-	elseif ($offtelno=="" && !(ctype_digit($offtelno)))
+	elseif ($offtelno!="" && !(ctype_digit($offtelno)))
 	{
 		redirect($self,"Invalid office telephone number");
 	
 	}
-	elseif ($restelno=="" && !(ctype_digit($restelno)))
+	elseif ($restelno!="" && !(ctype_digit($restelno)))
 	{
 		redirect($self,"Invalid residential telephone number");
 	
 	}
-	elseif ($clinicno=="" && !(ctype_digit($clinicno)))
+	elseif ($clinicno!="" && !(ctype_digit($clinicno)))
 	{
 		redirect($self,"Invalid residential telephone number");
 	
 	}
-	elseif ($mobileclinic=="" && !(ctype_digit($mobileclinic)))
+	elseif ($mobileclinic!="" && !(ctype_digit($mobileclinic)))
 	{
 		redirect($self,"Invalid residential telephone number");
 	
@@ -148,7 +148,7 @@ $city=makeSafe($_POST['city']);
 		$res=mysql_query($sql,$link);
 		if(mysql_affected_rows($link)>0)
 		{
-		/*	$_SESSION['sms_t_count']=0;
+			$_SESSION['sms_t_count']=0;
 			$query2 = "SELECT SUM(spd.no_of_transactional_purchase) as sms_t_count, SUM(spd.no_of_promotional_purchase) as sms_p_count FROM schools sc LEFT JOIN school_sms_purchase_dtls spd ON sc.schoolid = spd.school_id WHERE sc.domain_identifier = '".$subdomainname."'";
 			$res2 = mysql_query($query2, $scslink);
 			if($res2)
@@ -170,8 +170,8 @@ $city=makeSafe($_POST['city']);
 					/**
 					 * This if block indicates that the module has auto sms sending setting. Hence we will call the functions defined in the SmsSystem.class.php file.
 					 */
-				/*	$schoolname = SCHOOL_NAME;
-					$hashvalues = array($schoolname,$stu_fname,$newformid);
+					
+					$hashvalues = array($stu_fname,$newformid);
 					$message = $smssend->getSmsMessage($getresult['template_format'],$hashvalues);
 					$mobile = $stu_mob;
 					$send_to = 'MEMBER';
@@ -183,7 +183,7 @@ $city=makeSafe($_POST['city']);
 				}
 			
 			
-	}*/
+	}
 			$query_local1 = "select * from notification_setting where module_id = ".ONLINE_APPLICATION." and  notification_type='E' and sending_type='A' " ; // module_id = '1' is online application
 			$res_local1 = mysql_query($query_local1,$link);
 			$num_local1 = mysql_num_rows($res_local1);

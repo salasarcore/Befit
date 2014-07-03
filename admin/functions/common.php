@@ -29,7 +29,6 @@ define("ALPHANUM","/^[a-zA-Z0-9 ]+$/");
 define("ONLINE_APPLICATION","1");
 define("APPLCATION_ACCEPTED","2");
 define("APPLCATION_REJECTED","3");
-define("LEAVE_APPLICATION","4");
 define("EMPLOYEE_REG","4");
 
 function redirect($url,$msg)

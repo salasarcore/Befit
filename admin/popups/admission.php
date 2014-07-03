@@ -188,10 +188,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 										if(mysql_affected_rows($link)>0)
 										{
 											$msg="<div class='success'>Record Saved Successfully</div>";
-											/*$session = makeSafe($_REQUEST['session']);
-											$sessionquery = mysql_fetch_assoc(mysql_query("select section from session_section where department_id=".$department_id));
-											$getmobilequery = mysql_fetch_assoc(mysql_query("select stu_fname, student_mobile, mob from admission_application where adm_form_no=".$adm_form_no));
-												*/
+										
 											//email query 
 										 	$query_local = "select * from notification_setting where module_id = ".APPLCATION_ACCEPTED." and  notification_type='E' and sending_type='A' " ; // module_id = '2' for Application Accepted
 											$res_local = mysql_query($query_local,$link);
@@ -225,7 +222,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 											
 											}//$num_local
 											
-										/*	//sms query
+											//sms query
 											
 												$querysetting="select * from notification_setting where module_id=".APPLCATION_ACCEPTED." and notification_type='S' and sending_type='A'";
 												$resquerysetting=mysql_query($querysetting,$link);
@@ -241,21 +238,17 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 												/**
 												 * This if block indicates that the module has auto sms sending setting. Hence we will call the functions defined in the SmsSystem.class.php file.
 												*/
-												/*$session = makeSafe($_REQUEST['session']);
+											$session = makeSafe($_REQUEST['session']);
 												$sessionquery = mysql_fetch_assoc(mysql_query("select section from session_section where department_id=".$department_id));
-												$getmobilequery = mysql_fetch_assoc(mysql_query("select stu_fname, student_mobile, mob from admission_application where adm_form_no=".$adm_form_no));
-												$hashvalues = array(SCHOOL_NAME,$stu_fname,$branch_name,$department_name,$sessionquery['section'],$reg_no);
+												$getmobilequery = mysql_fetch_assoc(mysql_query("select stu_fname, mob from admission_application where adm_form_no=".$adm_form_no));
+												$hashvalues = array($stu_fname,$branch_name,$department_name,$sessionquery['section'],$reg_no);
 												$message = $smssend->getSmsMessage($getresult['template_format'],$hashvalues);
-												$mobile = $getmobilequery['student_mobile'];
-												$send_to = 'STUDENT';
-												if($mobile=="")
-												{
-													$mobile = $getmobilequery['mob'];
-													$send_to = 'PARENT';
-												}
+												
+												$send_to = 'MEMBER';
+												$mobile = $getmobilequery['mob'];
 												$sendMessage = $smssend->sendTransactionalSMS($getresult['template_id'],$mobile,$message,trim($sms_sender_id));
 												$logInsert = $smssend->insertLog($sendMessage,$stu_fname,trim($message),$mobile,$send_to,'T');
-											}*/
+											}
 											}
 										}
 										else
