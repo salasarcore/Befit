@@ -72,7 +72,7 @@ $br_id=1;
 		if(mysql_affected_rows($link)>0)
 		{
 		
-	$message="Record Saved Successfully";
+	$message="<div class='alert-success'>Record Saved Successfully</div>";
 }
 	
 }

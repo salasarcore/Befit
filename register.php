@@ -150,7 +150,7 @@ $city=makeSafe($_POST['city']);
 		{
 			$_SESSION['sms_t_count']=0;
 			$query2 = "SELECT SUM(spd.no_of_transactional_purchase) as sms_t_count, SUM(spd.no_of_promotional_purchase) as sms_p_count FROM schools sc LEFT JOIN school_sms_purchase_dtls spd ON sc.schoolid = spd.school_id WHERE sc.domain_identifier = '".$subdomainname."'";
-			$res2 = mysql_query($query2, $scslink);
+			$res2 = mysql_query($query2);
 			if($res2)
 			{
 				$row2 = mysql_fetch_assoc($res2);
@@ -208,7 +208,7 @@ $city=makeSafe($_POST['city']);
 		}
 		
 	}//$num_local1
-	$message="Record Saved Successfully";
+	$message="<div class='alert-success'>Record Saved Successfully</div>";
 }
 	
 }

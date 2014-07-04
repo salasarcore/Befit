@@ -135,7 +135,7 @@ else
 			if (!($_FILES["file"]["error"] > 0))
 			{
 				$extn=explode('.',$_FILES["file"]["name"]);
-				$upath="../../site_img/notice/".($nid).".".$extn[1];
+				$upath="../../site_img/notice/".base64_encode($nid).".".$extn[1];
 	            move_uploaded_file($_FILES["file"]["tmp_name"],$upath);
 				// watermark function
 	           

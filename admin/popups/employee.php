@@ -385,6 +385,7 @@ $husband_no=makeSafe($_POST['husband_no']);
 $father_no=makeSafe($_POST['father_no']);
 $home_phone=makeSafe($_POST['home_phone']);
 $payment_type=makeSafe($_POST['payment_type']); 
+$accesslevel=makeSafe($_POST['accesslevel']);
 @$super=makeSafe($_POST['superior']);
 if($super=="S")  @$superior="S";
 else  @$superior="E";
@@ -514,8 +515,8 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 			  	$mempid=getNextMaxId('employee','empid');
 			  	$mempid=$mempid+1;
 			  	
-				$sql="insert into employee(empid,emp_id,department_id, br_id,designation_id,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn, emp_mob, emp_epic, emp_pan, mstat, email, password,  mime,activated, father_name,mother_name,wife_husband,husband_no,father_no,home_phone,payment_type,updated_by,superior)";
-			 	$sql .=" values('".$mempid."','".trim($emp_id)."',".trim($department_id).",".trim($br_id).",".$designation_id.",'".trim($full_name)."','".trim($sex)."','".trim($hq)."','".trim($doj)."','".trim($dob)."','".trim($adt)."','".trim($present_address)."','".trim($permanent_address)."','".trim($ecn)."','".trim($mob)."','".trim($epic)."','".trim($pan)."','".trim($mstat)."','".trim($email)."','".trim($password)."','".trim($mime)."','N','".$father_name."','".$mother_name."','".$wife_husband."','".$husband_no."','".$father_no."','".$home_phone."','".$payment_type."', '".$superior."','".$_SESSION['emp_name']."')";
+				$sql="insert into employee(empid,emp_id,department_id, br_id,designation_id,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn, emp_mob, emp_epic, emp_pan, mstat, email, password,  mime,activated,access_level father_name,mother_name,wife_husband,husband_no,father_no,home_phone,payment_type,updated_by,superior)";
+			 	$sql .=" values('".$mempid."','".trim($emp_id)."',".trim($department_id).",".trim($br_id).",".$designation_id.",'".trim($full_name)."','".trim($sex)."','".trim($hq)."','".trim($doj)."','".trim($dob)."','".trim($adt)."','".trim($present_address)."','".trim($permanent_address)."','".trim($ecn)."','".trim($mob)."','".trim($epic)."','".trim($pan)."','".trim($mstat)."','".trim($email)."','".trim($password)."','".trim($mime)."','N','".$accesslevel."','".$father_name."','".$mother_name."','".$wife_husband."','".$husband_no."','".$father_no."','".$home_phone."','".$payment_type."', '".$superior."','".$_SESSION['emp_name']."')";
 				$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
 					if(mysql_affected_rows($link)>0)
 					{		
@@ -610,7 +611,7 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 				$sql="update employee set emp_id='".trim($emp_id)."',department_id='".trim($department_id)."', br_id=".trim($br_id).",designation_id=".trim($designation_id).",emp_name='".trim($full_name)."',";
 				$sql .="sex='".trim($sex)."', emp_qualification='".trim($hq)."', emp_doj='".trim($doj)."', emp_dob='".trim($dob)."', emp_doa='".trim($adt)."',"; 
 				$sql .="emp_addr_pre='".trim($present_address)."', emp_addr_per='".trim($permanent_address)."', emp_ecn='".trim($ecn)."', emp_mob='".trim($mob)."', ";
-				$sql .="emp_epic='".trim($epic)."', emp_pan='".trim($pan)."', mstat='".trim($mstat)."', email='".trim($email)."', password='".trim($password)."',  updated_by='".$_SESSION['emp_name']."'";
+				$sql .="emp_epic='".trim($epic)."', emp_pan='".trim($pan)."', mstat='".trim($mstat)."', email='".trim($email)."', password='".trim($password)."',access_level='".trim($accesslevel)."'  updated_by='".$_SESSION['emp_name']."'";
 				$sql .=",father_name='".trim($father_name)."', mother_name='".trim($mother_name)."', wife_husband='".trim($wife_husband)."', husband_no='".trim($husband_no)."', father_no='".trim($father_no)."',  home_phone='".$home_phone."',  payment_type='".$payment_type."' , superior='".$superior."' ";
 				$sql .=" where empid=".$empID;
 				
@@ -666,7 +667,7 @@ elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 }*/
 if(@$act=="edit" || @$act=="delete" )
 {
-     	$sql="select  emp_id,br_id,designation_id,department_id,father_name,father_no,mother_name,husband_no,wife_husband,home_phone,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn,emp_mob, emp_epic, emp_pan, mstat, email, password, payment_type,superior from employee where empid=".$empID;
+     	$sql="select  emp_id,br_id,designation_id,department_id,father_name,father_no,mother_name,husband_no,wife_husband,home_phone,emp_name, sex, emp_qualification, emp_doj, emp_dob, emp_doa, emp_addr_pre, emp_addr_per, emp_ecn,emp_mob, emp_epic, emp_pan, mstat, email, password,access_level, payment_type,superior from employee where empid=".$empID;
 		$result  = mysql_query($sql) or die('Error, query failed');
 		if(mysql_affected_rows($link)>0)
 			{
@@ -695,6 +696,7 @@ if(@$act=="edit" || @$act=="delete" )
 				$father_no=@$row['father_no'];
 				$home_phone=@$row['home_phone'];
 				$password=@$row['password'];
+				$accesslevel=@$row['access_level'];
 				$payment_type=@$row['payment_type'];
 	$superior=@$row['superior'];			}
 		else
@@ -912,10 +914,17 @@ function ClearField(frm){
 	<td  align="right">Photo</td><td > : </td>
 	<td>
 		<input name="file" id="file" type="file" />
-		<span class="hint">upload your photo<span class="hint-pointer">&nbsp;</span></span>
+		
 		<div id="err_pan"></div>	</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
+	<td  align="right">Access Level</td><td > : </td>
+	<td>
+		<select name="accesslevel" id="accesslevel">
+		<option value="User" <?php if($act=="edit") if($accesslevel=="User") echo "selected";?>>User</option>
+		<option value="Admin" <?php if($act=="edit") if($accesslevel=="Admin") echo "selected";?>>Admin</option>
+		<option value="Super Admin" <?php if($act=="edit") if($accesslevel=="Super Admin") echo "selected";?>>Super Admin</option>
+		</select>
+		
+			</td>
 	</tr>
 	
        <td></td> <td align="center" colspan=4><input type="submit" class="btn save" value='<?php 

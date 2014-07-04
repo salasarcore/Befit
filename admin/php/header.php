@@ -38,6 +38,11 @@
 					  <li><a href="pages.php?src=admitted_student_list.php">Course-wise Candidates</a></li>
 					 </ul> 
 				  </li>	
+				  <li><a href="#">Member</a>
+					<ul class="dropdown-menu">
+					  <li><a href="pages.php?src=student_attendance.php">Member Attendance</a></li>
+					</ul> 
+				  </li>	
 				<li><a href="#" >Fees</a>
 					<ul class="dropdown-menu">
 						<li><a href="pages.php?src=fee/fee_category_list.php">Fee Category Master</a></li>

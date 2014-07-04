@@ -105,7 +105,7 @@ include_once("admin/functions/common.php");
 				
 				echo "<td align='center'>";
 				if($row['mime']!="")
-					echo "<a target='_blank' href='site_img/notice/".DOMAIN_IDENTIFIER."_".base64_encode($row['nid']).".".$row['mime']."' class='hov'><img src='images/message_attachment.png' height='25' width='25'/></a>";
+					echo "<a target='_blank' href='site_img/notice/".base64_encode($row['nid']).".".$row['mime']."' class='hov'><img src='images/message_attachment.png' height='25' width='25'/></a>";
 				
 				echo "</td>";
 									
