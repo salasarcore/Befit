@@ -18,7 +18,7 @@
 							 
 							<ul>
 								<li><a href="register.php" style="font-weight:bold;color:#fff"><i class="fa fa-user"></i> Register</a></li>
-								
+								<li><a href="enquiry_form.php" style="font-weight:bold;color:#fff"><i class="fa fa-user"></i> Enquiry Form</a></li>
 							</ul>
 						
 						</div>

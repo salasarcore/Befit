@@ -30,7 +30,7 @@ define("ONLINE_APPLICATION","1");
 define("APPLCATION_ACCEPTED","2");
 define("APPLCATION_REJECTED","3");
 define("EMPLOYEE_REG","4");
-
+define("CHANGE_PASSWORD","5");
 function redirect($url,$msg)
 {
 	echo "<script>location.href='$url?msg=$msg'</script>";

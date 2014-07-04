@@ -64,19 +64,17 @@ class SMS
 	 * Note: The transaction_id which is returned on successful sending of the message will be different from the template id of the selected message.
 	 */
 
-	function sendTransactionalSMS($tempid,$mobile,$message,$sender)
+	function sendTransactionalSMS($tempid,$mobile,$message)
 	{
-		if($sender == "" || $sender == null)
-			$sender = $this->sender;
+	
 		$uid=urlencode($this->uid);
 		$pin=urlencode($this->pin);
-		$sender=urlencode($sender);
 		$route=$this->transactional_route;
 		$tempid=urlencode($tempid);
 		$message=urlencode($message);
 		$mobile=urlencode($mobile);
 		$domain=$this->domain;
-		$parameters="uid=$uid&pin=$pin&sender=$sender&rtype=json&route=$route&tempid=$tempid&mobile=$mobile&message=$message";
+		$parameters="uid=$uid&pin=$pin&rtype=json&route=$route&tempid=$tempid&mobile=$mobile&message=$message";
 		$url="http://$domain/api/sms.php";
 		$get_url=$url."?".$parameters;
 		$ch=curl_init();
@@ -130,13 +128,11 @@ class SMS
 	 * @return function will return a value which will either a transaction_id if sms is sent successfully or it will return a error message
 	 */
 
-	function scheduleTransactionalSMS($tempid,$mobile,$message,$time,$sender)
+	function scheduleTransactionalSMS($tempid,$mobile,$message,$time)
 	{
-		if($sender == "" || $sender == null)
-			$sender = $this->sender;
+		
 		$uid=urlencode($this->uid);
 		$pin=urlencode($this->pin);
-		$sender=urlencode($sender);
 		$route=$this->transactional_route;
 		$tempid=urlencode($tempid);
 		$message=urlencode($message);

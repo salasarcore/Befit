@@ -62,14 +62,15 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 	
 if($action=="SAVE")
 	{
-		if($sdate=="")
+		if($session_name=="")
 		{
-			$msg= "<div class='error'>Please Enter Date</div>";
+			$msg= "<div class='error'>Please Enter Session Name</div>";
 		}
 		else
-			if($session_name=="")
+			
+			if($sdate=="")
 			{
-				$msg= "<div class='error'>Please Enter Session Name</div>";
+				$msg= "<div class='error'>Please Enter Date</div>";
 			}
 		else 
 		{
@@ -97,14 +98,16 @@ if($action=="SAVE")
 		}
 	else
 	{
-		if($sdate=="")
+		if($session_name=="")
 		{
-			$msg="<div class='error'>Please Enter Date</div>";
+			$msg= "<div class='error'>Please Enter Session Name</div>";
 		}
+		
 		else
-			if($session_name=="")
+		
+			if($sdate=="")
 			{
-				$msg= "<div class='error'>Please Enter Session Name</div>";
+				$msg="<div class='error'>Please Enter Date</div>";
 			}
 		else 
 		{

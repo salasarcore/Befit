@@ -132,7 +132,7 @@
               <li><a href="bootstrap-navbar.html">Welcome:<?php echo $_SESSION['emp_name'];?></a></li>
               <li><a href="#">My Account</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Change Password</a>
+                  <li><a href="pages.php?src=change_pass.php">Change Password</a>
 				  
 				  
 				  </li>

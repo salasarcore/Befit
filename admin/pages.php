@@ -76,6 +76,7 @@ include('php/js_css_common.php');?>
 	<!-- JS Global Compulsory -->          
 	<script type="text/javascript" src="../js/jquery-1.8.24.ui.min.js"></script> 
 	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../plugins/bootstrap/js/bootstrap.min.js"></script> 
 	<script type="text/javascript" src="../js/back-to-top.js"></script>

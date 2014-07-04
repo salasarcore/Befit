@@ -10,8 +10,9 @@ require '../sms/SmsSystem.class.php';
 include("../../email_settings.php");
 $smssend = new SMS(); //create object instance of SMS class
 ?>
-<script type="text/javascript"   src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../../js/Ujquery-ui.min.js"></script>
+<script type="text/javascript"   src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/ajax.js"></script>
 <link href="../css/classic.css" rel="stylesheet" type="text/css">
 <link rel="Stylesheet" type="text/css" href="../../css/jquery-ui.css" />
@@ -265,7 +266,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 		//  $msg="<div class='error'>Invalid department</div>";
 //    }
 }//END OF SAVD OR UPDATE 
-
+}
 
 ?>
 

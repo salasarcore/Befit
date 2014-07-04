@@ -54,8 +54,8 @@ function getStudentList(dept,section,sendto,template)
 }
 </script>
 <script>
-var online_application_template = 13826;
-var application_reject = 14790;
+var online_application_template = 16440;
+var application_reject = 16445;
 
 function check()
 {
@@ -80,7 +80,7 @@ function check()
 		alert('You have exceeded your maximum SMS sending limit. Please contact the system administrator for more details.');
     	return false;
 	}
-	/* var checkValues = $('input[name=rdoID[]]:checked').map(function()
+	 var checkValues = $('input[name=rdoID[]]:checked').map(function()
 	            {
 	                return $(this).val();
 	            }).get();
@@ -88,7 +88,7 @@ function check()
      {
     	alert("Please select a student to send message.");
  		return false;
-     }*/
+     }
       if($('#template_id').val() == "select")
  	{
  		alert('Please select a template');
@@ -121,7 +121,7 @@ function check()
             $('#schedule_time').focus();
         }
     }
-   /* var checkValues = $('input[name=rdoID[]]:checked').map(function()
+    var checkValues = $('input[name=rdoID[]]:checked').map(function()
             {
                 return $(this).val();
             }).get();
@@ -129,7 +129,7 @@ function check()
  	{
 		alert("Please select a student to send message.");
 		return false;
- 	}*/
+ 	}
  	if($('#template_id').val() == "select")
 	{
 		alert('Please select a template');
@@ -225,7 +225,7 @@ function showMsg()
 			if(template != online_application_template)
 			{
 				$('#textboxes').html("");
-				   for(var i=2; i<=data.matches.length-1;i++)
+				   for(var i=1; i<=data.matches.length-1;i++)
 				   {
 					   $('#textboxes').append('<input type="text" placeholder="'+data.matches[i].replace(/#/g,'')+'" style="width: 150px;" name="hashvalues[]" class="hashvalues" id="hashvalues'+i+'"/><br/>');
 				   }	
@@ -277,6 +277,7 @@ $(document).ready(function(){
 		}
 	});
 	$('#template_id').change(function(){
+		$('#textboxes').html("");
 		var dept = $('#department').val();
 		var section = $('#section').val();
 		var sendto = $('#send_to').val();

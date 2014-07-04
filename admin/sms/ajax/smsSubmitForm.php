@@ -39,7 +39,7 @@ if($act=="search")
 			{
 				$studetails=getDetailsById("mst_students","stu_id",$stuid);
 				 if(@$send_to == 'STUDENT')
-					$send_to=='MEMBER';
+					$send_to='MEMBER';
 					
 						$mobile = $studetails['mob'];
 			
@@ -129,7 +129,7 @@ if($act=="search")
 						}
 						else
 						{*/
-							$result = $smssend->sendTransactionalSMS($template_id,trim($mobile),trim($message),trim($sms_sender_id));
+							$result = $smssend->sendTransactionalSMS($template_id,trim($mobile),trim($message));
 							$query = $smssend->insertLog($result,$studetails['stu_fname'],trim($message),trim($mobile),$send_to,'T');
 						//}
 					}
@@ -193,8 +193,8 @@ if($act=="search")
 				}
 				else if(@$type=="T")
 				{
-					$temparray[$index] = SCHOOL_NAME;
-					$index++;
+					//$temparray[$index] = SCHOOL_NAME;
+					//$index++;
 					$temparray[$index] = $empdetails['emp_name'];
 					$index++;
 					$length = count($hashvalues);

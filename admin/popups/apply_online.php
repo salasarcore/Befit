@@ -7,6 +7,9 @@ include("../functions/employee/dropdown.php");
 include("../functions/functions.php");
 include("../functions/comm_functions.php");
 $message="";
+?>
+
+<?php
 $self=$_SERVER['PHP_SELF'];
 if(isset($_POST['login_submit']))
 {	
@@ -214,22 +217,22 @@ $city=makeSafe($_POST['city']);
 
 ?>
 
-
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
 <script language="javascript">
 
 function chkME(frm)
 {
-if(trim(frm.firstname.value)==""){
+if(frm.firstname.value==""){
 	alert("Please Enter First Name");
 	frm.firstname.focus();
 	return false;
 }
-if(trim(document.frm.lastname.value)==""){
+if(document.frm.lastname.value==""){
 	alert("Please Enter Last Name");
 	document.frm.lastname.focus();
 	return false;
 }
-if(trim(document.frm.sex.value)=="0"){
+if(document.frm.sex.value=="0"){
 	alert("Invalid Gender Selection");
 	document.frm.sex.focus();
 	return false;
@@ -245,7 +248,7 @@ if(!isDate(dob)){
 }
 }
 
-if(trim(document.frm.pin.value)!=""){
+if(document.frm.pin.value!=""){
 var pinlen=document.frm.pin.value.length;
 if(pinlen<6){
 	alert("pincode must be 6 digits");
@@ -253,7 +256,7 @@ if(pinlen<6){
 	return false;
 }
 }
-if(trim(document.frm.offtelno.value)!=""){
+if(document.frm.offtelno.value!=""){
 
 var offtelno=document.frm.offtelno.value.length;
 if(offtelno<10 || offtelno>15){
@@ -261,7 +264,7 @@ if(offtelno<10 || offtelno>15){
 	document.frm.offtelno.focus();
 	return false;
 } }
-if(trim(document.frm.restelno.value)!=""){
+if(document.frm.restelno.value!=""){
 
 	var restelno=document.frm.restelno.value.length;
 	if(restelno<10 || restelno>15){
@@ -269,7 +272,7 @@ if(trim(document.frm.restelno.value)!=""){
 		document.frm.restelno.focus();
 		return false;
 	} }
-if(trim(document.frm.mobileno.value)==""){
+if(document.frm.mobileno.value==""){
 	alert("Invalid mobileno number");
 	document.frm.mobileno.focus();
 	return false;
@@ -284,6 +287,8 @@ if(mobileno<10){
 
 return true;
 }
+</SCRIPT>
+<script>
 $(document).ready(function(){
 	$('#mobileno,#pin,#offtelno,#restelno,#height,#weight,#clinicno,#mobileclinic,#contactpersontelno').keyup(function(){
 		var value = $('#this').val();
