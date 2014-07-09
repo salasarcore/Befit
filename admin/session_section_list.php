@@ -73,14 +73,14 @@ $department_id=makeSafe(@$_POST['department']);
 
 ?>
 <div class="page_head">
-<div id="navigation"><a href="pages.php">Home</a><a> Administration</a><span style="color: #000000"> Course Wise Batch List</span> </div>
+<div id="navigation"><a href="pages.php">Home</a><a> Administration</a><span style="color: #000000"> Course List</span> </div>
 
 
 	
 <form name="records" action="pages.php?src=session_section_list.php&page=<?php echo makeSafe(@$_GET['page']); ?>" method="POST" onsubmit="return validatesection(this);">
 <table width="100%" cellspacing="1">
 <tr>
-	<td><h2>Course Wise Batch List</h2></td>
+	<td><h2>Course List</h2></td>
 	<td align="right">
 	<div id="option_menu">
 	<a  class="btn btn-info" href="javascript:void(0);" onClick="javascript:ActionScript('add');">Add New</a>
@@ -93,27 +93,36 @@ $department_id=makeSafe(@$_POST['department']);
 </table>
 </div>
 <div class="search_bar">
-<?php department($department_id);?> <input type="submit" value="Go" class="btn btn-info">
+<select name="department" id="department">
+<?php $sql="select * from session_section where session='".$_SESSION['d_session']."'";
+$res=mysql_query($sql);
+while($row=mysql_fetch_array($res))
+{
+?>
+<option value="<?php echo $row['session_id'];?>"><?php echo $row['section'];?></option>
+<?php }?>
+</select>
+ <input type="submit" value="Go" class="btn btn-info">
 </div>
 <br />
 <table width="100%" border="0" class="table table-bordered"" style="cursor: pointer;">
   <thead>
   <tr>
     <th>#</th>
-    <th>COURSE NAME</th>
     <th>SESSION</th>
-    <th>BATCH</th>
+    <th>COURSE</th>
     <th>ADMISSION OPEN</th>
+    <th>DURATION</th>
+    <th>VALIDITY</th>
     <th>FREEZE</th>
-   
-    <th>BATCH LAST UPDATED</th>
-    <th>UPDATED BY <br>Employee Name[Emp_Code]</th>
+    <th>LAST UPDATED</th>
+    <th>UPDATED BY</th>
   </tr>
   <thead>
   <tbody>
   <?php
-  	$sql="SELECT  session_id, session,department_name, admission_open,freeze,section, session_section.date_updated,session_section.updated_by from session_section,mst_departments where session_section.department_id=mst_departments.department_id and mst_departments.br_id=".$_SESSION['br_id'];
-	if(@$_POST['department'] >0)	$sql .=" and mst_departments.department_id=".$department_id;
+  	$sql="SELECT  session_id, session,department_name, admission_open,duration_days,validity,freeze,section, session_section.date_updated,session_section.updated_by from session_section,mst_departments where session_section.department_id=mst_departments.department_id and session_section.session='".$_SESSION['d_session']."' and mst_departments.br_id=".$_SESSION['br_id'];
+	if(@$_POST['department'] >0)	$sql .=" and session_section.session_id=".$department_id;
  $sql .=" order by session_id desc";
  
 	$res=mysql_query($sql) or die("Unable to connect to Server, We are sorry for inconvienent caused");
@@ -126,10 +135,12 @@ $department_id=makeSafe(@$_POST['department']);
 	?>
 	  <tr class=<?php if($i%2==0) echo "row0"; else echo "row1"; ?>  onclick="selectID('<?php echo $row['session_id']; ?>')" >
 	    <td align="center"><input type="radio" name="rdoID" value="<?php echo $row['session_id']; ?>" id="rdoID" /></td>
-		<td align="center">&nbsp;<?php echo$row['department_name'];?></td>
+		
 		<td align="center">&nbsp;<?php echo$row['session'];?></td>
 		<td align="center">&nbsp;<?php echo$row['section'];?></td>
 		<td align="center"><span id="s_<?php echo @$row['session_id'];?>"> <a href ="javascript:Publish('<?php if($row['admission_open']=='Y') echo 'N'; else echo 'Y';?>','admission_open','s_<?php echo @$row['session_id'];?>',<?php echo @$row['session_id'];?>)"><img src="../images/<?php if($row["admission_open"]=="Y") echo "publish.png"; else  echo "publish_x.png";?>"/></a></span></td>
+		<td align="center">&nbsp;<?php echo$row['duration_days'];?></td>
+		<td align="center">&nbsp;<?php echo$row['validity'];?></td>
 		<td align="center"><span id="f_<?php echo @$row['session_id'];?>"> <a href ="javascript:Publish('<?php if($row['freeze']=='Y') echo 'N'; else echo 'Y';?>','freeze','f_<?php echo @$row['session_id'];?>',<?php echo @$row['session_id'];?>)"><img src="../images/<?php if($row["freeze"]=="Y") echo "publish.png"; else  echo "publish_x.png";?>"/></a></span></td>
 		<td align="center">&nbsp;<?php echo date("jS-M-Y, g:i A",strtotime($row['date_updated']));?></td>
 		<td align="center">&nbsp;<?php echo$row['updated_by'];?></td>

@@ -327,7 +327,7 @@ $sql="select distinct session_id,session,section,department_name  from session_s
 
 $res=mysql_query($sql) or die("Unable to connect to Server,We are sorry for inconvienent caused");
 	while($row1=mysql_fetch_array($res))
-		echo"<option value='".$row1['session_id']."'>".$row1['session']."-Course:".$row1['department_name']."-Batch:".$row1['section']."</option>";
+		echo"<option value='".$row1['session_id']."'>".$row1['session']."-Course:".$row1['section']."</option>";
 	
 echo"</select>";?>
 	

@@ -65,9 +65,17 @@ $department_id=makeSafe(@$_POST['department']);
 </table>
 </div>
 <div class="search_bar">
-<?php department($department_id);?> 
+<select name="department" id="department">
+<?php $sql="select * from session_section where session='".$_SESSION['d_session']."'";
+$res=mysql_query($sql);
+while($row=mysql_fetch_array($res))
+{
+?>
+<option value="<?php echo $row['session_id'];?>"><?php echo $row['section'];?></option>
+<?php }?>
+</select>
 	
-		<input type="submit" name="btnGo" value="Go" class="btn search">
+		<input type="submit" name="btnGo" value="Go" class="btn btn-info">
 </div>
 <br />
  
@@ -76,7 +84,7 @@ $department_id=makeSafe(@$_POST['department']);
 	$sqlWhere=" WHERE a.stu_id=b.stu_id and status='A' and c.department_id=b.department_id and s.session_id=b.session_id and a.br_id=".makeSafe($_SESSION['br_id'])." ";
 	
 	
-	if($department_id!="0" && $department_id!="") $sqlWhere = $sqlWhere." and b.department_id='".$department_id."'";
+	if($department_id!="0" && $department_id!="") $sqlWhere = $sqlWhere." and s.session_id='".$department_id."'";
 
 	 $sql=$sql." ".$sqlWhere." order by a.date_updated desc";
 	  
@@ -92,9 +100,8 @@ $department_id=makeSafe(@$_POST['department']);
     <th>#</th>
     <th>REGISTRATION NO</th>
 	<th>NAME</th>
-    <th>DEPARTMENT</th>
     <th>SESSION</th>
-    <th>BATCH</th>
+    <th>COURSE</th>
     <th>UPDATED BY</th>
   </tr>
   <thead>
@@ -111,7 +118,6 @@ $department_id=makeSafe(@$_POST['department']);
 	    <td><input type="radio" name="rdoID" value="<?php echo $row['stu_id']; ?>" id="rdoID" /></td>
 		<td>&nbsp;<?php echo $row['reg_no'];?></td>
 		<td>&nbsp;<?php echo$row['stu_name'];?></td>
-		<td>&nbsp;<?php echo$row['department_name'];?></td>
 		<td>&nbsp;<?php echo$row['session'];?></td>
 		<td>&nbsp;<?php echo$row['section'];?></td>
 		<td>&nbsp;<?php echo$row['updated_by'];?></td>

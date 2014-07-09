@@ -9,6 +9,10 @@ if(makeSafe(isset($_REQUEST['act']))) $act=makeSafe($_REQUEST['act']);
 if($act=="submit")
 {
 	$stuid=makeSafe($_REQUEST['stuid']);
+	$sql="select ss.duration_days from session_section as ss,student_class as sc where ss.session_id=sc.session_id and sc.stu_id=".$stuid;
+	$res=mysql_query($sql);
+	$rowduration=mysql_fetch_array($res);
+	$duration=$rowduration['duration_days'];
 	$expectedid=makeSafe($_REQUEST['expecteddropdown']);
 	$no_of_inst=makeSafe($_REQUEST['no_of_inst']);
 	$interval=makeSafe($_REQUEST['interval']);
@@ -26,6 +30,8 @@ if($act=="submit")
 	echo "<font color='#FF0000'>Day in interval can nat be greater than a year.</font>";
 	elseif (intval($interval)<=0)
 	echo "<font color='#FF0000'>Day in interval can nat be less than or equal to zero.</font>";
+	elseif (intval($interval*$no_of_inst)>$duration)
+	echo "<font color='#FF0000'>Days in interval can nat be greater than duration of course .</font>";
 	else
 	{
 		$query="select * from fee_payment_type where fee_expected_id=".$expectedid." and stu_id=".$stuid;

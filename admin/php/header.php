@@ -20,8 +20,8 @@
 					<ul class="dropdown-menu">
 						<li><a href="pages.php?src=session_list.php">Session Master</a></li>
 						<li><a href="pages.php?src=employee_department_list.php">Employee Department Master</a></li>
-						<li><a href="pages.php?src=department_list.php">Course Master</a></li>
-						<li><a href="pages.php?src=session_section_list.php">Course Wise Batches</a></li>
+						<!-- <li><a href="pages.php?src=department_list.php">Course Master</a></li>-->
+						<li><a href="pages.php?src=session_section_list.php">Course Master</a></li>
 						<li><a href="#">Contact Category</a>
 							<ul class="dropdown-menu">
 								<li><a href="pages.php?src=contact_category.php">Contact Category Master</a></li>

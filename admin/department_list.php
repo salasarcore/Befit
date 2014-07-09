@@ -98,7 +98,7 @@ Enter Course Name: <input type="text" name="txtFilter" id="txtFilter" value="<?p
     <th>#</th>
     <th>COURSE NAME</th>
     <th>COURSE CODE</th>
-    <th>ABOUT COURSE</th>
+     <th>ABOUT COURSE</th>
     <th>COURSE LAST UPDATED</th>
     <th>UPDATED BY</th>
   </tr>
@@ -151,7 +151,7 @@ $sql="SELECT  COUNT(department_id) as numrows from mst_departments  WHERE (depar
 
 // how many pages we have when using paging?
 $maxPage = ceil($numrows/$rowsPerPage);
-echo "TOTAL RECORDS :".$numrows." | PAGE(S) : ".$maxPage;
+echo "<span style='font-size:12px;'> TOTAL RECORDS : ".$numrows." | PAGE(S) : ".$maxPage;
 
 // print the link to access each page
 $self = $_SERVER['PHP_SELF'];

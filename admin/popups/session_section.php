@@ -39,14 +39,16 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 	$session=makeSafe(@$_POST['session']);
 	$section=makeSafe(@$_POST['txtSection']);
 	$department_id=makeSafe(@$_POST['department']);
-	$empid=makeSafe(@$_POST['empid']);
-
+	$duration=makeSafe(@$_POST['duration']);
+	$validity=makeSafe(@$_POST['validity']);
 	if(@$department_id=="0")
 		$msg= "<div class='error'>Please Select Course</div>";
 	elseif(@$session=="0")
 		$msg= "<div class='error'>Please Select Session</div>";
 	elseif(trim(@$section)=="")
 		$msg= "<div class='error'>Please Enter Batch</div>";
+	elseif(trim($duration)=="")
+	$Errs= "<div class='error'>Please Enter Course Duration</div>";
 	else
 	{
 		if(@$action=="SAVE")
@@ -58,13 +60,15 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			else
 			{
 				$newsessionid=getNextMaxId("session_section","session_id")+1;
-				$sql="insert into session_section(session_id,session,section,department_id,updated_by) values('".@$newsessionid."','".@$session."','".@$section."',".@$department_id.",'".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."')";
+				$sql="insert into session_section(session_id,session,section,department_id,duration_days,validity,updated_by) values('".@$newsessionid."','".@$session."','".@$section."',".@$department_id.",'".$duration."','".$validity."','".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."')";
 				$res=mysql_query($sql,$link);
 				if(mysql_affected_rows($link)>0){
 					$msg= "<div class='success'>Record Saved Successfully</div>";
 					$session="";
 					$section="";
 					$department_id="";
+					$duration="";
+					$validity="";
 				}
 				else
 					$msg= "<div class='error'>Record Not Saved Successfully</div>";
@@ -78,7 +82,7 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 				$msg= "<div class='error'>Duplicate batch and session found for selected course</div>";
 			else
 			{
-				$sql="update session_section set session='".@$session."',section='".@$section."',updated_by='".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."' where session_id=".@$sessionID;
+				$sql="update session_section set session='".@$session."',section='".@$section."',duration_days='".$duration."',validity='".$validity."',updated_by='".$_SESSION['emp_name'].'['.$_SESSION['emp_id'].']'."' where session_id=".@$sessionID;
 				$res=mysql_query($sql,$link);
 				if(mysql_affected_rows($link)==0)
 					$msg= "<div class='success'>No Data Changed</div>";
@@ -131,7 +135,7 @@ if(@$act=="edit" || @$act=="delete")
 		$msg= "<div class='error'>Student Already registered in this session and class<br /> Please contact Administrator</div>";
 		exit;
 	}*/
-	$query = "SELECT section,department_id, session, date_updated,updated_by FROM session_section where session_id=".@$sessionID;
+	$query = "SELECT section,department_id, session,duration_days,validity, date_updated,updated_by FROM session_section where session_id=".@$sessionID;
 	$result  = mysql_query($query) or die('Error, query failed');
 	if(mysql_affected_rows($link)>0)
 	{
@@ -140,6 +144,8 @@ if(@$act=="edit" || @$act=="delete")
 		$session=@$row['session'];
 		$department_id=@$row['department_id'];
 		$section=@$row['section'];
+		$duration=@$row['duration_days'];
+		$validity=@$row['validity'];
 		$last_updated=@$row['date_updated'];
 		$updated_by=@$row['updated_by'];
 		
@@ -177,17 +183,12 @@ function validatesection(frm)
 		frm.txtSection.focus();
 		return false;
 	}
-	else if(frm.employee.value.trim()!="")
+	else if(frm.duration.value.trim()=="")
 	{
-		if(frm.empid.value.trim()=="")
-		{
-			alert("Please select an employee from the list only.");
-			frm.empid.value="";
-			frm.empid.focus();
-			return false;
-		}
-		else
-			return true;
+		alert('Course duration should not be blank');
+		frm.duration.value="";
+		frm.duration.focus();
+		return false;
 	}
 	return true;
 }
@@ -213,18 +214,21 @@ function ClearField(frm){
 					<td><?php session(@$session); ?> <br>
 					</td>
 				</tr>
+				<input type="hidden" name="department" id="department" value="1"/>
 				<tr>
-					<td align="right" class="redstar" nowrap>Course :</td>
-					<td>
-					<?php  department(@$department_id);?>
-					</td>
-				</tr>
-				<tr>
-					<td align="right" class="redstar">Batch :</td>
+					<td align="right" class="redstar">Course :</td>
 					<td><input type="text" name="txtSection" id="txtSection" size="30"
 						value='<?php echo @$section; ?>' <?php if(@$act=='delete') echo "readonly"; ?> maxlength="100"/><br>
-						<p class="hint_text">Ex: 1st Same, A, B, Morning</p></td>
+						</td>
 				</tr>
+				<tr>
+    <td align="right"  class="redstar">Duration In Days :</td>
+    <td><input type="text" name="duration" id="duration" size="40"  value ='<?php if($act=="add") echo ""; else echo @$duration; ?>' maxlength="10" <?php if(@$act=="delete") echo "readonly"; ?>/></td>
+    </tr>
+    <tr>
+    <td align="right"  class="redstar">Validity :</td>
+    <td><input type="text" name="validity" id="validity" size="40"  value ='<?php if($act=="add") echo ""; else echo @$validity; ?>' maxlength="10" <?php if(@$act=="delete") echo "readonly"; ?>/></td>
+    </tr>
 								<tr>
 					<td align="right">last Updated :</td>
 					<td><?php echo @$last_updated; ?></td>

@@ -40,7 +40,7 @@ function validatedepartment()
 {
 	var dept_code=document.frmManu.txtdept_code.value;
 	var dept_name=document.frmManu.txtdeptName.value;
-
+	var duration=document.frmManu.duration.value;
 if(dept_name.trim()=="")
 {
 	alert('Course name should not be blank');
@@ -55,6 +55,13 @@ else if(dept_code.trim()=="")
 	document.frmManu.txtdept_code.focus();
 	return false;
 }
+/*else if(duration.trim()=="")
+{
+	alert('Course duration should not be blank');
+	document.frmManu.duration.value="";
+	document.frmManu.duration.focus();
+	return false;
+}*/
 
 return true;
 }
@@ -82,7 +89,8 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 	$dept_name=makeSafe(@$_POST['txtdeptName']);
 	$dept_code=makeSafe(@$_POST['txtdept_code']);
 	$about_dept=makeSafe(@$_POST['txtabout_dept']);
-
+//$duration=makeSafe(@$_POST['duration']);
+//$validity=makeSafe(@$_POST['validity']);
 
     if($action=="SAVE")
 	{
@@ -90,6 +98,8 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			$Errs= "<div class='error'>Please Enter Course Name</div>";
 		elseif(trim($dept_code)=="")
 			$Errs= "<div class='error'>Please Enter Course Code</div>";
+	/*	elseif(trim($duration)=="")
+		$Errs= "<div class='error'>Please Enter Course Duration</div>";*/
 		else
 		{
 			$query="select * from mst_departments where (department_code='".$dept_code."' or department_name='".$dept_name."') and br_id=".$_SESSION['br_id'];
@@ -123,6 +133,8 @@ if(@$action=="SAVE" || @$action=="UPDATE")
 			$Errs= "<div class='error'>Please Enter Course Name</div>";
 		elseif(trim($dept_code)=="")
 			$Errs= "<div class='error'>Please Enter Course Code</div>";
+	/*	elseif(trim($duration)=="")
+		$Errs= "<div class='error'>Please Enter Course Duration</div>";*/
 		else
 		{
 		$query="select * from mst_departments where (department_code='".$dept_code."' or  department_name='".$dept_name."') and br_id=".$_SESSION['br_id']." and department_id!=".$departmentID;
@@ -163,7 +175,7 @@ if(@$action=="DELETE")
 	$result  = mysql_query($query) or die('Error, query failed');
 	if(mysql_affected_rows($link)>0)
 	{
-		$Errs= "<div class='error'>You can not delete this Course as it is already assigned to some student(s)</div>";
+		$Errs= "<div class='error'>You can not delete this Course as it is already assigned to some members(s)</div>";
 	}
 	else
 	{
@@ -216,6 +228,7 @@ if(@$act=="edit" || @$act=="delete" )
     <td align="right"  class="redstar">Code :</td>
     <td><input type="text" name="txtdept_code" id="txtdept_code" size="40"  value ='<?php if($act=="add") echo ""; else echo @$dept_code; ?>' maxlength="10" <?php if(@$act=="delete") echo "readonly"; ?>/></td>
     </tr>
+    
   <tr>
     <td align="right" id= "about" style="vertical-align:top;"> About course: </td>
     <td  <?php if ( @$ua['name']=='Google Chrome') echo "style='border-bottom: 1px solid black;  border-top: 1px solid black;'";?> style="border-top: 1px solid black;'">
