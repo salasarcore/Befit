@@ -2595,6 +2595,7 @@ tbody.collapse.in {
     top: 0;
     z-index: 990;
 }
+
 .pull-right > .dropdown-menu {
     left: auto;
     right: 0;
@@ -2902,7 +2903,7 @@ select.input-group-sm[multiple] > .form-control, select.input-group-sm[multiple]
     text-decoration: none;
 }
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
-    background-color: #EEEEEE;
+    background-color: #FD3323;
     border-color: #428BCA;
 }
 .nav .nav-divider {

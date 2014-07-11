@@ -51,10 +51,10 @@
 			<div id="banner-fade" class="margin-bottom-20">
 				<!-- start Basic Jquery Slider -->
 				<ul class="bjqs">
-				  	<li><img src="images/sliders/basic_slider/3.jpg" title=""></li>
-					<li><img src="images/sliders/basic_slider/4.jpg" title=""></li>
-					<li><img src="images/sliders/basic_slider/1.jpg" title=""></li>
-					<li><img src="images/sliders/basic_slider/2.jpg" title=""></li>
+				  	<li><img src="images/sliders/basic_slider/6.png" title=""></li>
+					<li><img src="images/sliders/basic_slider/7.png" title=""></li>
+					<li><img src="images/sliders/basic_slider/3.jpg" title=""></li>
+					<li><img src="images/sliders/basic_slider/5.png" title=""></li>
 				</ul>
 				<!-- end Basic jQuery Slider -->
 			</div>
@@ -62,31 +62,121 @@
 		    <div class="row margin-bottom-30">
         	<!-- Welcome Block -->
     		<div class="col-md-8 md-margin-bottom-40">
-    			<div class="headline"><h2>Welcome To comp name</h2></div>
+    			<div class="headline"><h2>Welcome To Our Website</h2></div>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <img alt="" src="logo.png" class="img-responsive margin-bottom-20">
-                    </div>
-                    <div class="col-sm-8">
-                        <p>my comp is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
-                        <ul class="list-unstyled margin-bottom-20">
-                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                        </ul>                    
+                 <blockquote>
+                        <p>Rajlaxmi Bhosale  started her own Signature Brand  befit only ladies gym of fitness centres by launching her first gym at Dombivali in December 2001. By 2012 Rajlaxmi Bhosale  befit only ladies gym is one of the evolving Brands . The gyms are presently located at Ghansoli & Airoli.
+Rajlaxmi Bhosale is armed with a post graduate degree in Food Science & Nutrition. Before venturing out on her own she was working with Talwarkars also responsible for setting up and expanding leading brands of gym.
+
+                        </p>
+                        </blockquote>
+               
+                    
+                    <div class="col-sm-12">
+            <div class="headline"><h2>About Us</h2></div>
+                       <table border="0">
+                   
+			<tbody>
+			<tr><td colspan="2" align="center"> <blockquote><p align="center"><b>Rajlaxmi bhosale Fitness - Specialised only ladies Fitness academy :</b></p></blockquote></td></tr>
+				<tr>
+					<td>
+						<img alt="" src="images/a.png" class="img-responsive margin-bottom-10" height="200" width="200"></td>
+					<td>
+						<p style="font-size: 16px;">
+							Rajlaxmi Bhosale&nbsp; started her own Signature Brand of fitness centres by launching her first gym at Dombivali in January 2001. By 2012 Rajlaxmi Bhosale&nbsp; Fitness is one of the Leading Brands. The concept of only ladies gym with an open window of 16 hours rocked. Now a ladies fitness academy.for women by women to women.a new language of democracy and freedom for women .</p>
+						<p style="font-size: 16px;">
+							Academy&nbsp; will be located at Ghansoli , Airoli and vikhroli</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><p style="font-size: 16px;">
+						Rajlaxmi Bhosale&nbsp; is armed with a post graduation in Food Science &amp; Nutrition. she has done naturopathy with yoga. Before venturing out on her own she was also responsible for expanding leading brands of gym.</td></p>
+		
+				</tr>
+				<tr>
+					<td colspan="2"><p style="font-size: 16px;">
+						She started her Fitness Journey way back in 2008 by launching the first ladies gym and now&nbsp; Fitness Academy &ndash; BWA - THE FITNESS ACADEMY(academy to certify trainers) making her the PIONEER OF WOMEN FITNESS EDUCATION .</p></td>
+					
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p style="font-size: 16px;">
+							She is also India&rsquo;s first women fitness trainer and nutritionist with a vision for ladies sector.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p style="font-size: 16px;">
+							Her gym is open from 6 am to 9 pm. The only concept introduced by her been a pioneer of catering all solution under one roof.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p style="font-size: 16px;">
+							BWA is also a concept with flexible timing to learn along with work experience. She believes in implementing knowledge rather than only collection theory notes. Been an self entrepreneur she is looking forward to create many women.as women empowerment will change the nation. To start the academy only for women was her devotion and passion towards fitness and her will that every women should be fit as she is backbone on the generation to built and grow.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<p style="font-size: 16px;">	Her <strong><font color="#FF0000">fit n fine</font></strong> column in <strong><font color="#FF0000">Maharashtra times</font></strong> was popular and has motivated many towards health n fitness.</p></td>
+				</tr>
+			</tbody>
+		</table>
+		 <div class="headline"><h2>Jagjeet sanghwal :</h2></div>
+		<table >
+		
+			<tbody>
+				<tr>
+					<td>
+						<p style="font-size: 16px;">
+							He has a vast 30 years experience of Corporate Management in operations, systems and projects. He has worked with leading companies.</p>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="font-size: 16px;">
+						Rajlaxmi Bhosale&nbsp; and Jagjeet Sanghwal have envisaged a very aggressive growth for their company with expansion via corporate &amp; owned gyms plus the befit women academy</p></td>
+				</tr>
+			</tbody>
+		</table>
+		 <div class="headline"><h2>From Rajlaxmi Bhosale&apos;s Desk:</h2></div>
+                  <table>
+                 
+			<tbody>
+				<tr>
+					<td>
+						<p style="font-size: 16px;">
+							The fitness and slimming industry in India via: gyms. Slimming centers. Yoga batches zumba and many more &hellip;&hellip;.<br>fitness industries is booming in India.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p style="font-size: 16px;">
+							Currently the fitness market is estimated of USD113mn. Respective to growing population at a rate of about 1.7%, the age group 20-44 can be the prime market for fitness clubs. So approximately 4.2 crore to 4.6 crore in terms of population. In an analysis the researchers&rsquo; have mention that around 11% of Indian at 2011 where aware utilizing fitness mantra. With such counting in 2016 the population will increase by 4-7%,so as the population ,this industry needs to develop with innovation and proper implementation.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p style="font-size: 16px;">
+							Dear readers,<br> Fitness industry needs professional approach with skill implementation, dedication and determination. Health is wealth so should be saved and used carefully. Once we join gym the one who guides and trains us are the source-leading us to fitness.</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p style="font-size: 16px;">
+							Be leader. ADD-MISSION. Join BWA. We don&rsquo;t train to make trainers.We generate passion for fitness. We create fitness entrepreneurs.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
                     </div>
                 </div>
 
-                <blockquote>
-                    <p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why. mY comp is an incredibly beautiful responsive Bootstrap Template for corporate professionals.</p>
-                    <small>CEO, xxxxxxxxx xxxxxxxxxxx</small>
-                </blockquote>
+               
             </div><!--/col-md-8-->        
 
             <!-- Latest Shots -->
             <div class="col-md-4">
-    			<div class="headline"><h2>Latest Shots</h2></div>
+    			<div class="headline"><h2>Latest Shots Events</h2></div>
     			<div class="carousel slide carousel-v1" id="myCarousel">
                     <div class="carousel-inner">
                         <div class="item">
@@ -114,6 +204,40 @@
                             <i class="fa fa-angle-left"></i>
                         </a>
                         <a data-slide="next" href="#myCarousel" class="right carousel-control">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+    			</div>
+            </div><!--/col-md-4-->
+             <div class="col-md-4">
+    			<div class="headline"><h2>Latest Shots Results</h2></div>
+    			<div class="carousel slide carousel-v1" id="myCarousel1">
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img alt="" src="images/event/wgm.jpg">
+                            <div class="carousel-caption">
+                                <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="images/event/wlm.jpg">
+                            <div class="carousel-caption">
+                                <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
+                            </div>
+                            </div>
+                        <div class="item active">
+                            <img alt="" src="images/event/rf.jpg">
+                            <div class="carousel-caption">
+                                <p>Justo cras odio apibus ac afilisis lingestas de.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-arrow">
+                        <a data-slide="prev" href="#myCarousel1" class="left carousel-control">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a data-slide="next" href="#myCarousel1" class="right carousel-control">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
@@ -153,10 +277,7 @@
 					</div>
 			
 			</div>	 
-			<div class="col-md-4">
-			www
-			</div>	 
-			</div><!--row-->	 
+					</div><!--row-->	 
 	 
 		 
 		<!--/TESTIMONIALS-->

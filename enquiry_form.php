@@ -130,17 +130,17 @@ $br_id=1;
 
 function chkME(frm)
 {
-if(trim(frm.name.value)==""){
+if(frm.name.value.trim()==""){
 	alert("Please Enter Name");
 	frm.name.focus();
 	return false;
-}/*
-if(trim(document.frm.lastname.value)==""){
+}
+if(document.frm.lastname.value.trim()==""){
 	alert("Please Enter Last Name");
 	document.frm.lastname.focus();
 	return false;
 }
-if(trim(document.frm.sex.value)=="0"){
+if(document.frm.sex.value.trim()=="0"){
 	alert("Invalid Gender Selection");
 	document.frm.sex.focus();
 	return false;
@@ -156,7 +156,7 @@ if(!isDate(dob)){
 }
 }
 
-if(trim(document.frm.pin.value)!=""){
+if(document.frm.pin.value.trim()!=""){
 var pinlen=document.frm.pin.value.length;
 if(pinlen<6){
 	alert("pincode must be 6 digits");
@@ -164,7 +164,7 @@ if(pinlen<6){
 	return false;
 }
 }
-if(trim(document.frm.offtelno.value)!=""){
+if(document.frm.offtelno.value.trim()!=""){
 
 var offtelno=document.frm.offtelno.value.length;
 if(offtelno<10 || offtelno>15){
@@ -172,7 +172,7 @@ if(offtelno<10 || offtelno>15){
 	document.frm.offtelno.focus();
 	return false;
 } }
-if(trim(document.frm.restelno.value)!=""){
+if(document.frm.restelno.value.trim()!=""){
 
 	var restelno=document.frm.restelno.value.length;
 	if(restelno<10 || restelno>15){
@@ -180,7 +180,7 @@ if(trim(document.frm.restelno.value)!=""){
 		document.frm.restelno.focus();
 		return false;
 	} }
-if(trim(document.frm.mobileno.value)==""){
+if(document.frm.mobileno.value.trim()==""){
 	alert("Invalid mobileno number");
 	document.frm.mobileno.focus();
 	return false;
@@ -192,7 +192,6 @@ if(mobileno<10){
 	return false;
 }
 
-*/
 return true;
 }
 $(document).ready(function(){
